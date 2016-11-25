@@ -70,12 +70,6 @@ export default {
     hot: true,
     stats: 'erros-only'
   },
-
-  resolve: {
-    root: [
-      path.normalize(`${__dirname}/src`)
-    ]
-  },
-
+  
   devtool: 'eval-source-map'
 };
