@@ -1,0 +1,10 @@
+{
+  "extends": "rallycoding",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-nested-ternary": "off"
+  }
+}
