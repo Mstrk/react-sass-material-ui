@@ -1,14 +1,16 @@
 {
   "name": "react-sass-material-ui",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "A set of components for React, inspired on material design guide lines and preference for stylesheets.",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "commit": "git-cz",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mstrk/react-sass-material-ui.git"
+    "url": "https://github.com/mstrk/react-sass-material-ui.git"
   },
   "keywords": [
     "react",
@@ -22,5 +24,13 @@
   "bugs": {
     "url": "https://github.com/mstrk/react-sass-material-ui/issues"
   },
-  "homepage": "https://github.com/mstrk/react-sass-material-ui#readme"
+  "homepage": "https://github.com/mstrk/react-sass-material-ui#readme",
+  "devDependencies": {
+    "commitizen": "2.8.6",
+    "cz-conventional-changelog": "1.2.0",
+    "semantic-release": "^6.3.2"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  }
 }
