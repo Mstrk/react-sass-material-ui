@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server --progress",
     "commit": "git-cz",
+    "prebuild": "rimraf dist",
+    "build": "babel src --copy-files --out-dir dist",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -19,6 +21,11 @@
     "material design",
     "material-ui"
   ],
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
   "author": "Bruno Morgado <mstrk512@gmail.com> (http://www.meetbruno.eu/)",
   "license": "MIT",
   "bugs": {
@@ -31,6 +38,7 @@
   },
   "devDependencies": {
     "autoprefixer": "6.5.3",
+    "babel-cli": "6.18.0",
     "babel-core": "6.18.2",
     "babel-loader": "6.2.8",
     "babel-plugin-react-transform": "2.0.2",
@@ -48,6 +56,7 @@
     "node-sass": "3.13.0",
     "postcss-loader": "1.1.1",
     "react-transform-hmr": "1.0.4",
+    "rimraf": "2.5.4",
     "sass-loader": "4.0.2",
     "semantic-release": "^6.3.2",
     "style-loader": "0.13.1",
