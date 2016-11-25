@@ -4,6 +4,7 @@
   "description": "A set of components for React, inspired on material design guide lines and preference for stylesheets.",
   "main": "src/index.js",
   "scripts": {
+    "dev": "webpack-dev-server --progress",
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -25,11 +26,30 @@
   },
   "homepage": "https://github.com/mstrk/react-sass-material-ui#readme",
   "devDependencies": {
+    "autoprefixer": "6.5.3",
+    "babel-core": "6.18.2",
+    "babel-loader": "6.2.8",
+    "babel-plugin-react-transform": "2.0.2",
+    "babel-preset-es2015": "6.18.0",
+    "babel-preset-react": "6.16.0",
+    "babel-preset-stage-2": "6.18.0",
     "commitizen": "2.8.6",
+    "css-loader": "0.26.0",
     "cz-conventional-changelog": "1.2.0",
-    "semantic-release": "^6.3.2"
+    "extract-text-webpack-plugin": "1.0.1",
+    "html-webpack-plugin": "2.24.1",
+    "node-sass": "3.13.0",
+    "postcss-loader": "1.1.1",
+    "react-transform-hmr": "1.0.4",
+    "sass-loader": "4.0.2",
+    "semantic-release": "^6.3.2",
+    "style-loader": "0.13.1"
   },
   "czConfig": {
     "path": "node_modules/cz-conventional-changelog"
+  },
+  "dependencies": {
+    "webpack": "1.13.3",
+    "webpack-dev-server": "1.16.2"
   }
 }
