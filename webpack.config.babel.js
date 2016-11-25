@@ -10,17 +10,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-const AUTOPREFIXER_BROWSERS = [
-  'Android 2.3',
-  'Android >=4',
-  'Chrome >= 35',
-  'Firefox >= 31',
-  'Explorer >= 9',
-  'iOS >= 7',
-  'Opera >= 12',
-  'Safari >= 7.1'
-];
-
 export default {
   entry: path.normalize(`${__dirname}/demo/index.js`),
 
@@ -51,7 +40,7 @@ export default {
     ]
   },
 
-  postcss: () => ([autoprefixer({ browsers: AUTOPREFIXER_BROWSERS })]),
+  postcss: () => ([autoprefixer({ browsers: ['last 3 versions', '> 1%'] })]),
 
   plugins: [
     new HtmlWebpackPlugin({ template: path.normalize(`${__dirname}/demo/index.html`) }),
@@ -70,6 +59,6 @@ export default {
     hot: true,
     stats: 'erros-only'
   },
-  
+
   devtool: 'eval-source-map'
 };

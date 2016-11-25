@@ -59,7 +59,7 @@
   box-shadow: none;
   overflow: hidden;
   cursor: text;
-  @include appearance(none);
+  appearance: none;
 
   &:focus {
     outline: none;
