@@ -1,0 +1,23 @@
+// Includes
+
+// Buttons: reset
+$include-btns: true;
+
+// Buttons: types
+$include-btns-types: (
+  'raised',
+  'flat',
+  'icon',
+  'fab'
+);
+
+// Buttons: sizes
+$include-btns-sizes: ('m');
+
+// Buttons: colors
+$include-btns-raised-colors: ('primary');
+$include-btns-flat-colors: ('primary');
+$include-btns-icon-colors: ('pink');
+$include-btns-fab-colors: ('teal');
+
+@import '~index.scss';
