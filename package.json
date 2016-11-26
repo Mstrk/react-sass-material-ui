@@ -2,7 +2,7 @@
   "name": "react-sass-material-ui",
   "version": "0.0.0-development",
   "description": "A set of components for React, inspired on material design guide lines and preference for stylesheets.",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "commit": "git-cz",
     "dev": "webpack-dev-server --progress",
@@ -25,7 +25,6 @@
   ],
   "files": [
     "dist",
-    "src",
     "README.md"
   ],
   "author": "Bruno Morgado <mstrk512@gmail.com> (http://www.meetbruno.eu/)",
@@ -34,9 +33,9 @@
     "url": "https://github.com/mstrk/react-sass-material-ui/issues"
   },
   "homepage": "https://github.com/mstrk/react-sass-material-ui#readme",
-  "dependencies": {
-    "react": "15.4.1",
-    "react-dom": "15.4.1"
+  "peerDependencies": {
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
   },
   "devDependencies": {
     "autoprefixer": "6.5.3",
