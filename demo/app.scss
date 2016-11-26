@@ -1,7 +1,18 @@
 // Includes
 
+// Include Open-Sans font-face
+$include-font-face: true;
+
 // Buttons: reset
 $include-btns: true;
+
+// Buttons: disabled states
+// $include-btns-disabled: (
+//   'raised',
+//   'fab',
+//   'flat',
+//   'icon'
+// );
 
 // Buttons: types
 $include-btns-types: (
@@ -12,9 +23,19 @@ $include-btns-types: (
 );
 
 // Buttons: sizes
-$include-btns-sizes: ('m');
+$include-btns-sizes: (
+  //'xs',
+  //'s',
+  'm',
+  //'l',
+  //'xl'
+);
 
 // Buttons: colors
+// $include-btns-raised-colors: ('all');
+// $include-btns-flat-colors: ('all');
+// $include-btns-icon-colors: ('all');
+// $include-btns-fab-colors: ('all');
 $include-btns-raised-colors: ('primary');
 $include-btns-flat-colors: ('primary');
 $include-btns-icon-colors: ('pink');
