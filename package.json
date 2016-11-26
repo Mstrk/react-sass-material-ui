@@ -4,8 +4,10 @@
   "description": "A set of components for React, inspired on material design guide lines and preference for stylesheets.",
   "main": "src/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --progress",
     "commit": "git-cz",
+    "dev": "webpack-dev-server --progress",
+    "test": "NODE_ENV=test mocha -w test/helpers/browser.js test/*.spec.js",
+    "test:single": "NODE_ENV=test mocha test/helpers/browser.js test/*.spec.js",
     "prebuild": "rimraf dist",
     "build": "babel src --copy-files --out-dir dist",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
@@ -45,16 +47,22 @@
     "babel-preset-es2015": "6.18.0",
     "babel-preset-react": "6.16.0",
     "babel-preset-stage-2": "6.18.0",
+    "chai": "3.5.0",
     "commitizen": "2.8.6",
     "css-loader": "0.26.0",
     "cz-conventional-changelog": "1.2.0",
+    "enzyme": "2.6.0",
     "eslint": "3.10.2",
     "eslint-config-rallycoding": "3.1.0",
     "eslint-plugin-react": "6.7.1",
     "extract-text-webpack-plugin": "1.0.1",
+    "ghooks": "1.3.2",
     "html-webpack-plugin": "2.24.1",
+    "jsdom": "9.8.3",
+    "mocha": "3.2.0",
     "node-sass": "3.13.0",
     "postcss-loader": "1.1.1",
+    "react-addons-test-utils": "15.4.1",
     "react-transform-hmr": "1.0.4",
     "rimraf": "2.5.4",
     "sass-loader": "4.0.2",
@@ -63,7 +71,12 @@
     "webpack": "1.13.3",
     "webpack-dev-server": "1.16.2"
   },
-  "czConfig": {
-    "path": "node_modules/cz-conventional-changelog"
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run test:single"
+    }
   }
 }

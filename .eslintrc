@@ -5,6 +5,9 @@
     "node": true
   },
   "rules": {
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": true
+    }],
     "no-nested-ternary": "off"
   }
 }
