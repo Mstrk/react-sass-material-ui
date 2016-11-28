@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Ripple extends Component {
-
+class Ripple extends Component {
   state = {
     animate: false,
     width: 0,
@@ -12,13 +11,11 @@ export default class Ripple extends Component {
 
   componentWillReceiveProps(nextProps) {
     const cursorPos = nextProps.cursorPos;
-    if (cursorPos.time !== this.props.cursorPos.time) {
-      if (this.state.animate) {
-        this.setState({ animate: false }, () => {
-          this.rippling(cursorPos);
-        });
-      } else this.rippling(cursorPos);
-    }
+    if (this.state.animate) {
+      this.setState({ animate: false }, () => {
+        this.rippling(cursorPos);
+      });
+    } else this.rippling(cursorPos);
   }
 
   rippling(cursorPos) {
@@ -53,3 +50,9 @@ export default class Ripple extends Component {
     );
   }
 }
+
+Ripple.propTypes = {
+  cursorPos: React.PropTypes.object.isRequired
+};
+
+export default Ripple;
