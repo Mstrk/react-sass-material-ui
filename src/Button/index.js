@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import SvgIcon from '../SvgIcon';
 import Ripple from '../Ripple';
 
-export default class Button extends Component {
+class Button extends Component {
   state = {
     cursorPos: {}
   }
 
-  handleClick= (e) => {
+  handleClick = (e) => {
     const cursorPos = {
       top: e.clientY,
-      left: e.clientX,
-      time: Date.now()
+      left: e.clientX
     };
 
     this.setState({ cursorPos });
@@ -43,3 +42,17 @@ export default class Button extends Component {
     );
   }
 }
+
+Button.propTypes = {
+  onClick: React.PropTypes.func,
+  text: React.PropTypes.string,
+  size: React.PropTypes.string,
+  type: React.PropTypes.string,
+  icon: React.PropTypes.string,
+  color: React.PropTypes.string,
+  disabled: React.PropTypes.bool,
+  style: React.PropTypes.object,
+};
+
+export default Button;
+
