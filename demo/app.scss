@@ -3,6 +3,9 @@
 // Include Open-Sans font-face
 $include-font-face: true;
 
+// Include z-depth classes
+$include-depths: (1, 2); // (1, 2, 3, 4, 5)
+
 // Buttons: reset
 $include-btns: true;
 

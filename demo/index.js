@@ -6,7 +6,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Button } from '../src';
+import { Button, Paper } from '../src';
 
 // Main Application Styles
 import './app.scss';
@@ -15,11 +15,24 @@ const customStyles = {
   marginRight: '8px'
 };
 
+const paperStyles = {
+  width: '100px',
+  height: '100px',
+  marginRight: '20px'
+};
+
 ReactDOM.render(
   <div style={{ padding: '2em' }}>
     <Button color='pink' type='icon' icon='heart' style={customStyles} />
     <Button text='Im a button ' style={customStyles} />
     <Button text='Im a button' type='flat' style={customStyles} />
     <Button text='Im a button' type='fab' icon='plus' color='teal' style={customStyles} />
+    <br />
+    <br />
+    <Paper style={paperStyles} />
+    <Paper zDepth={1} style={paperStyles} />
+    <Paper zDepth={1} type='round' style={paperStyles} />
+    <Paper zDepth={2} type='circle' style={paperStyles} />
   </div>, document.getElementById('root')
 );
+
