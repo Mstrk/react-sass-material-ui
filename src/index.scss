@@ -12,6 +12,10 @@
 @import 'scss/reset';
 @import 'scss/font-face';
 @import 'scss/page';
+@import 'scss/z-depth';
+@import 'scss/background-colors';
 
+@import 'Paper/styles';
 @import 'Ripple/styles';
 @import 'Button/styles';
+@import 'AppBar/styles';

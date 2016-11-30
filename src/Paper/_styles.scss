@@ -1,0 +1,11 @@
+.paper {
+  display: inline-block;
+
+  &.paper-circle {
+    border-radius: 50%;
+  }
+
+  &.paper-round {
+    border-radius: $base-round;
+  }
+}

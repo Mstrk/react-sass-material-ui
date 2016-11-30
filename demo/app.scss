@@ -3,6 +3,13 @@
 // Include Open-Sans font-face
 $include-font-face: true;
 
+// z-depth classes
+$include-depths: (1, 2); // (1, 2, 3, 4, 5)
+
+// Background colors
+// $include-backgound-colors: ('all');
+$include-backgound-colors: ('primary', 'white', 'pink');
+
 // Buttons: reset
 $include-btns: true;
 
@@ -27,7 +34,7 @@ $include-btns-sizes: (
   //'xs',
   //'s',
   'm',
-  //'l',
+  'l',
   //'xl'
 );
 
@@ -38,7 +45,7 @@ $include-btns-sizes: (
 // $include-btns-fab-colors: ('all');
 $include-btns-raised-colors: ('primary');
 $include-btns-flat-colors: ('primary');
-$include-btns-icon-colors: ('pink');
+$include-btns-icon-colors: ( 'white', 'pink');
 $include-btns-fab-colors: ('teal');
 
 @import '../src/index.scss';
