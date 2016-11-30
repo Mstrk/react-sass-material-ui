@@ -1,0 +1,21 @@
+// Background and text color
+@mixin bgc-color($color) {
+  @if $color == 'white' or $color == 'light-blue' or $color == 'cyan' or $color == 'light-green' or $color == 'lime' or $color == 'yellow' or $color == 'amber' or $color == 'orange' or $color == 'grey' {
+    color: $black-1;
+  } @else {
+    color: $white-1;
+  }
+
+  background-color: map-get($colors, $color);
+}
+
+@if variable-exists(include-backgound-colors) {
+  @each $key, $color in $colors {
+    @if index($include-backgound-colors, $key)
+      or index($include-backgound-colors, 'all') {
+      &.bgc-#{$key} {
+        @include bgc-color($key);
+      }
+    }
+  }
+}
