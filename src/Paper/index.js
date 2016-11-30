@@ -4,6 +4,7 @@ import classnames from 'classnames';
 const Paper = ({
   zDepth,
   type,
+  color = 'white',
   children,
   style
 }) => {
@@ -15,6 +16,7 @@ const Paper = ({
      className={
       classnames(
         'paper',
+        `bgc-${color}`,
         { [`paper-${type}`]: type },
         { [`z-depth${zDepth}`]: depth }
       )
@@ -26,6 +28,7 @@ const Paper = ({
 Paper.propTypes = {
   zDepth: React.PropTypes.number,
   type: React.PropTypes.string,
+  color: React.PropTypes.string,
   style: React.PropTypes.object
 };
 
