@@ -6,8 +6,13 @@ import { Paper } from '../src';
 describe('<Paper />', () => {
   const paper = shallow(<Paper zDepth={1} type='round' />);
 
-  it('sould have class paper', () => {
+  it('sould have default class paper', () => {
     expect(paper.hasClass('paper')).toEqual(true);
+  });
+
+
+  it('sould have default class bgc-white', () => {
+    expect(paper.hasClass('paper-round')).toEqual(true);
   });
 
   it('sould have class z-depth1', () => {
