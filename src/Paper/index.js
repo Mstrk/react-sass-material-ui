@@ -6,9 +6,10 @@ const Paper = ({
   type,
   color = 'white',
   children,
-  style
+  style,
+  className
 }) => {
-  const depth = zDepth > 0 && zDepth <= 5;
+  const depth = zDepth > 0 && zDepth <= 24;
 
   return (
     <div
@@ -18,7 +19,8 @@ const Paper = ({
         'paper',
         `bgc-${color}`,
         { [`paper-${type}`]: type },
-        { [`z-depth${zDepth}`]: depth }
+        { [`z-depth${zDepth}`]: depth },
+        className
       )
     }
     >{children}</div>
