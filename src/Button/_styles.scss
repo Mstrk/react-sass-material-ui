@@ -20,7 +20,6 @@ $btn-icon-size: ('xs': 13px, 's': 15px, 'm': 20px, 'l': 24px, 'xl': 28px);
   font-family: inherit;
   position: relative;
   overflow: hidden;
-  z-index: 2;
   display: inline-block;
   vertical-align: top;
   margin: 0;
@@ -122,6 +121,7 @@ $btn-icon-size: ('xs': 13px, 's': 15px, 'm': 20px, 'l': 24px, 'xl': 28px);
 
   @if $type == 'flat' or $type == 'icon' {
     color: map-get($colors, $color);
+    z-index: 0;
 
     svg {
       fill: map-get($colors, $color);
@@ -143,12 +143,23 @@ $btn-icon-size: ('xs': 13px, 's': 15px, 'm': 20px, 'l': 24px, 'xl': 28px);
   }
 
   @if $type == 'raised' or $type == 'fab' {
-    @include z-depth(1);
     transition-property: box-shadow;
     transition-duration: 0.2s;
+  }
 
-    &:hover {
-      @include z-depth(2);
+  @if $type == 'raised' {
+    @include z-depth(2);
+
+    &:active {
+      @include z-depth(8);
+    }
+  }
+
+  @if $type == 'fab' {
+    @include z-depth(6);
+
+    &:active {
+      @include z-depth(12);
     }
   }
 
