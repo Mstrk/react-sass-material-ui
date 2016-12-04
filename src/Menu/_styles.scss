@@ -1,0 +1,30 @@
+.menu {
+  min-width: 150px;
+  @include typography(subhead);
+
+  .menuItem {
+    padding: $base-spacing-unit * 1.5 $base-spacing-unit * 2;
+    cursor: default;
+
+    &.hoverable:hover {
+      background-color: $black-4;
+      cursor: pointer;
+    }
+
+    &.is-header,
+    &.is-header-first {
+      color: $grey;
+    }
+
+    &.is-divider {
+      border-top: 1px solid $black-4;
+      padding: 0;
+    }
+
+    &.is-header:hover,
+    &.is-header-first:hover {
+      background-color: transparent;
+      cursor: default;
+    }
+  }
+}
