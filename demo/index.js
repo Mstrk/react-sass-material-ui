@@ -9,7 +9,10 @@ import ReactDOM from 'react-dom';
 import {
   AppBar,
   Button,
-  Paper } from '../src';
+  Paper,
+  Menu,
+  MenuItem,
+  DropDown } from '../src';
 
 // Main Application Styles
 import './app.scss';
@@ -32,9 +35,30 @@ const text = 'Paper';
 ReactDOM.render(
   <div>
     <AppBar
-      zDepth={1}
       iconLeft={{ color: 'white' }}
-      iconRight={{ color: 'white' }}
+      contentRight={
+        <DropDown
+         anchorEl={
+            <Button
+              type='icon'
+              size='l'
+              color='white'
+              icon='dots-vertical'
+            />
+         }
+        >
+          <Menu
+            type='round'
+            hoverable
+          >
+            <MenuItem>Cart</MenuItem>
+            <MenuItem>Messages</MenuItem>
+            <MenuItem>Profile</MenuItem>
+            <MenuItem isDivider />
+            <MenuItem>Settings</MenuItem>
+          </Menu>
+        </DropDown>
+      }
       title='Fancy Title'
     />
     <div style={{ padding: 'calc(64px + 2em) 2em' }}>
@@ -47,15 +71,31 @@ ReactDOM.render(
       <Paper zDepth={1} style={paperStyles}>
         <span>{text}</span>
       </Paper>
-      <Paper zDepth={1} color='primary' style={paperStyles}>
+      <Paper zDepth={5} color='primary' style={paperStyles}>
         <span>{text}</span>
       </Paper>
-      <Paper zDepth={1} type='round' style={paperStyles}>
+      <Paper zDepth={10} type='round' style={paperStyles}>
         <span>{text}</span>
       </Paper>
-      <Paper zDepth={2} type='circle' color='pink' style={paperStyles}>
+      <Paper zDepth={20} type='circle' color='pink' style={paperStyles}>
         <span>{text}</span>
       </Paper>
+      <br />
+      <br />
+      <Menu
+        type='round'
+        hoverable
+      >
+        <MenuItem isHeader>Very long Header 1</MenuItem>
+        <MenuItem>Item 1</MenuItem>
+        <MenuItem>Item 2</MenuItem>
+        <MenuItem>Item 3</MenuItem>
+        <MenuItem>Item 4</MenuItem>
+        <MenuItem isDivider />
+        <MenuItem isHeader>Header 2</MenuItem>
+        <MenuItem>Item 1</MenuItem>
+        <MenuItem>Item 2</MenuItem>
+      </Menu>
     </div>
   </div>, document.getElementById('root')
 );

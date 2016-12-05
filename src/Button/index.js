@@ -25,6 +25,7 @@ class Button extends Component {
       type = 'raised',
       icon = 'plus',
       color = 'primary',
+      bypassRipple,
       disabled,
       style } = this.props;
 
@@ -37,7 +38,7 @@ class Button extends Component {
       >
         {type === 'flat' || type === 'raised' ? text : null}
         {type === 'icon' || type === 'fab' ? <SvgIcon icon={icon} /> : null}
-        <Ripple cursorPos={this.state.cursorPos} />
+        {!bypassRipple && <Ripple cursorPos={this.state.cursorPos} />}
       </button>
     );
   }

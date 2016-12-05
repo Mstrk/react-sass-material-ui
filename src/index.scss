@@ -7,7 +7,6 @@
 @import 'scss/responsive';
 @import 'scss/mixins';
 @import 'scss/responsive';
-@import 'scss/normalize';
 @import 'scss/box-sizing';
 @import 'scss/reset';
 @import 'scss/font-face';
@@ -18,4 +17,6 @@
 @import 'Paper/styles';
 @import 'Ripple/styles';
 @import 'Button/styles';
+@import 'Menu/styles';
+@import 'DropDown/styles';
 @import 'AppBar/styles';
