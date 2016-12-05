@@ -2,7 +2,6 @@ import React from 'react';
 import classnames from 'classnames';
 
 const MenuItem = ({
-  isHeaderFirst,
   isHeader,
   isDivider,
   hoverable,
@@ -16,10 +15,9 @@ const MenuItem = ({
       classnames(
         'menuItem',
         {
-          'is-header-first': isHeaderFirst,
           'is-header': isHeader,
           'is-divider': isDivider,
-          hoverable
+          hoverable: hoverable && !isDivider && !isHeader
         },
         className
       )

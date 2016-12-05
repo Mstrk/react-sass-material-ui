@@ -1,30 +1,30 @@
 .menu {
-  min-width: 150px;
-  @include typography(subhead);
+  @include bare-list();
+  color: $black-1;
+  padding: $base-spacing-unit 0;
 
   .menuItem {
-    padding: $base-spacing-unit * 1.5 $base-spacing-unit * 2;
+    @include font-size(14px);
+    white-space: nowrap;
+    padding: 0 $base-spacing-unit * 4 0 $base-spacing-unit * 2;
     cursor: default;
+    height: 32px;
+    line-height: 32px;
 
     &.hoverable:hover {
       background-color: $black-4;
       cursor: pointer;
     }
 
-    &.is-header,
-    &.is-header-first {
-      color: $grey;
+    &.is-header {
+      color: $black-3;
     }
 
     &.is-divider {
       border-top: 1px solid $black-4;
       padding: 0;
-    }
-
-    &.is-header:hover,
-    &.is-header-first:hover {
-      background-color: transparent;
-      cursor: default;
+      height: 1px;
+      margin: $base-spacing-unit 0;
     }
   }
 }
