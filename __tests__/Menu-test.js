@@ -6,7 +6,7 @@ import { Menu, MenuItem, Paper } from '../src';
 describe('<Menu />', () => {
   const menu = shallow(
     <Menu>
-      <MenuItem isHeaderFirst>Header</MenuItem>
+      <MenuItem isHeadert>Header</MenuItem>
       <MenuItem>Item 1</MenuItem>
     </Menu>
   );
