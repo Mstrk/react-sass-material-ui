@@ -2,8 +2,8 @@
 //    #FONT-FACE
 //|*------------------------------------*|
 
-// https://fonts.google.com/specimen/Open+Sans?selection.family=Open+Sans:300,400,600
+// https://fonts.google.com/specimen/Roboto?selection.family=Roboto:300,400,500
 @if variable-exists(include-font-face) {
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
-  $font-family: 'Open Sans', sans-serif;
+  @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
+  $font-family: 'Roboto', sans-serif;
 }
