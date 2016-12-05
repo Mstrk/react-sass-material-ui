@@ -1,5 +1,6 @@
 .paper {
   display: inline-block;
+  @include typography(body-1);
 
   &.paper-circle {
     border-radius: 50%;
