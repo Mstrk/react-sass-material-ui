@@ -1,18 +1,26 @@
 import React from 'react';
+import classnames from 'classnames';
 import Paper from '../Paper';
 import Button from '../Button';
 
 const AppBar = ({
   color = 'primary',
-  zDepth,
+  zDepth = 4,
   iconLeft,
-  iconRight,
+  contentRight,
   title
 }) => (
-  <div className='appBar'> 
+  <div
+     className={
+      classnames(
+        'appBar',
+        { [`z-depth${zDepth}`]: zDepth }
+      )
+    }
+  > 
     <Paper
       color={color}
-      zDepth={zDepth}
+      className='appBar-container'
     >
       <div className='left-content'>
         {
@@ -27,18 +35,7 @@ const AppBar = ({
         }
       </div>
       <div className='title'>{title}</div>
-      <div className='right-content'>
-        {
-          iconRight ?
-          <Button
-            type='icon'
-            size={iconRight.size || 'l'}
-            color={iconRight.color}
-            icon={iconRight.name || 'dots-vertical'}
-          />
-          : null
-        }
-      </div>
+      {contentRight && <div className='right-content'>{contentRight}</div>}
     </Paper>
   </div>
 );
@@ -46,8 +43,7 @@ const AppBar = ({
 AppBar.propTypes = {
   color: React.PropTypes.string,
   zDepth: React.PropTypes.number,
-  iconLeft: React.PropTypes.object,
-  iconRight: React.PropTypes.object
+  iconLeft: React.PropTypes.object
 };
 
 export default AppBar;
