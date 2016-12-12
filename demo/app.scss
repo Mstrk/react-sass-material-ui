@@ -44,7 +44,7 @@ $include-btns-sizes: (
   //'s',
   'm',
   'l',
-  //'xl'
+  'xl'
 );
 
 // Buttons: colors
@@ -53,8 +53,8 @@ $include-btns-sizes: (
 // $include-btns-icon-colors: ('all');
 // $include-btns-fab-colors: ('all');
 $include-btns-raised-colors: ('primary');
-$include-btns-flat-colors: ('primary');
-$include-btns-icon-colors: ( 'white', 'pink');
-$include-btns-fab-colors: ('teal');
+$include-btns-flat-colors: ('primary', 'accent');
+$include-btns-icon-colors: ('black', 'white', 'pink');
+$include-btns-fab-colors: ('accent', 'teal');
 
 @import '../src/index.scss';
