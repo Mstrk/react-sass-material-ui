@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 import SvgIcon from '../SvgIcon';
 import Ripple from '../Ripple';
 
@@ -27,14 +28,21 @@ class Button extends Component {
       color = 'primary',
       bypassRipple,
       disabled,
-      style } = this.props;
+      style,
+      className } = this.props;
 
     return (
       <button
         style={style}
         disabled={disabled}
         onMouseDown={this.handleClick}
-        className={`btn btn-${size} btn-${type} btn-${color}`}
+        className={
+          classnames(
+            'btn',
+            [`btn-${size} btn-${type} btn-${color}`],
+            className
+          )
+        }
       >
         {type === 'flat' || type === 'raised' ? text : null}
         {type === 'icon' || type === 'fab' ? <SvgIcon icon={icon} /> : null}
