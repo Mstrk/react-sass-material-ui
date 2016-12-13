@@ -11,15 +11,17 @@ class Ripple extends Component {
 
   componentWillReceiveProps(nextProps) {
     const cursorPos = nextProps.cursorPos;
-    if (this.state.animate) {
-      this.setState({ animate: false }, () => {
-        this.rippling(cursorPos);
-      });
-    } else this.rippling(cursorPos);
+    if (cursorPos.time !== this.props.cursorPos.time) {
+      if (this.state.animate) {
+        this.setState({ animate: false }, () => {
+          this.rippling(cursorPos);
+        });
+      } else this.rippling(cursorPos);
+    }
   }
 
   rippling(cursorPos) {
-    const rippleElement = this.refs.ripple;
+    const rippleElement = this.ripple;
     const parent = rippleElement.parentElement;
 
     const parentPos = parent.getBoundingClientRect();
@@ -44,7 +46,7 @@ class Ripple extends Component {
     return (
       <span
         className={`ripple ${(this.state.animate ? 'ripple--is-animated' : '')}`}
-        ref="ripple"
+        ref={(c) => { this.ripple = c; }}
         style={{ top, left, width, height }}
       />
     );
