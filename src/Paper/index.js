@@ -13,8 +13,8 @@ const Paper = ({
 
   return (
     <div
-     style={style}
-     className={
+      style={style}
+      className={
       classnames(
         'paper',
         `bgc-${color}`,
