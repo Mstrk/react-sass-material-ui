@@ -57,8 +57,7 @@ class DropDown extends Component {
     return (
       <div className='dropDown'>
         {React.cloneElement(anchorEl, {
-          onClick: this.handleClick,
-          bypassRipple: this.state.open
+          onClick: this.handleClick
         })}
         <div
           className={
