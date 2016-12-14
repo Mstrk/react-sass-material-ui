@@ -1,0 +1,38 @@
+$ease-out: map-get($easing, deceleration);
+$ease-sharp: map-get($easing, sharp);
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: $black-2;
+  z-index: 15;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.2s $ease-out;
+
+  &.open {
+    left: 0;
+    opacity: 1;
+    transition: opacity 0.2s $ease-sharp;
+  }
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  min-width: 200px;
+  transition: all 0.2s $ease-out;
+
+  &.open {
+    left: 0;
+    transition: all 0.2s $ease-sharp;
+  }
+}
