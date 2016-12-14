@@ -46,51 +46,5 @@ $size-m:                36px;
 $size-l:                40px;
 $size-xl:               56px;
 
-// Easing curves
-$easing: (
-  'standard': cubic-bezier(0.4, 0.0, 0.2, 1),
-  'deceleration': cubic-bezier(0.0, 0.0, 0.2, 1),
-  'acceleration': cubic-bezier(0.4, 0.0, 1, 1),
-  'sharp': cubic-bezier(0.4, 0.0, 0.6, 1)
-);
-
-// Core variables.
+// Spacing
 $base-spacing-unit:     8px;
-
-$colors: (
-  'red': $red,
-  'pink': $pink,
-  'purple': $purple,
-  'deep-purple': $deep-purple,
-  'indigo': $indigo,
-  'blue': $blue,
-  'light-blue': $light-blue,
-  'cyan' : $cyan,
-  'teal': $teal, 
-  'green': $green, 
-  'light-green': $light-green,
-  'lime': $lime,
-  'yellow': $yellow,
-  'amber': $amber,
-  'orange': $orange,
-  'deep-orange': $deep-orange,
-  'brown': $brown,
-  'grey': $grey,
-  'blue-grey': $blue-grey,
-  'black': $black,
-  'white': $white,
-  'primary': $primary,
-  'primary-hue-1': $primary-hue-1,
-  'primary-hue-2': $primary-hue-2,
-  'accent': $accent,
-  'accent-hue-1': $accent-hue-1,
-  'accent-hue-2': $accent-hue-2
-);
-
-$sizes: (
-  'xs': $size-xs,
-  's': $size-s,
-  'm': $size-m,
-  'l': $size-l,
-  'xl': $size-xl
-);
