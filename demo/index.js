@@ -7,13 +7,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  AppBar,
   Button,
   Paper,
   Menu,
   MenuItem,
-  DropDown,
   Card } from '../src';
+
+import App from './App';
 
 // Main Application Styles
 import './app.scss';
@@ -40,34 +40,7 @@ const cardStyles = {
 const text = 'Paper';
 
 ReactDOM.render(
-  <div>
-    <AppBar
-      iconLeft={{ color: 'white' }}
-      contentRight={
-        <DropDown
-         anchorEl={
-            <Button
-              type='icon'
-              size='l'
-              color='white'
-              icon='dots-vertical'
-            />
-         }
-        >
-          <Menu
-            type='round'
-            hoverable
-          >
-            <MenuItem>Cart</MenuItem>
-            <MenuItem>Messages</MenuItem>
-            <MenuItem>Profile</MenuItem>
-            <MenuItem isDivider />
-            <MenuItem>Settings</MenuItem>
-          </Menu>
-        </DropDown>
-      }
-      title='Fancy Title'
-    />
+  <App>
     <div style={{ padding: 'calc(64px + 2em) 2em' }}>
       <Button color='pink' type='icon' icon='heart' style={customStyles} />
       <Button text='Im a button ' style={customStyles} />
@@ -254,6 +227,6 @@ ReactDOM.render(
         </Card>
       </div>
     </div>
-  </div>, document.getElementById('root')
+  </App>, document.getElementById('root')
 );
 
