@@ -1,50 +1,51 @@
-
 @mixin transition-delay($counter) {
   transition-delay: 0.070s * $counter;
 }
 
-$ease-out: map-get($easing, deceleration);
-$ease-in: map-get($easing, acceleration);
+@if index($include-components, 'DropDown') {
+  $ease-out: map-get($easing, deceleration);
+  $ease-in: map-get($easing, acceleration);
 
-.dropDown {
-  position: relative;
+  .dropDown {
+    position: relative;
 
-  .dropDown-menu {
-    position: absolute;
-    top: -1px;
-    right: 1px;
-    transform: scale(.5, 0);
-    transform-origin: right top;
-    opacity: 0;
-    transition: opacity 0.2s $ease-in, transform 0.5s $ease-in;
-    transition-delay: 0.3s;
-    
-    li {
-      position: relative;
-      transform: translateX(10px);
+    .dropDown-menu {
+      position: absolute;
+      top: -1px;
+      right: 1px;
+      transform: scale(.5, 0);
+      transform-origin: right top;
+      opacity: 0;
       transition: opacity 0.2s $ease-in, transform 0.5s $ease-in;
       transition-delay: 0.3s;
-      opacity: 0;
-    }
-
-    li.is-divider {
-      transform: translateX(0) !important;
-    }
-
-    &.drop-open {
-      transform: scale(1);
-      transition: transform 0.25s $ease-out;
-      opacity: 1;
-
+      
       li {
-        transform: translateX(0);
-        transition: transform 0.25s $ease-out, opacity 0.25s $ease-out;
-        opacity: 1;
+        position: relative;
+        transform: translateX(10px);
+        transition: opacity 0.2s $ease-in, transform 0.5s $ease-in;
+        transition-delay: 0.3s;
+        opacity: 0;
       }
 
-      @for $i from 1 through 5 {
-        li.delay#{$i} {
-          @include transition-delay($i);
+      li.is-divider {
+        transform: translateX(0) !important;
+      }
+
+      &.drop-open {
+        transform: scale(1);
+        transition: transform 0.25s $ease-out;
+        opacity: 1;
+
+        li {
+          transform: translateX(0);
+          transition: transform 0.25s $ease-out, opacity 0.25s $ease-out;
+          opacity: 1;
+        }
+
+        @for $i from 1 through 5 {
+          li.delay#{$i} {
+            @include transition-delay($i);
+          }
         }
       }
     }
