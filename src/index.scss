@@ -14,11 +14,11 @@
 @import 'scss/z-depth';
 @import 'scss/background-colors';
 
+@import 'AppBar/styles';
+@import 'Button/styles';
+@import 'Card/styles';
+@import 'Drawer/styles';
+@import 'DropDown/styles';
+@import 'Menu/styles';
 @import 'Paper/styles';
 @import 'Ripple/styles';
-@import 'Button/styles';
-@import 'Menu/styles';
-@import 'DropDown/styles';
-@import 'Drawer/styles';
-@import 'AppBar/styles';
-@import 'Card/styles';
