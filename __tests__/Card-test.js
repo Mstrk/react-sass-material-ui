@@ -1,10 +1,10 @@
 /*eslint no-undef:0*/
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { Card, Button } from '../src';
 
 describe('<Card />', () => {
-  const card = shallow(
+  const card = mount(
     <Card
       img={{ src: '/assets/airplane.jpg' }}
 
@@ -58,7 +58,18 @@ describe('<Card />', () => {
     expect(card.find('.extend')).toHaveLength(1);
   });
 
-  const card2 = shallow(
+  it('should add height if the current height is 0 and vice versa', () => {
+    card.setState({ extendContentHeight: 100 });
+
+    expect(card.state().extendHeight).toEqual(0);
+    card.find('.extend-anchor').simulate('mousedown');
+    expect(card.state().extendHeight).not.toEqual(0);
+    
+    card.find('.extend-anchor').simulate('mousedown');
+    expect(card.state().extendHeight).toEqual(0);
+  });
+
+  const card2 = mount(
     <Card
       img={{
         src: '/assets/airplane.jpg',
