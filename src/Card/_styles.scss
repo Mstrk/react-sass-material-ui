@@ -1,128 +1,130 @@
-.card {
-  display: inline-flex;
-  flex-flow: column;
-  vertical-align: top;
+@if index($include-components, 'Card') {
+  .card {
+    display: inline-flex;
+    flex-flow: column;
+    vertical-align: top;
 
-  &.card-small {
-    flex-flow: row;
-    
-    .card-img {
-      width: 150px;
-      order: 2;
-      overflow: hidden;
+    &.card-small {
+      flex-flow: row;
+      
+      .card-img {
+        width: 150px;
+        order: 2;
+        overflow: hidden;
 
-      img {
-        position: absolute;
-        max-width: none;
-        max-height: 100%; 
-      }
-    }
-
-    .card-content-wrapper {
-      flex-grow: 1;
-
-      .card-content {
-        padding-bottom: $base-spacing-unit * 3;
-      }
-    }
-  }
-
-  .card-img {
-    position: relative;
-    color: $white-1;
-    @include typography(headline);
-    background-color: $black-4;
-
-    &.limited-height {
-      overflow-y: hidden;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-      font-style: italic;
-    }
-
-    span {
-      position: absolute;
-      right: $base-spacing-unit * 2;
-      bottom: $base-spacing-unit * 2;
-      left: $base-spacing-unit * 2;
-    }
-
-    .btn-fab {
-      position: absolute;
-
-      &.btn-xl {
-        right: $base-spacing-unit * 4;
-        bottom: -$base-spacing-unit * 3;
-      }
-    }
-  }
-
-  .card-content {
-    padding: $base-spacing-unit * 2;
-
-    .card-title {
-      display: block;
-      @include typography(title);
-      padding-top: $base-spacing-unit;
-    }
-
-    .card-subtitle {
-      display: block;
-      @include typography(subhead);
-      color: $black-2;
-    }
-  }
-
-  .card-text {
-    display: block;
-    @include typography(body-1);
-    @include paragraph();
-  }
-
-  .card-actions {
-    display: flex;
-    padding-right: $base-spacing-unit;
-    padding-bottom: $base-spacing-unit;
-    padding-left: $base-spacing-unit;
-
-    &.card-divider {
-      padding-top: $base-spacing-unit;
-      border-top: 1px solid $black-4;
-    }
-
-    .btn {
-      margin-right: $base-spacing-unit;
-    }
-
-    .extend-anchor {
-      margin-left: auto;
-      svg {
-        transition: transform .2s map-get($easing, standard);
+        img {
+          position: absolute;
+          max-width: none;
+          max-height: 100%; 
+        }
       }
 
-      &.open {
-        svg {
-          transform: rotate(180deg);
-          transition: transform .2s map-get($easing, standard);
+      .card-content-wrapper {
+        flex-grow: 1;
+
+        .card-content {
+          padding-bottom: $base-spacing-unit * 3;
         }
       }
     }
-  }
 
-  .extend {
-    overflow: hidden;
-    transition: height .2s map-get($easing, standard);
+    .card-img {
+      position: relative;
+      color: $white-1;
+      @include typography(headline);
+      background-color: $black-4;
 
-    &.open {
-      transition: height .2s map-get($easing, standard);
+      &.limited-height {
+        overflow-y: hidden;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+        font-style: italic;
+      }
+
+      span {
+        position: absolute;
+        right: $base-spacing-unit * 2;
+        bottom: $base-spacing-unit * 2;
+        left: $base-spacing-unit * 2;
+      }
+
+      .btn-fab {
+        position: absolute;
+
+        &.btn-xl {
+          right: $base-spacing-unit * 4;
+          bottom: -$base-spacing-unit * 3;
+        }
+      }
     }
 
-    .extend-wrapper {
+    .card-content {
       padding: $base-spacing-unit * 2;
-      padding-bottom: $base-spacing-unit * 3;
+
+      .card-title {
+        display: block;
+        @include typography(title);
+        padding-top: $base-spacing-unit;
+      }
+
+      .card-subtitle {
+        display: block;
+        @include typography(subhead);
+        color: $black-2;
+      }
+    }
+
+    .card-text {
+      display: block;
+      @include typography(body-1);
+      @include paragraph();
+    }
+
+    .card-actions {
+      display: flex;
+      padding-right: $base-spacing-unit;
+      padding-bottom: $base-spacing-unit;
+      padding-left: $base-spacing-unit;
+
+      &.card-divider {
+        padding-top: $base-spacing-unit;
+        border-top: 1px solid $black-4;
+      }
+
+      .btn {
+        margin-right: $base-spacing-unit;
+      }
+
+      .extend-anchor {
+        margin-left: auto;
+        svg {
+          transition: transform .2s map-get($easing, standard);
+        }
+
+        &.open {
+          svg {
+            transform: rotate(180deg);
+            transition: transform .2s map-get($easing, standard);
+          }
+        }
+      }
+    }
+
+    .extend {
+      overflow: hidden;
+      transition: height .2s map-get($easing, standard);
+
+      &.open {
+        transition: height .2s map-get($easing, standard);
+      }
+
+      .extend-wrapper {
+        padding: $base-spacing-unit * 2;
+        padding-bottom: $base-spacing-unit * 3;
+      }
     }
   }
 }
