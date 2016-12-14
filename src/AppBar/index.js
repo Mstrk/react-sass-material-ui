@@ -1,12 +1,11 @@
 import React from 'react';
 import classnames from 'classnames';
 import Paper from '../Paper';
-import Button from '../Button';
 
 const AppBar = ({
   color = 'primary',
   zDepth = 4,
-  iconLeft,
+  contentLeft,
   contentRight,
   title
 }) => (
@@ -22,19 +21,8 @@ const AppBar = ({
       color={color}
       className='appBar-container'
     >
-      <div className='left-content'>
-        {
-          iconLeft ?
-          <Button
-            type='icon'
-            size={iconLeft.size || 'l'}
-            color={iconLeft.color}
-            icon={iconLeft.name || 'menu'}
-          />
-          : null
-        }
-      </div>
-      <div className='title'>{title}</div>
+      {contentLeft && <div className='left-content'>{contentLeft}</div>}
+      {title && <div className='title'>{title}</div>}
       {contentRight && <div className='right-content'>{contentRight}</div>}
     </Paper>
   </div>
@@ -42,8 +30,7 @@ const AppBar = ({
 
 AppBar.propTypes = {
   color: React.PropTypes.string,
-  zDepth: React.PropTypes.number,
-  iconLeft: React.PropTypes.object
+  zDepth: React.PropTypes.number
 };
 
 export default AppBar;

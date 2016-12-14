@@ -1,12 +1,14 @@
-.paper {
-  display: inline-block;
-  @include typography(body-1);
+@if index($include-components, 'Paper') {
+  .paper {
+    display: inline-block;
+    @include typography(body-1);
 
-  &.paper-circle {
-    border-radius: 50%;
-  }
+    &.paper-circle {
+      border-radius: 50%;
+    }
 
-  &.paper-round {
-    border-radius: $base-round;
+    &.paper-round {
+      border-radius: $base-round;
+    }
   }
 }

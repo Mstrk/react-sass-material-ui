@@ -1,33 +1,35 @@
-.appBar {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
+@if index($include-components, 'AppBar') {
+  .appBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
 
-  .appBar-container {
-    display: flex; 
-    flex-wrap: wrap;
-    align-items: center;
-    min-height: 64px;
-  }
-
-  .left-content,
-  .right-content,
-  .title {
-    padding: $base-spacing-unit $base-spacing-unit * 2;
-  }
-
-  .right-content {
-    @include media-query(desk) {
-      margin-left: auto;
+    .appBar-container {
+      display: flex; 
+      flex-wrap: wrap;
+      align-items: center;
+      min-height: 64px;
     }
-  }
 
-  .title {
-    @include typography('title');
+    .left-content,
+    .right-content,
+    .title {
+      padding: $base-spacing-unit $base-spacing-unit * 2;
+    }
 
-    @include media-query(portable) {
-      margin: 0 auto;
+    .right-content {
+      @include media-query(desk) {
+        margin-left: auto;
+      }
+    }
+
+    .title {
+      @include typography('title');
+
+      @include media-query(portable) {
+        margin: 0 auto;
+      }
     }
   }
 }

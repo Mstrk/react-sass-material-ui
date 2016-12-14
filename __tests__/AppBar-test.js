@@ -1,13 +1,13 @@
 /*eslint no-undef:0*/
 import React from 'react';
 import { shallow } from 'enzyme';
-import { AppBar, Button } from '../src';
+import { AppBar } from '../src';
 
 describe('<AppBar />', () => {
   const appBar = shallow(
     <AppBar
       zDepth={1}
-      iconLeft={{ color: 'white' }}
+      contentLeft={<span>Some Content</span>}
       contentRight={<span>Some Content</span>}
       title='Fancy Title'
     />
@@ -33,13 +33,11 @@ describe('<AppBar />', () => {
     expect(appBar.hasClass('appBar')).toEqual(true);
   });
 
-  it('sould render 1x Button components', () => {
-    expect(appBar.find(Button)).toHaveLength(1);
-  });
-
   const wrapper = shallow(<AppBar />);
 
-  it('sould not render Buttons', () => {
-    expect(wrapper.find(Button)).toHaveLength(0);
+  it('sould not render any content', () => {
+    expect(wrapper.find('.title')).toHaveLength(0);
+    expect(wrapper.find('.left-content')).toHaveLength(0);
+    expect(wrapper.find('.right-content')).toHaveLength(0);
   });
 });
