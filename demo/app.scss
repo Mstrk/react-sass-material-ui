@@ -57,4 +57,14 @@ $include-btns-flat-colors: ('primary', 'accent');
 $include-btns-icon-colors: ('black', 'white', 'pink');
 $include-btns-fab-colors: ('accent', 'teal');
 
+$include-components: (
+  'AppBar',
+  'Card',
+  'Drawer',
+  'DropDown',
+  'Menu',
+  'Paper',
+  'Ripple'
+);
+
 @import '../src/index.scss';
