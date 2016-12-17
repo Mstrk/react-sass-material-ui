@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import {
   AppBar,
   Button,
@@ -25,6 +24,11 @@ class App extends Component {
     });
   }
 
+  navigate = route => {
+    const { router } = this.props;
+    router.push(route);
+  }
+
   render() {
     const { children } = this.props;
 
@@ -38,11 +42,12 @@ class App extends Component {
           <Menu
             zDepth={0}
             hoverable
+            style={{ minWidth: '200px' }}
           >
-            <MenuItem><Link to='/'>Buttons</Link></MenuItem>
-            <MenuItem><Link to='/paper'>Paper</Link></MenuItem>
-            <MenuItem><Link to='/menu'>Menu</Link></MenuItem>
-            <MenuItem><Link to='/card'>Card</Link></MenuItem>
+            <MenuItem onClick={this.navigate.bind(null, '/')}>Buttons</MenuItem>
+            <MenuItem onClick={this.navigate.bind(null, '/paper')}>Paper</MenuItem>
+            <MenuItem onClick={this.navigate.bind(null, '/menu')}>Menu</MenuItem>
+            <MenuItem onClick={this.navigate.bind(null, '/card')}>Card</MenuItem>
           </Menu>
         </Drawer>
 
