@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 import {
   AppBar,
   Button,
   Menu,
   MenuItem,
   DropDown,
-  Drawer } from '../src';
+  Drawer } from '../../src';
 
 class App extends Component {
   state = {
@@ -32,9 +33,19 @@ class App extends Component {
         <Drawer
           open={this.state.drawer}
           requestClose={this.closeDrawer}
-          disableDrawerLeftClick
           overlay
-        />
+        >
+          <Menu
+            zDepth={0}
+            hoverable
+          >
+            <MenuItem><Link to='/'>Buttons</Link></MenuItem>
+            <MenuItem><Link to='/paper'>Paper</Link></MenuItem>
+            <MenuItem><Link to='/menu'>Menu</Link></MenuItem>
+            <MenuItem><Link to='/card'>Card</Link></MenuItem>
+          </Menu>
+        </Drawer>
+
         <AppBar
           contentLeft={
             <Button
