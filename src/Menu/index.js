@@ -17,15 +17,19 @@ class Menu extends Component {
     const {
       zDepth = 8,
       type,
+      color,
       hoverable,
       childClassNames = [],
+      style,
       children
     } = this.props;
 
     return (
       <Paper
+        style={style}
         type={type}
         zDepth={zDepth}
+        color={color}
       >
         <ul className='menu'>
           {this.cloneChildren(children, hoverable, childClassNames)}
