@@ -48,6 +48,7 @@ class App extends Component {
             <MenuItem onClick={this.navigate.bind(null, '/paper')}>Paper</MenuItem>
             <MenuItem onClick={this.navigate.bind(null, '/menu')}>Menu</MenuItem>
             <MenuItem onClick={this.navigate.bind(null, '/card')}>Card</MenuItem>
+            <MenuItem onClick={this.navigate.bind(null, '/textfield')}>Textfield</MenuItem>
           </Menu>
         </Drawer>
 

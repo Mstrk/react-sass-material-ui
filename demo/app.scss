@@ -68,4 +68,7 @@ $include-components: (
   'Ripple'
 );
 
+// TextField: colors
+$include-text-field-colors: ('primary', 'indigo', 'red', 'green', 'orange');
+
 @import '../src/index';
