@@ -33,170 +33,172 @@ $ease-sharp: map-get($easing, sharp);
   }
 }
 
-.text-field-root {
-  position: relative;
+@if index($include-components, 'TextField') {
+  .text-field-root {
+    position: relative;
 
-  .icon-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include size(48px);
+    .icon-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include size(48px);
 
-    svg {
-      @include size(24px);
-      fill: $black-2;
-    }
+      svg {
+        @include size(24px);
+        fill: $black-2;
+      }
 
-    @each $key, $color in $colors {
-      @if index($include-text-field-colors, $key)
-        or index($include-text-field-colors, 'all') {
-        &.icon-color-#{$key}.focused {
-          svg {
-            @include text-field-color($key, 'icon');
+      @each $key, $color in $colors {
+        @if index($include-text-field-colors, $key)
+          or index($include-text-field-colors, 'all') {
+          &.icon-color-#{$key}.focused {
+            svg {
+              @include text-field-color($key, 'icon');
+            }
           }
         }
       }
     }
-  }
 
-  .text-field-help {
-    display: flex;
-    @include font-size(12px);
-    color: $black-2;
+    .text-field-help {
+      display: flex;
+      @include font-size(12px);
+      color: $black-2;
 
-    .limit {
-      margin-left: auto;
+      .limit {
+        margin-left: auto;
+      }
     }
   }
-}
 
-.text-field {
-  position: relative;
-  padding-top: $base-spacing-unit * 4;
-  padding-bottom: $base-spacing-unit;
+  .text-field {
+    position: relative;
+    padding-top: $base-spacing-unit * 4;
+    padding-bottom: $base-spacing-unit;
 
-  &.text-field-label-is-fixed {
-    padding-top: $base-spacing-unit;
-  }
+    &.text-field-label-is-fixed {
+      padding-top: $base-spacing-unit;
+    }
 
-  &.text-field-have-icon {
-    margin-left: $base-spacing-unit * 8;
-  }
+    &.text-field-have-icon {
+      margin-left: $base-spacing-unit * 8;
+    }
 
-  &.text-field-is-disabled {
-    pointer-events: none;
+    &.text-field-is-disabled {
+      pointer-events: none;
 
+      &:after {
+        transform: scale(0) !important;
+      }
+
+      &:before {
+        background-color: transparent;
+        border: 1px dashed $black-4;
+      }
+
+      .text-field-input {
+        color: $black-3;
+      }    
+    }
+
+    &:before,
     &:after {
-      transform: scale(0) !important;
+        content: '';
     }
 
     &:before {
-      background-color: transparent;
-      border: 1px dashed $black-4;
+      position: absolute;
+      right: 0;
+      bottom: $base-spacing-unit - 1;
+      left: 0;
+      height: 1px;
+      background-color: $black-4;
     }
 
-    .text-field-input {
-      color: $black-3;
-    }    
-  }
-
-  &:before,
-  &:after {
-      content: '';
-  }
-
-  &:before {
-    position: absolute;
-    right: 0;
-    bottom: $base-spacing-unit - 1;
-    left: 0;
-    height: 1px;
-    background-color: $black-4;
-  }
-
-  &:after {
-    position: absolute;
-    right: 0;
-    bottom: $base-spacing-unit - 1;
-    left: 0;
-    height: 1px;
-    transform: scale(0);
-    transition: transform 0.3s $ease-sharp;
-  }
-
-  &.focused{
     &:after {
-      transform: scale(1);
+      position: absolute;
+      right: 0;
+      bottom: $base-spacing-unit - 1;
+      left: 0;
+      height: 1px;
+      transform: scale(0);
+      transition: transform 0.3s $ease-sharp;
+    }
+
+    &.focused{
+      &:after {
+        transform: scale(1);
+      }
+
+      .text-field-label {
+        @include font-size(12px);
+        transform: translateY(0);
+      }
+
+      .text-field-label-fixed.hide-label {
+        display: none;
+      }
+    }
+
+    .text-field-label,
+    .text-field-label-fixed {
+      @include font-size(16px);
+      display: block;
+      position: absolute;
+      top: $base-spacing-unit;
+      left: 0;
+      line-height: 32px;
+      text-transform: capitalize;
+      color: $black-2;
+      pointer-events: none;
     }
 
     .text-field-label {
-      @include font-size(12px);
-      transform: translateY(0);
+      transform: translateY($base-spacing-unit * 3);
+      transition: all 0.2s $ease-sharp;
     }
 
-    .text-field-label-fixed.hide-label {
-      display: none;
-    }
-  }
-
-  .text-field-label,
-  .text-field-label-fixed {
-    @include font-size(16px);
-    display: block;
-    position: absolute;
-    top: $base-spacing-unit;
-    left: 0;
-    line-height: 32px;
-    text-transform: capitalize;
-    color: $black-2;
-    pointer-events: none;
-  }
-
-  .text-field-label {
-    transform: translateY($base-spacing-unit * 3);
-    transition: all 0.2s $ease-sharp;
-  }
-
-  .text-field-input {
-    @include text-field-reset();
-    @include font-size(16px);
-    width: 100%;
-    font-weight: 400;
-    color: inherit;
-  }
-
-  input.text-field-input {
-    height: 32px;
-  }
-
-  textarea.text-field-input {
-    height: 24px;
-    margin: 4px 0;
-    resize: none;
-  }
-
-  &:hover .clear {
-    opacity: 1;
-  }
-
-  .clear {
-    position: absolute;
-    right: 0;
-    bottom: $base-spacing-unit + 3;
-    opacity: 0;
-    transition: opacity 0.2s $ease-sharp;
-
-    svg {
-      @include size(16px);
-      cursor: pointer;
+    .text-field-input {
+      @include text-field-reset();
+      @include font-size(16px);
+      width: 100%;
+      font-weight: 400;
+      color: inherit;
     }
 
-    &:hover {
+    input.text-field-input {
+      height: 32px;
+    }
+
+    textarea.text-field-input {
+      height: 24px;
+      margin: 4px 0;
+      resize: none;
+    }
+
+    &:hover .clear {
+      opacity: 1;
+    }
+
+    .clear {
+      position: absolute;
+      right: 0;
+      bottom: $base-spacing-unit + 3;
+      opacity: 0;
+      transition: opacity 0.2s $ease-sharp;
+
       svg {
-        fill: $red-700;
+        @include size(16px);
+        cursor: pointer;
+      }
+
+      &:hover {
+        svg {
+          fill: $red-700;
+        }
       }
     }
   }
