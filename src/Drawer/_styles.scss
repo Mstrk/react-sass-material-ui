@@ -12,12 +12,12 @@
     z-index: 15;
     overflow: hidden;
     opacity: 0;
-    transition: opacity 0.2s $ease-out;
+    transition: opacity 0.25s $ease-out;
 
     &.open {
       left: 0;
       opacity: 1;
-      transition: opacity 0.2s $ease-sharp;
+      transition: opacity 0.25s $ease-sharp;
     }
   }
 
@@ -25,12 +25,12 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    transform: translateX(-100%);
-    transition: transform 0.2s $ease-out;
+    transform: translateX(-110%);
+    transition: transform 0.25s $ease-out;
 
     &.open {
       transform: translateX(0);
-      transition: transform 0.2s $ease-sharp;
+      transition: transform 0.25s $ease-sharp;
     }
 
     > * {
