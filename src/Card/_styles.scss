@@ -5,6 +5,7 @@
     vertical-align: top;
 
     &.card-small {
+      display: inline-flex;
       flex-flow: row;
       
       .card-img {

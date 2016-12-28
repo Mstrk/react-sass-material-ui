@@ -55,7 +55,7 @@ $include-btns-sizes: (
 // $include-btns-fab-colors: ('all');
 $include-btns-raised-colors: ('primary');
 $include-btns-flat-colors: ('primary', 'accent');
-$include-btns-icon-colors: ('black', 'white', 'pink');
+$include-btns-icon-colors: ('primary', 'accent', 'black', 'white', 'pink');
 $include-btns-fab-colors: ('accent', 'teal');
 
 $include-components: (
@@ -65,7 +65,26 @@ $include-components: (
   'DropDown',
   'Menu',
   'Paper',
-  'Ripple'
+  'Ripple',
+  'TextField'
 );
 
+// TextField: colors
+$include-text-field-colors: ('primary', 'indigo', 'red', 'green', 'orange');
+
+// Table: checkbox colors
+$include-table-checkbox-colors: ('accent');
+
 @import '../src/index';
+
+.data-table-super-header {
+  display: flex;
+  align-items: center;
+  padding: $base-spacing-unit * 2 $base-spacing-unit * 4;
+  border-bottom: 1px solid $grey-300;
+  @include typography(headline);
+
+  .right {
+    margin-left: auto;
+  }
+}

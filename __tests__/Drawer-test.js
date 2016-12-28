@@ -13,10 +13,9 @@ describe('<Drawer />', () => {
     />
   );
 
-  it('shoudld have div with classes drawer, bgc-white and z-depth16', () => {
+  it('shoudld have div with classes drawer and z-depth16', () => {
     const leftDrawer = drawer.find('.drawer');
     expect(leftDrawer.type()).toEqual('div');
-    expect(leftDrawer.hasClass('bgc-white')).toEqual(true);
     expect(leftDrawer.hasClass('z-depth16')).toEqual(true);
   });
 

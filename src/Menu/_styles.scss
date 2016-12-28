@@ -1,12 +1,13 @@
 @if index($include-components, 'Menu') {
   .menu {
     @include bare-list();
-    color: $black-1;
     padding: $base-spacing-unit 0;
 
     .menuItem {
+      position: relative;
       @include font-size(14px);
       white-space: nowrap;
+      color: inherit;
       padding: 0 $base-spacing-unit * 4 0 $base-spacing-unit * 2;
       cursor: default;
       height: 32px;

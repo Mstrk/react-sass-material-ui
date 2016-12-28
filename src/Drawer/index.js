@@ -3,17 +3,17 @@ import classnames from 'classnames';
 
 class Drawer extends Component {
   state = {
-    open: false
+    open: false,
+    originalOverflow: ''
   }
 
   componentWillMount() {
-    this.setState({
-      open: this.props.open
-    });
-  }
+    this.body = document.getElementsByTagName('body')[0];
 
-  componentDidMount() {
-    this.drawerRoot.addEventListener('wheel', this.cancelScrollEvent);
+    this.setState({
+      open: this.props.open,
+      originalOverflow: this.body.style.overflow
+    });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -22,14 +22,18 @@ class Drawer extends Component {
     });
   }
 
-  componentWillUnmount() {
-    this.drawerRoot.removeEventListener('wheel', this.cancelScrollEvent);
+  componentDidUpdate() {
+    this.lockBody();
   }
 
-  cancelScrollEvent(e) {
-    e.stopImmediatePropagation();
-    e.preventDefault();
-    return false;
+  lockBody = () => {
+    const { open, originalOverflow } = this.state;
+
+    if (open) {
+      this.body.style.overflow = 'hidden';
+    } else {
+      this.body.style.overflow = originalOverflow;
+    }
   }
 
   close = (element, e) => {
@@ -46,7 +50,6 @@ class Drawer extends Component {
   render() {
     const {
       overlay,
-      color = 'white',
       children
     } = this.props;
 
@@ -68,7 +71,6 @@ class Drawer extends Component {
           className={
             classnames(
               'drawer',
-              `bgc-${color}`,
               'z-depth16',
               { open: this.state.open }
             )

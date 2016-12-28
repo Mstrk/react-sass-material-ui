@@ -5,11 +5,13 @@ const MenuItem = ({
   isHeader,
   isDivider,
   hoverable,
+  onClick,
   style,
   className,
   children
 }) => (
   <li
+    onClick={onClick}
     style={style}
     className={
       classnames(
