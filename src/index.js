@@ -15,3 +15,5 @@ export { default as Drawer } from './Drawer';
 export { default as AppBar } from './AppBar';
 export { default as Card } from './Card';
 export { default as TextField } from './TextField';
+export { default as DataTable } from './DataTable';
+export { default as DataRow } from './DataTable/DataRow';
