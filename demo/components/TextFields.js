@@ -4,6 +4,16 @@ import { TextField } from '../../src';
 class TextFields extends Component {
 
   state = {
+    value1: '',
+    value2: 'mstrk',
+    value3: '',
+    value4: 'Bruno Morgado',
+    value5: '',
+    value6: 'This is a text sample with multi row disabled. Lorem ipsum dolur, foo, bar, baz.',
+    value7: '',
+    value8: '',
+    value9: '',
+    value10: '912 345 678',
     error: false,
     limit: 9,
     min: 3,
@@ -12,86 +22,123 @@ class TextFields extends Component {
     errorColor: 'orange',
     nameErrMessage: 'No B\'s allowed'
   }
-
-  formatValue = value => (value.replace(/[^\dA-Z]/g, '').replace(/(.{3})/g, '$1 ').trim())
   
-  formatUsername = value => (value.trim())
-
-  formatName = value => (value.replace(/[^a-zA-Z ]/g, ''))
-  
-  errorHandler = (e) => {
-    const { value } = e.target;
+  value1Handler = (value) => {
     const { limit, min } = this.state;
+
+    const formatedValue = value.trim();
 
     if (value.length < min) {
       this.setState({
+        value1: formatedValue,
         limitError: true,
         errorColor: 'orange'
       });
     } else if (value.length > limit) {
       this.setState({
+        value1: formatedValue,
         limitError: true,
         errorColor: 'red'
       });
     } else {
-      this.setState({ limitError: false });
+      this.setState({
+        value1: formatedValue,
+        limitError: false
+      });
     }
   }
 
-  nameErrorHandler = (e) => {
-    const { value } = e.target;
+  value3Handler = (value) => {
+    const formatedValue = value.replace(/[^a-zA-Z ]/g, '');
     const patt = new RegExp('B');
-    const error = patt.test(value);
+    const error = patt.test(formatedValue);
 
-    this.setState({ error });
+    this.setState({
+      value3: formatedValue,
+      error
+    });
+  }
+
+  value5Handler = (value) => {
+    this.setState({ value5: value });
+  }
+
+  value7Handler = (value) => {
+    this.setState({ value7: value });
+  }
+
+  value9Handler = (value) => {
+    const formatedValue = value.replace(/[^\dA-Z]/g, '').replace(/(.{3})/g, '$1 ').trim();
+    this.setState({ value9: formatedValue });
   }
 
   render() {
-    const { limit, limitError, limitSuccess, error, nameErrMessage, errorColor } = this.state;
+    const {
+      limit,
+      limitError,
+      limitSuccess,
+      error,
+      nameErrMessage,
+      errorColor,
+      value1,
+      value2,
+      value3,
+      value4,
+      value5,
+      value6,
+      value7,
+      value8,
+      value9,
+      value10
+    } = this.state;
+
     return (
       <div style={{ padding: 'calc(64px + 2em) 2em', maxWidth: '500px' }}>
         <TextField
+          value={value1}
+          onChange={this.value1Handler}
           label='username'
           hint='ex: jarvis'
           limit={limit}
           limitError={limitError}
           limitSuccess={limitSuccess}
-          onChange={this.errorHandler}
           errorColor={errorColor}
           color='indigo'
-          format={this.formatUsername}
           allowClear
         />
         <br />
         <TextField
+          value={value2}
+          onChange={noop => noop}
           label='username'
-          hint='ex: jarvis'
           color='indigo'
-          value='mstrk'
           disabled
         />
         <br />
         <TextField
+          value={value3}
+          onChange={this.value3Handler}
           label='name'
           hint='ex: jarvis'
           fixedLabel
           color='indigo'
           error={error}
-          format={this.formatName}
-          onChange={this.nameErrorHandler}
           helpMessage={nameErrMessage}
         />
         <br />
         <TextField
+          value={value4}
+          onChange={noop => noop}
           label='name'
           hint='ex: jarvis'
           fixedLabel
           color='indigo'
-          value='Bruno Morgado'
           disabled
         />
         <br />
         <TextField
+          value={value5}
+          onChange={this.value5Handler}
           label='text sample'
           hint='ex: Some text'
           multiRow
@@ -100,15 +147,18 @@ class TextFields extends Component {
         />
         <br />
         <TextField
+          value={value6}
+          onChange={noop => noop}
           label='text sample disabled'
           hint='ex: Some text'
           multiRow
           color='indigo'
-          value={'This is a text sample with multi row disabled. Lorem ipsum dolur, foo, bar, baz.'}
           disabled
         />
         <br />
         <TextField
+          value={value7}
+          onChange={this.value7Handler}
           label='text sample fixed label'
           hint='ex: Some text'
           fixedLabel
@@ -117,6 +167,8 @@ class TextFields extends Component {
         />
         <br />
         <TextField
+          value={value8}
+          onChange={noop => noop}
           label='text sample fixed label disabled'
           hint='ex: Some text'
           fixedLabel
@@ -126,22 +178,23 @@ class TextFields extends Component {
         />
         <br />
         <TextField
+          value={value9}
+          onChange={this.value9Handler}
           label='phone'
           hint='ex: jarvis'
           icon='phone'
           color='indigo'
           type='phone'
-          format={this.formatValue}
         />
         <br />
         <TextField
+          value={value10}
+          onChange={noop => noop}
           label='phone'
           hint='ex: jarvis'
           icon='phone'
           color='indigo'
           type='phone'
-          value='912345678'
-          format={this.formatValue}
           disabled
         />
       </div>
