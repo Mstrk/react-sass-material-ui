@@ -14,22 +14,17 @@
 
     .left-content,
     .right-content,
+    .center-content,
     .title {
       padding: $base-spacing-unit $base-spacing-unit * 2;
     }
 
-    .right-content {
-      @include media-query(desk) {
-        margin-left: auto;
-      }
+    .center-content {
+      flex: 2;
     }
 
     .title {
       @include typography('title');
-
-      @include media-query(portable) {
-        margin: 0 auto;
-      }
     }
   }
 }

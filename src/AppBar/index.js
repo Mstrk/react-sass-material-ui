@@ -7,6 +7,7 @@ const AppBar = ({
   zDepth = 4,
   contentLeft,
   contentRight,
+  contentCenter,
   title
 }) => (
   <div
@@ -23,6 +24,7 @@ const AppBar = ({
     >
       {contentLeft && <div className='left-content'>{contentLeft}</div>}
       {title && <div className='title'>{title}</div>}
+      {<div className='center-content'>{contentCenter}</div>}
       {contentRight && <div className='right-content'>{contentRight}</div>}
     </Paper>
   </div>
