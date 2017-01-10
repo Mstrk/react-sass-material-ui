@@ -4,97 +4,45 @@ import SvgIcon from '../SvgIcon';
 
 class TextField extends Component {
   state = {
-    value: '',
-    focused: !!(this.props.value && this.props.value.length),
-    hideLabel: !!(this.props.value && this.props.value.length)
+    focused: !!(this.props.value && this.props.value.length)
   }
 
   componentDidMount() {
-    const {
-      format,
-      error = false,
-      success = false,
-      limitError,
-      limitSuccess,
-      helpMessage,
-      value = ''
-    } = this.props;
-
-    this.format = typeof format === 'function' ? format : x => (x);
-
-    this.setState({
-      error,
-      success,
-      limitError,
-      limitSuccess,
-      helpMessage,
-      value: this.format(value)
-    }, () => {
-      if (this.textarea) {
-        const { scrollHeight } = this.textarea;
-        this.setState({
-          originalTextareaHeight: scrollHeight,
-          textareaHeight: scrollHeight
-        });
-      }
-    });
+    if (this.textarea) {
+      const { scrollHeight } = this.textarea;
+      this.setState({
+        originalTextareaHeight: scrollHeight,
+        textareaHeight: scrollHeight
+      });
+    }
   }
 
   componentWillReceiveProps(nextProps) {
-    const {
-      error,
-      success,
-      limitError,
-      limitSuccess,
-      helpMessage,
-    } = nextProps;
-
-    this.setState({
-      error,
-      success,
-      limitError,
-      limitSuccess,
-      helpMessage
-    });
-  }
-
-  handleChange = (e) => {
-    let { value } = e.target;
+    const { multiRow } = nextProps;
     const { originalTextareaHeight } = this.state;
 
-    value = this.format(value);
-
-    if (this.props.multiRow) {
+    if (multiRow) {
       this.setState({
-        value,
-        hideLabel: !!value.length,
         textareaHeight: originalTextareaHeight
       }, () => {
         this.setState({ textareaHeight: this.textarea.scrollHeight });
       });
-    } else {
-      this.setState({
-        value,
-        hideLabel: !!value.length,
-      });
     }
+  }
 
-    if (typeof this.props.onChange === 'function') this.props.onChange(e);
+  handleChange = (event) => {
+    const { value } = event.target;
+    this.props.onChange(value, event);
   }
 
   clear = () => {
-    const event = document.createEvent('HTMLEvents');
-    event.initEvent('input', true, true);
+    this.props.onChange('');
 
     if (this.props.multiRow) {
-      this.textarea.dispatchEvent(event);
       this.textarea.focus();
     } else {
-      this.input.dispatchEvent(event);
       this.input.focus();
     }
-
-    this.setState({ value: '' });
   }
 
   focus = () => {
@@ -104,7 +52,7 @@ class TextField extends Component {
   }
 
   blur = () => {
-    if (!this.state.value) {
+    if (!this.props.value) {
       this.setState({
         focused: false
       });
@@ -113,16 +61,11 @@ class TextField extends Component {
 
   render() {
     const {
-      value,
-      error,
-      success,
-      limitError,
-      limitSuccess,
-      helpMessage,
       focused,
       textareaHeight } = this.state;
 
     const {
+      value,
       label = 'label',
       hint,
       multiRow,
@@ -133,7 +76,12 @@ class TextField extends Component {
       icon,
       type = 'text',
       allowClear,
-      disabled
+      disabled,
+      error,
+      success,
+      limitError,
+      limitSuccess,
+      helpMessage,
     } = this.props;
 
     let { fixedLabel } = this.props;
@@ -250,5 +198,30 @@ class TextField extends Component {
     );
   }
 }
+
+TextField.propTypes = {
+  allowClear: React.PropTypes.bool,
+  color: React.PropTypes.string,
+  disabled: React.PropTypes.bool,
+  error: React.PropTypes.bool,
+  errorColor: React.PropTypes.string,
+  helpMessage: React.PropTypes.string,
+  hint: React.PropTypes.string,
+  icon: React.PropTypes.string,
+  label: React.PropTypes.string,
+  limit: React.PropTypes.number,
+  limitError: React.PropTypes.bool,
+  limitSuccess: React.PropTypes.bool,
+  multiRow: React.PropTypes.bool,
+  onChange: React.PropTypes.func.isRequired,
+  success: React.PropTypes.bool,
+  successColor: React.PropTypes.string,
+  style: React.PropTypes.object,
+  type: React.PropTypes.string,
+  value: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ]).isRequired
+};
 
 export default TextField;
