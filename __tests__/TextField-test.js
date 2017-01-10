@@ -9,6 +9,7 @@ describe('<TextField />', () => {
 
   const input = mount(
     <TextField
+      value=''
       label='username'
       hint='ex: jarvis'
       onChange={mockChange}
@@ -42,15 +43,9 @@ describe('<TextField />', () => {
 
   it('should not set focused to false on blur if value', () => {
     input.find('input').simulate('focus');
-    input.setState({ value: 'foo' });
+    input.setProps({ value: 'foo' });
     input.find('input').simulate('blur');
     expect(input.state().focused).toEqual(true);
-  });
-
-  it('should clear the value on clear click', () => {
-    expect(input.state().value).toEqual('foo');
-    input.find('.clear').simulate('click');
-    expect(input.state().value).toEqual('');
   });
 
   it('should call handleChange', () => {
@@ -58,8 +53,16 @@ describe('<TextField />', () => {
     expect(mockChange).toHaveBeenCalled();
   });
 
+  it('should clear the value on clear click', () => {
+    input.find('input').simulate('focus');
+    input.find('.clear').simulate('click');
+    expect(mockChange.mock.calls.length).toEqual(2);
+  });
+
   const inputDisabled = shallow(
     <TextField
+      value='foo'
+      onChange={noop => noop}
       disabled
     />
   );
@@ -68,28 +71,33 @@ describe('<TextField />', () => {
     expect(inputDisabled.find('.text-field-is-disabled')).toHaveLength(1);
   });
 
+  const mockChange2 = jest.fn();
+
   const textarea = mount(
     <TextField
+      value=''
       multiRow
-      onChange={mockChange}
+      onChange={mockChange2}
       allowClear
     />
   );
 
-  it('should clear the value on clear click', () => {
-    textarea.find('textarea').simulate('focus');
-    textarea.setState({ value: 'foo' });
-    textarea.find('.clear').simulate('click');
-    expect(textarea.state().value).toEqual('');
+  it('should call handleChange', () => {
+    textarea.setProps({ value: 'bar' });
+    textarea.find('textarea').simulate('change');
+    expect(mockChange2).toHaveBeenCalled();
   });
 
-  it('should call handleChange', () => {
-    textarea.find('textarea').simulate('change');
-    expect(mockChange.mock.calls.length).toEqual(2);
+  it('should call handleChange on clear click', () => {
+    textarea.find('textarea').simulate('focus');
+    textarea.find('.clear').simulate('click');
+    expect(mockChange2.mock.calls.length).toEqual(2);
   });
 
   const inputIcon = mount(
     <TextField
+      value=''
+      onChange={noop => noop}
       label='phone'
       type='phone'
       icon='phone'
@@ -106,8 +114,6 @@ describe('<TextField />', () => {
 
   it('should have limit and error classes', () => {
     inputIcon.setProps({ error: true, limitError: true });
-    expect(inputIcon.state().error).toEqual(true);
-    expect(inputIcon.state().limitError).toEqual(true);
     expect(inputIcon.find('.icon-color-red')).toHaveLength(1);
     expect(inputIcon.find('.text-field-color-red')).toHaveLength(1);
     expect(inputIcon.find('.help-message-red')).toHaveLength(1);
