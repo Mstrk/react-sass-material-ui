@@ -11,6 +11,7 @@ const Buttons = () => (
     <Button text='Im a button ' style={customStyles} />
     <Button text='Im a button' type='flat' style={customStyles} />
     <Button type='fab' icon='plus' color='teal' style={customStyles} />
+    <Button color='black' type='icon' size='l' icon='magnify' style={customStyles} />
   </div>
 );
 
