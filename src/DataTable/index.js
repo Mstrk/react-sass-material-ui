@@ -11,7 +11,9 @@ class DataTable extends Component {
 
   componentWillMount() {
     const {
-      data = [],
+      data,
+      dataMock,
+      noDataMessage = 'No data',
       disabledRows = [],
       maxSelected,
       excludeKeys = [],
@@ -25,6 +27,8 @@ class DataTable extends Component {
 
     this.setState({
       data,
+      dataMock,
+      noDataMessage,
       disabledRows,
       disableSelectAll,
       maxSelected,
@@ -36,7 +40,9 @@ class DataTable extends Component {
 
   componentWillReceiveProps(nextProps) {
     const {
-      data = [],
+      data,
+      dataMock,
+      noDataMessage = 'No data',
       disabledRows = [],
       maxSelected,
       excludeKeys = [],
@@ -50,6 +56,8 @@ class DataTable extends Component {
 
     this.setState({
       data,
+      dataMock,
+      noDataMessage,
       disabledRows,
       disableSelectAll,
       maxSelected,
@@ -122,7 +130,8 @@ class DataTable extends Component {
   }
 
   isSortable(prop) {
-    return this.state.sortableKeys.indexOf(prop) !== -1;
+    const { sortableKeys, data } = this.state;
+    return sortableKeys.indexOf(prop) !== -1 && data.length;
   }
 
   isSelected(item) {
@@ -136,13 +145,16 @@ class DataTable extends Component {
   renderHeaders() {
     const {
       data,
+      dataMock,
       excludeKeys,
       sortActive,
       ascending,
       headerLabels
     } = this.state;
+
+    const objectData = data.length ? data[0] : dataMock;
     
-    const keys = Object.keys(data[0]).filter((key) => (excludeKeys.indexOf(key)) === -1);
+    const keys = Object.keys(objectData).filter((key) => (excludeKeys.indexOf(key)) === -1);
 
     return keys.map((prop, i) => (
       <th
@@ -164,7 +176,10 @@ class DataTable extends Component {
   }
 
   renderRows(color) {
-    return this.state.data.map((item, key) => (
+    const { data, noDataMessage } = this.state;
+    const { withHeader = true } = this.props;
+    
+    return data.length ? data.map((item, key) => (
       <DataRow
         key={key}
         selected={this.isSelected(item)}
@@ -174,7 +189,21 @@ class DataTable extends Component {
       >
         {this.renderCells(item)}
       </DataRow>
-    ));
+    ))
+    :
+    <tr>
+      <td
+        className={
+          classnames(
+            'no-data-message',
+            { 'header-top': withHeader }
+          )
+        }
+      >
+        &nbsp;
+        <div>{noDataMessage}</div>
+      </td>
+    </tr>;
   }
 
   renderCells(item) {
@@ -193,6 +222,7 @@ class DataTable extends Component {
     const isAllSelected = selectedRows.length === (data.length - disabledRows.length);
 
     return (
+      data.length ?
       <th>
         <span
           className={
@@ -211,6 +241,8 @@ class DataTable extends Component {
           />
         </span>
       </th>
+      :
+      <th />
     );
   }
 
@@ -222,31 +254,38 @@ class DataTable extends Component {
     } = this.props;
 
     return (
-      <table className='data-table'>
-        {withHeader &&
-          <thead>
-            <tr>
-              {this.renderSelectAllRows(checkboxColor)}
-              {this.renderHeaders()}
-            </tr>
-          </thead>
-        }
+      <div className='data-table-container'>
+        <table className='data-table'>
+          {withHeader &&
+            <thead>
+              <tr>
+                {this.renderSelectAllRows(checkboxColor)}
+                {this.renderHeaders()}
+              </tr>
+            </thead>
+          }
 
-        {withFooter &&
-          <tfoot>
-            <tr>
-              {this.renderSelectAllRows(checkboxColor)}
-              {this.renderHeaders()}
-            </tr>
-          </tfoot>
-        }
+          {withFooter &&
+            <tfoot>
+              <tr>
+                {this.renderSelectAllRows(checkboxColor)}
+                {this.renderHeaders()}
+              </tr>
+            </tfoot>
+          }
 
-        <tbody>
-          {this.renderRows(checkboxColor)}
-        </tbody>
-      </table>
+          <tbody>
+            {this.renderRows(checkboxColor)}
+          </tbody>
+        </table>
+      </div>
     );
   }
 }
+
+DataTable.propTypes = {
+  data: React.PropTypes.array.isRequired,
+  dataMock: React.PropTypes.object.isRequired
+};
 
 export default DataTable;
