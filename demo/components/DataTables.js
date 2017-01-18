@@ -8,10 +8,10 @@ import {
 const fakeData = [
   {
     id: '21',
-    header1: '4500-121',
-    header2: '21035',
-    header3: 'content 23',
-    header4: 'content 24'
+    header1: '4500-12122222222222',
+    header2: '2103522222222222222',
+    header3: 'content 23222222222',
+    header4: 'content 24222222222'
   },
   {
     id: '22',
