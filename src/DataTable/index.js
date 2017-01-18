@@ -148,6 +148,10 @@ class DataTable extends Component {
     return this.state.disabledRows.indexOf(item) !== -1;
   }
 
+  normalizeProp(prop) {
+    return prop.replace(/([A-Z])/g, ' $1');
+  } 
+
   renderHeaders() {
     const {
       data,
@@ -176,7 +180,7 @@ class DataTable extends Component {
         onClick={this.sort.bind(null, prop, i)}
       >
         {sortActive === i && <SvgIcon icon={ascending ? 'arrow-up' : 'arrow-down'} />}
-        {headerLabels[i] || prop}
+        {headerLabels[i] || this.normalizeProp(prop)}
       </th>
     ));
   }
