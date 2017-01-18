@@ -67,12 +67,18 @@ class DataTable extends Component {
     });
   }
 
+  onRowClick = (index) => {
+    const { onRowClick } = this.props;
+    const { data } = this.state;
+    if (onRowClick) {
+      onRowClick(data[index], index);
+    }
+  }
+
   onSelectClick = (index) => {
     const { maxSelected, data } = this.state;
     let { selectedRows } = this.state;
     const item = data[index];
-
-    if (this.isDisabled(item)) return;
 
     if (this.isSelected(item)) {
       selectedRows.splice(selectedRows.indexOf(item), 1);
@@ -175,17 +181,19 @@ class DataTable extends Component {
     ));
   }
 
-  renderRows(color) {
+  renderRows() {
     const { data, noDataMessage } = this.state;
-    const { withHeader = true } = this.props;
+    const { withHeader = true, onRowClick, checkboxColor = 'accent' } = this.props;
     
     return data.length ? data.map((item, key) => (
       <DataRow
         key={key}
         selected={this.isSelected(item)}
         disabled={this.isDisabled(item)}
-        checkboxColor={color}
+        hideCheckbox={!!onRowClick}
+        checkboxColor={checkboxColor}
         onSelectClick={this.onSelectClick.bind(null, key)}
+        onRowClick={this.onRowClick.bind(null, key)}
       >
         {this.renderCells(item)}
       </DataRow>
@@ -217,18 +225,19 @@ class DataTable extends Component {
     ));
   }
 
-  renderSelectAllRows(color) {
+  renderSelectAllRows() {
     const { data, selectedRows, disabledRows, disableSelectAll } = this.state;
+    const { checkboxColor = 'accent', onRowClick } = this.props;
     const isAllSelected = selectedRows.length === (data.length - disabledRows.length);
 
     return (
-      data.length ?
+      data.length && !onRowClick ?
       <th>
         <span
           className={
             classnames(
               {
-                [`is-all-selected-${color}`]: !disableSelectAll,
+                [`is-all-selected-${checkboxColor}`]: !disableSelectAll,
                 'is-all-selected': isAllSelected && !disableSelectAll,
                 'checkbox-is-disabled': disableSelectAll
               }
@@ -250,7 +259,6 @@ class DataTable extends Component {
     const {
       withHeader = true,
       withFooter = false,
-      checkboxColor = 'accent' 
     } = this.props;
 
     return (
@@ -259,7 +267,7 @@ class DataTable extends Component {
           {withHeader &&
             <thead>
               <tr>
-                {this.renderSelectAllRows(checkboxColor)}
+                {this.renderSelectAllRows()}
                 {this.renderHeaders()}
               </tr>
             </thead>
@@ -268,14 +276,14 @@ class DataTable extends Component {
           {withFooter &&
             <tfoot>
               <tr>
-                {this.renderSelectAllRows(checkboxColor)}
+                {this.renderSelectAllRows()}
                 {this.renderHeaders()}
               </tr>
             </tfoot>
           }
 
           <tbody>
-            {this.renderRows(checkboxColor)}
+            {this.renderRows()}
           </tbody>
         </table>
       </div>
@@ -285,7 +293,8 @@ class DataTable extends Component {
 
 DataTable.propTypes = {
   data: React.PropTypes.array.isRequired,
-  dataMock: React.PropTypes.object.isRequired
+  dataMock: React.PropTypes.object.isRequired,
+  onRowClick: React.PropTypes.func
 };
 
 export default DataTable;
