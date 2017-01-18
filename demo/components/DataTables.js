@@ -98,7 +98,7 @@ class DataTables extends Component {
         >
           <div className='data-table-super-header'>
             {!!itemsSelected &&
-            <span>{itemsSelected.header1} -- {itemsSelected.header2}$</span>
+              <span>{itemsSelected.header1} -- {itemsSelected.header2}$</span>
             }
             <span className='right'>
               {!!itemsSelected &&
@@ -111,6 +111,14 @@ class DataTables extends Component {
             excludeKeys={['id', 'header3']}
             sortableKeys={['header1', 'header2']}
             data={fakeData}
+            dataMock={{
+              id: '',
+              header1: '',
+              header2: '',
+              header3: '',
+              header4: ''
+            }}
+            noDataMessage='Add a new item'
             disabledRows={[fakeData[1]]}
             withHeader={false}
             withFooter
