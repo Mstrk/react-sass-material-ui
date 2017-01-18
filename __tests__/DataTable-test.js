@@ -33,6 +33,12 @@ describe('<DataTable />', () => {
       excludeKeys={['id', 'header3']}
       sortableKeys={['header1', 'header2']}
       data={fakeData}
+      dataMock={{
+        id: '',
+        header1: '',
+        header2: '',
+        header3: ''
+      }}
       disabledRows={[fakeData[1]]}
       maxSelected={1}
       checkboxColor='blue'
