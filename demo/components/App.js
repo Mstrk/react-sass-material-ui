@@ -87,7 +87,7 @@ class App extends Component {
               </Menu>
             </DropDown>
           }
-          title='Fancy Title'
+          title='Fancy Title for show'
         />
         {children}
       </div>
