@@ -1,7 +1,7 @@
 /*eslint no-undef:0*/
 import React from 'react';
 import { mount } from 'enzyme';
-import { DataTable, DataRow } from '../src';
+import { DataTable, DataRow, SvgIcon } from '../src';
 
 describe('<DataTable />', () => {
   const fakeData = [
@@ -46,15 +46,15 @@ describe('<DataTable />', () => {
     />
   );
 
-  it('should have root class data-table', () => {
-    expect(dataTable.find('.data-table')).toHaveLength(1);
+  it('should have root class data-table-conatiner', () => {
+    expect(dataTable.find('.data-table-container')).toHaveLength(1);
   });
 
   it('should set selected on click but not for disabled ones', () => {
     const row1 = dataTable.find(DataRow).at(0);
     const row2 = dataTable.find(DataRow).at(1);
-    row1.find('span').simulate('click');
-    row2.find('span').simulate('click');
+    row1.find(SvgIcon).simulate('click');
+    row2.find(SvgIcon).simulate('click');
     expect(dataTable.state().selectedRows).toHaveLength(1);
   });
 
@@ -67,14 +67,14 @@ describe('<DataTable />', () => {
     expect(dataTable.state().selectedRows[0] === fakeData[1]).toEqual(false);
     dataTable.setProps({ disabledRows: undefined });
     const row2 = dataTable.find(DataRow).at(1);
-    row2.find('span').simulate('click');
+    row2.find(SvgIcon).simulate('click');
     expect(dataTable.state().selectedRows[0] === fakeData[1]).toEqual(true);
   });
 
   it('should deselect the item if selected and clicked', () => {
     expect(dataTable.state().selectedRows).toHaveLength(1);
     const row2 = dataTable.find(DataRow).at(1);
-    row2.find('span').simulate('click');
+    row2.find(SvgIcon).simulate('click');
     expect(dataTable.state().selectedRows).toHaveLength(0);
   });
 
@@ -84,9 +84,9 @@ describe('<DataTable />', () => {
     const row1 = dataTable.find(DataRow).at(0);
     const row2 = dataTable.find(DataRow).at(1);
     const row3 = dataTable.find(DataRow).at(2);
-    row1.find('span').simulate('click');
-    row2.find('span').simulate('click');
-    row3.find('span').simulate('click');
+    row1.find(SvgIcon).simulate('click');
+    row2.find(SvgIcon).simulate('click');
+    row3.find(SvgIcon).simulate('click');
     expect(dataTable.state().selectedRows).toHaveLength(2);
   });
 
@@ -99,20 +99,22 @@ describe('<DataTable />', () => {
     expect(dataTable.state().ascending).toEqual(false);
   });
 
-  it('should have tfoot and not thead', () => {
-    expect(dataTable.find('thead')).toHaveLength(1);
-    dataTable.setProps({ withHeader: false, withFooter: true });
-    expect(dataTable.find('thead')).toHaveLength(0);
-    expect(dataTable.find('tfoot')).toHaveLength(1);
-  });
-
   it('should select all rows and deselect all rows', () => {
     expect(dataTable.state().selectedRows).toHaveLength(2);
     dataTable.setProps({ maxSelected: undefined });
-    const selectAllCheckbox = dataTable.find('.is-all-selected-blue');
+    const selectAllCheckbox = dataTable.find('.data-table-header-cell-icon').find('svg');
     selectAllCheckbox.simulate('click');
     expect(dataTable.state().selectedRows).toHaveLength(fakeData.length);
     selectAllCheckbox.simulate('click');
     expect(dataTable.state().selectedRows).toHaveLength(0);
+  });
+
+  const onRowClickMock = jest.fn();
+
+  it('should call onRowClick fn when a row is clicked', () => {
+    dataTable.setProps({ onRowClick: onRowClickMock });
+    const row = dataTable.find(DataRow).at(0);
+    row.simulate('click');
+    expect(onRowClickMock).toBeCalled();
   });
 });
