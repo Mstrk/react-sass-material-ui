@@ -1,94 +1,95 @@
 @if index($include-components, 'DataTable') {
   .data-table-container {
     position: relative;
+    width: 100%;
 
-    .data-table {
-      width: 100%;
-      margin: 0;
-      table-layout: fixed;
-      border-collapse: collapse;
-      border-spacing: 0;
+    .data-table-header {
+      position: relative;
+      z-index: 2;
+    }
 
-      thead th {
-        border-bottom: 1px solid $grey-300;
+    .data-table-header,
+    .data-table-body-row {
+      display: flex;
+      flex-flow: row nowrap;
+      border-bottom: 1px solid $grey-300;
+    }
+
+    .data-table-header.bottom {
+      border-top: 1px solid $grey-300;
+      border-bottom: none;
+    }
+
+    .data-table-header.scrollable {
+      @include z-depth(2);
+      border: none;
+    }
+
+    .data-table-body {
+      position: relative;
+      z-index: 0;
+      
+      &.scrollable {
+        overflow: auto;
       }
+    }
 
-      tfoot th {
-        border-top: 1px solid $grey-300;
-      }
-
-      th, td {
-        padding-right: 56px;
-        vertical-align: middle;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-
-        &:first-child {
-          width: 72px;
-          padding-left: $base-spacing-unit * 3;
-          padding-right: $base-spacing-unit * 3;
-        }
-
-        &:last-child {
-          padding-right: $base-spacing-unit * 3;
-        }
-
-        svg {
-          @include size(24px);
-          display: block;
-          fill: $black-2;
-          cursor: pointer;
-        }
-      }
-
-      th {
-        height: 56px;
-        @include font-size(12px);
-        font-weight: 400;
-        color: $black-2;
-        text-align: left;
-        text-transform: capitalize;
-      }
-
-      td {
-        height: 48px;
-        @include font-size(13px);
-        padding-top: $base-spacing-unit;
-        padding-bottom: $base-spacing-unit;
-      }
-
-      td {
-        border-bottom: 1px solid $grey-300;
-      }
-
-      tr:last-child td {
+    .data-table-body-row {
+      &:last-child {
         border-bottom: none;
       }
 
-      .selectable-row {
-        th, td {
-          &:first-child {
-            width: $size-xs + $base-spacing-unit * 6;
-          }
+      &:not(.is-selected):not(.is-disabled):hover {
+        background-color: $grey-200;
+      }
 
-          &:nth-child(2) {
-            padding-right: $base-spacing-unit * 3;
-          }
-        }
+      &.is-selected {
+        background-color: $grey-100;
+      }
 
-        &:not(.is-selected):not(.is-disabled):hover {
-          td {
-            background-color: $grey-200;
-          }
-        }
+      &.is-disabled {
+        cursor: not-allowed;
 
-        &.is-clickable {
-          cursor: pointer;
+        svg {
+          cursor: not-allowed;
+          fill: $grey-300;
         }
       }
 
-      th.is-sortable {
+      &:not(.is-disabled).is-clickable {
+        cursor: pointer;
+      }
+    }
+
+    .data-table-header-cell,
+    .data-table-body-cell {
+      flex: 1;
+      padding-right: 56px;
+      text-align: left;
+      text-transform: capitalize;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &:first-child {
+        padding-left: $base-spacing-unit * 3;
+      }
+
+      &:last-child {
+        padding-right: $base-spacing-unit * 3;
+      }
+    }
+
+    .data-table-header-cell {
+      display: flex;
+      align-items: center;
+      height: 56px;
+      @include font-size(12px);
+      font-weight: 400;
+      color: $black-2;
+
+
+      &.is-sortable {
         cursor: pointer;
 
         svg {
@@ -102,63 +103,66 @@
         }
       }
 
-      th.is-sortable-active {
+      &.is-sortable-active {
         color: $black-1;
       }
+    }
+      
+    .data-table-body-cell {
+      display: flex;
+      align-items: center;
+      height: 48px;
+      @include font-size(13px);
+    }
 
-      .is-selected {
-        td {
-          background-color: $grey-100;
-        }
+    .data-table-header-cell-icon,
+    .data-table-body-cell-icon {
+      display: flex;
+      align-items: center;
+      flex: none;
+      width: 72px;
+      text-align: left;
+      padding-left: $base-spacing-unit * 3;
+      padding-right: $base-spacing-unit * 3;
+
+      svg {
+        @include size(24px);
       }
 
-      @each $key, $color in $colors {
-        @if index($include-table-checkbox-colors, $key)
-          or index($include-table-checkbox-colors, 'all') {
-          .is-selected.is-selected-#{$key},
-          .is-all-selected.is-all-selected-#{$key} {
-            svg {
-              fill: $color;
-            }
+      &:not(.is-disabled) svg {
+        fill: $black-2;
+        cursor: pointer;
+      }
+
+      &.is-disabled svg {
+        cursor: not-allowed;
+        fill: $grey-300;
+      }
+    }
+
+    .data-table-header-cell-icon {
+      height: 56px;
+    }
+
+    .data-table-body-cell-icon {
+      height: 48px;
+    }
+
+    @each $key, $color in $colors {
+      @if index($include-table-checkbox-colors, $key)
+        or index($include-table-checkbox-colors, 'all') {
+        .is-selected.is-selected-#{$key} {
+          svg {
+            fill: $color;
           }
         }
       }
-
-      .is-disabled {
-        td {
-          cursor: not-allowed;
-        }
-      }
-
-      .checkbox-is-disabled {
-        svg {
-          cursor: not-allowed;
-          fill: $grey-300;
-        }
-      }
-
-      .no-data-message {
-        padding-top: $base-spacing-unit * 4;
-        padding-right: $base-spacing-unit * 2;
-        padding-bottom: $base-spacing-unit * 4;
-        padding-left: $base-spacing-unit * 2;
-        @include typography(headline);
-        text-align: center;
-
-        &.header-top div {
-          top: 56px;
-        }
-
-        div {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          padding-top: $base-spacing-unit * 4;
-          padding-right: $base-spacing-unit * 2;
-          padding-left: $base-spacing-unit * 2;
-        }
-      }
     }
+  }
+
+  .no-data-message {
+    padding: $base-spacing-unit * 4 $base-spacing-unit * 2;
+    @include typography(headline);
+    text-align: center;
   }
 }

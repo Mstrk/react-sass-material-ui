@@ -1,70 +1,28 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import DataHeader from './DataHeader';
 import DataRow from './DataRow';
-import SvgIcon from '../SvgIcon';
 
 class DataTable extends Component {
   state = {
     selectedRows: [],
-    ascending: false
+    ascending: false,
+    scrollable: false,
+    maxHeight: false
   }
 
   componentWillMount() {
-    const {
-      data,
-      dataMock,
-      noDataMessage = 'No data',
-      disabledRows = [],
-      maxSelected,
-      excludeKeys = [],
-      sortableKeys = [],
-      headerLabels = []
-    } = this.props;
-
-    let { disableSelectAll } = this.props;
-
-    if (maxSelected) disableSelectAll = true;
-
-    this.setState({
-      data,
-      dataMock,
-      noDataMessage,
-      disabledRows,
-      disableSelectAll,
-      maxSelected,
-      excludeKeys,
-      sortableKeys,
-      headerLabels
-    });
+    this.bindPropsToState(this.props);
   }
 
   componentWillReceiveProps(nextProps) {
-    const {
-      data,
-      dataMock,
-      noDataMessage = 'No data',
-      disabledRows = [],
-      maxSelected,
-      excludeKeys = [],
-      sortableKeys = [],
-      headerLabels = []
-    } = nextProps;
+    this.bindPropsToState(nextProps);
+  }
 
-    let { disableSelectAll } = nextProps;
-
-    if (maxSelected) disableSelectAll = true;
-
-    this.setState({
-      data,
-      dataMock,
-      noDataMessage,
-      disabledRows,
-      disableSelectAll,
-      maxSelected,
-      excludeKeys,
-      sortableKeys,
-      headerLabels
-    });
+  onChange(data) {
+    if (this.props.onSelectedChange) {
+      this.props.onSelectedChange(data);
+    }
   }
 
   onRowClick = (index) => {
@@ -95,7 +53,7 @@ class DataTable extends Component {
   }
 
   onSelectAllRowsClick = () => {
-    const { selectedRows, disabledRows, disableSelectAll, data } = this.state;
+    const { selectedRows, disableSelectAll, data, disabledRows } = this.state;
     const notAllSelected = selectedRows.length !== (data.length - disabledRows.length);
     let newSelectedRows = [];
 
@@ -108,12 +66,6 @@ class DataTable extends Component {
     
     this.setState({ selectedRows: newSelectedRows });
     this.onChange(newSelectedRows);
-  }
-
-  onChange(data) {
-    if (typeof this.props.onSelectedChange === 'function') {
-      this.props.onSelectedChange(data);
-    }
   }
 
   sort = (prop, headerIndex) => {
@@ -135,8 +87,38 @@ class DataTable extends Component {
     });
   }
 
+  bindPropsToState(props) {
+    const {
+      data,
+      disabledRows = [],
+      maxSelected,
+      withHeader,
+      withFooter,
+      maxHeight
+    } = props;
+
+    let { disableSelectAll } = props;
+
+    if (maxSelected || !data.length) disableSelectAll = true;
+
+    const headersHeight = withHeader && withFooter ? 112 : 56;
+    const maxRows = Math.floor((maxHeight - headersHeight) / 49);
+    const roundedMaxHeight = maxHeight ? (maxRows * 49) + headersHeight : false;
+
+    this.setState({
+      data,
+      disabledRows,
+      maxSelected,
+      disableSelectAll,
+      headersHeight,
+      maxHeight: roundedMaxHeight,
+      scrollable: data.length > maxRows
+    });
+  }
+
   isSortable(prop) {
-    const { sortableKeys, data } = this.state;
+    const { data } = this.state;
+    const { sortableKeys } = this.props;
     return sortableKeys.indexOf(prop) !== -1 && data.length;
   }
 
@@ -148,148 +130,81 @@ class DataTable extends Component {
     return this.state.disabledRows.indexOf(item) !== -1;
   }
 
-  normalizeProp(prop) {
-    return prop.replace(/([A-Z])/g, ' $1');
-  } 
-
-  renderHeaders() {
-    const {
-      data,
-      dataMock,
-      excludeKeys,
-      sortActive,
-      ascending,
-      headerLabels
-    } = this.state;
-
-    const objectData = data.length ? data[0] : dataMock;
-    
-    const keys = Object.keys(objectData).filter((key) => (excludeKeys.indexOf(key)) === -1);
-
-    return keys.map((prop, i) => (
-      <th
-        className={
-          classnames(
-            {
-              'is-sortable': this.isSortable(prop),
-              'is-sortable-active': sortActive === i
-            }
-          )
-        }
-        key={i}
-        onClick={this.sort.bind(null, prop, i)}
-      >
-        {sortActive === i && <SvgIcon icon={ascending ? 'arrow-up' : 'arrow-down'} />}
-        {headerLabels[i] || this.normalizeProp(prop)}
-      </th>
-    ));
-  }
-
-  renderRows() {
-    const { data, noDataMessage } = this.state;
-    const { withHeader = true, onRowClick, checkboxColor = 'accent' } = this.props;
-    
-    return data.length ? data.map((item, key) => (
-      <DataRow
-        key={key}
-        selected={this.isSelected(item)}
-        disabled={this.isDisabled(item)}
-        hideCheckbox={!!onRowClick}
-        checkboxColor={checkboxColor}
-        onSelectClick={this.onSelectClick.bind(null, key)}
-        onRowClick={this.onRowClick.bind(null, key)}
-      >
-        {this.renderCells(item)}
-      </DataRow>
-    ))
-    :
-    <tr>
-      <td
-        className={
-          classnames(
-            'no-data-message',
-            { 'header-top': withHeader }
-          )
-        }
-      >
-        &nbsp;
-        <div>{noDataMessage}</div>
-      </td>
-    </tr>;
-  }
-
-  renderCells(item) {
-    const { excludeKeys } = this.state;
-
-    return Object.keys(item)
-    .map((prop, i) => (
-      excludeKeys.indexOf(prop) === -1 ?
-      <td key={i}>{item[prop]}</td>
-      : null
-    ));
-  }
-
-  renderSelectAllRows() {
-    const { data, selectedRows, disabledRows, disableSelectAll } = this.state;
-    const { checkboxColor = 'accent', onRowClick } = this.props;
-    const isAllSelected = selectedRows.length === (data.length - disabledRows.length);
-
-    return (
-      data.length && !onRowClick ?
-      <th>
-        <span
-          className={
-            classnames(
-              {
-                [`is-all-selected-${checkboxColor}`]: !disableSelectAll,
-                'is-all-selected': isAllSelected && !disableSelectAll,
-                'checkbox-is-disabled': disableSelectAll
-              }
-            )
-          }
-          onClick={this.onSelectAllRowsClick}
-        >
-          <SvgIcon
-            icon={isAllSelected && !disableSelectAll ? 'checkbox-marked' : 'checkbox-blank-outline'}
-          />
-        </span>
-      </th>
-      :
-      <th />
-    );
-  }
-
   render() {
     const {
       withHeader = true,
       withFooter = false,
+      dataMock,
+      excludeKeys,
+      sortableKeys,
+      headerLabels,
+      checkboxColor = 'accent',
+      noDataMessage = 'No data to show',
+      onRowClick
     } = this.props;
+
+    const {
+      data,
+      ascending,
+      sortActive,
+      selectedRows,
+      disabledRows,
+      disableSelectAll,
+      scrollable,
+      maxHeight,
+      headersHeight
+    } = this.state;
+
+    const isAllSelected = selectedRows.length === (data.length - disabledRows.length);
+    const otherProps = maxHeight ? { style: { maxHeight: maxHeight - headersHeight } } : null;
+    const headerProps = {
+      ascending,
+      sortActive,
+      scrollable,
+      dataMock,
+      excludeKeys,
+      headerLabels,
+      sortableKeys,
+      dataLength: data.length,
+      iconColor: checkboxColor,
+      hideIcon: !!onRowClick,
+      isAllSelected,
+      disableSelectAll,
+      onIconClick: this.onSelectAllRowsClick,
+      onSortClick: this.sort
+    };
 
     return (
       <div className='data-table-container'>
-        <table className='data-table'>
-          {withHeader &&
-            <thead>
-              <tr>
-                {this.renderSelectAllRows()}
-                {this.renderHeaders()}
-              </tr>
-            </thead>
+        {withHeader && <DataHeader {...headerProps} />} 
+        <div
+          className={
+            classnames(
+              'data-table-body',
+              { scrollable }
+            )
           }
-
-          {withFooter &&
-            <tfoot>
-              <tr>
-                {this.renderSelectAllRows()}
-                {this.renderHeaders()}
-              </tr>
-            </tfoot>
-          }
-
-          <tbody>
-            {this.renderRows()}
-          </tbody>
-        </table>
+          {...otherProps}
+        >
+        {data.length ?
+          data.map((item, key) => (
+            <DataRow
+              key={key}
+              item={item}
+              excludeKeys={excludeKeys}
+              selected={this.isSelected(item)}
+              disabled={this.isDisabled(item)}
+              hideIcon={!!onRowClick}
+              checkboxColor={checkboxColor}
+              onIconClick={this.onSelectClick.bind(null, key)}
+              onRowClick={this.onRowClick.bind(null, key)}
+            />
+          ))
+          :
+          <div className='no-data-message'>{noDataMessage}</div>
+        }
+        </div>
+        {withFooter && <DataHeader {...headerProps} bottom />} 
       </div>
     );
   }
@@ -298,6 +213,7 @@ class DataTable extends Component {
 DataTable.propTypes = {
   data: React.PropTypes.array.isRequired,
   dataMock: React.PropTypes.object.isRequired,
+  onSelectedChange: React.PropTypes.func,
   onRowClick: React.PropTypes.func
 };
 
