@@ -4,7 +4,7 @@ import SvgIcon from '../SvgIcon';
 
 class TextField extends Component {
   state = {
-    focused: !!(this.props.value && this.props.value.length)
+    focused: !!(this.props.value && this.props.value.toString().length)
   }
 
   componentDidMount() {
@@ -132,13 +132,13 @@ class TextField extends Component {
                 {
                   'text-field-label': !fixedLabel,
                   'text-field-label-fixed': fixedLabel,
-                  'hide-label': fixedLabel && value.length
+                  'hide-label': fixedLabel && value.toString().length
                 }
               )
             }
           >{label}</span>
           {
-            allowClear && focused && !!value.length &&
+            allowClear && focused && !!value.toString().length &&
             <div
               className='clear'
               onClick={this.clear}
@@ -191,7 +191,7 @@ class TextField extends Component {
                   }
                 )
               }
-            >{`${value.length}/${limit}`}</div>
+            >{`${value.toString().length}/${limit}`}</div>
           }
         </div>
       </div>
