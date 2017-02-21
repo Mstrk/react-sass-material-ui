@@ -6,6 +6,7 @@ import DataRow from './DataRow';
 class DataTable extends Component {
   state = {
     selectedRows: [],
+    disabledRows: [],
     ascending: false,
     scrollable: false,
     maxHeight: false
@@ -97,22 +98,24 @@ class DataTable extends Component {
       maxHeight
     } = props;
 
+    const newData = [].concat(data);
+
     let { disableSelectAll } = props;
 
-    if (maxSelected || !data.length) disableSelectAll = true;
+    if (maxSelected || !newData.length) disableSelectAll = true;
 
     const headersHeight = withHeader && withFooter ? 112 : 56;
     const maxRows = Math.floor((maxHeight - headersHeight) / 49);
     const roundedMaxHeight = maxHeight ? (maxRows * 49) + headersHeight : false;
 
     this.setState({
-      data,
+      data: newData,
       disabledRows,
       maxSelected,
       disableSelectAll,
       headersHeight,
       maxHeight: roundedMaxHeight,
-      scrollable: data.length > maxRows
+      scrollable: newData.length > maxRows
     });
   }
 
@@ -137,7 +140,7 @@ class DataTable extends Component {
       dataMock,
       excludeKeys,
       sortableKeys,
-      headerLabels,
+      headerLabels = [],
       checkboxColor = 'accent',
       noDataMessage = 'No data to show',
       onRowClick
