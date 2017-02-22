@@ -1,6 +1,6 @@
 /*eslint no-undef:0*/
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import { DropDown, Menu, MenuItem } from '../src';
 
 jest.useFakeTimers();
@@ -31,35 +31,19 @@ describe('<DropDown />', () => {
     expect(dropDown.find('.dropDown-menu').type()).toEqual('div');
   });
 
-  // this test is failing in travis CI for some reason
-  // TODO: investigate what happen
-  // it('should set state open true when anchor is clicked', () => {
-  //   expect(dropDown.state().open).toEqual(false);
-  //   dropDown.find('span').simulate('click');
+  it('should set state open true when anchor is clicked', () => {
+    expect(dropDown.state().open).toEqual(false);
+    dropDown.find('span').simulate('click');
 
-  //   jest.runOnlyPendingTimers();
-  //   expect(dropDown.state().open).toEqual(true);
-  // });
-
-  it('should add delay(number) to each child', () => {
-    for (let i = 1; i <= 5; i++) {
-      expect(dropDown.find(`.delay${i}`)).toHaveLength(1);
-    }
-
-    dropDown.unmount();
+    jest.runOnlyPendingTimers();
+    expect(dropDown.state().open).toEqual(true);
   });
 
-  const dropDown2 = shallow(
-    <DropDown anchorEl={<span />}>
-      <span />
-      <span />
-      <span />
-    </DropDown>
-  );
+  it('should set state open false when dropDown is unfocused', () => {
+    expect(dropDown.state().open).toEqual(true);
+    dropDown.simulate('blur');
 
-  it('should not add delay(number) to each child', () => {
-    for (let i = 1; i <= 3; i++) {
-      expect(dropDown2.find(`.delay${i}`)).toHaveLength(0);
-    }
+    jest.runOnlyPendingTimers();
+    expect(dropDown.state().open).toEqual(false);
   });
 });
