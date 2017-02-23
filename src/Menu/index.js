@@ -2,13 +2,23 @@ import React, { Component } from 'react';
 import Paper from '../Paper';
 
 class Menu extends Component {
-  cloneChildren(children, hoverable, classNames) {
+  cloneChildren() {
+    const {
+      children,
+      hoverable,
+      indentItemsLeft,
+      indentItemsRight,
+      childClassNames = []
+    } = this.props;
     const childrenArray = React.Children.toArray(children);
+
     return childrenArray.map((child, key) => (
       React.cloneElement(child, {
         key,
         hoverable,
-        className: classNames[key]
+        indentLeft: !!indentItemsLeft,
+        indentRight: !!indentItemsRight,
+        className: childClassNames[key]
       })
     ));
   }
@@ -18,10 +28,7 @@ class Menu extends Component {
       zDepth = 8,
       type,
       color,
-      hoverable,
-      childClassNames = [],
-      style,
-      children
+      style
     } = this.props;
 
     return (
@@ -32,7 +39,7 @@ class Menu extends Component {
         color={color}
       >
         <ul className='menu'>
-          {this.cloneChildren(children, hoverable, childClassNames)}
+          {this.cloneChildren()}
         </ul>
       </Paper>
     );
