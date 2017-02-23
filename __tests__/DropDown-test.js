@@ -7,7 +7,10 @@ jest.useFakeTimers();
 
 describe('<DropDown />', () => {
   const dropDown = mount(
-    <DropDown anchorEl={<span />}>
+    <DropDown
+      anchorEl={<span className='anchor' />}
+      closeOnItemClick
+    >
       <Menu>
         <MenuItem />
         <MenuItem />
@@ -33,17 +36,10 @@ describe('<DropDown />', () => {
 
   it('should set state open true when anchor is clicked', () => {
     expect(dropDown.state().open).toEqual(false);
-    dropDown.find('span').simulate('click');
+    dropDown.find('.anchor').simulate('click');
 
     jest.runOnlyPendingTimers();
     expect(dropDown.state().open).toEqual(true);
-  });
-
-  it('should set state open false when dropDown is unfocused', () => {
-    expect(dropDown.state().open).toEqual(true);
-    dropDown.simulate('blur');
-
-    jest.runOnlyPendingTimers();
-    expect(dropDown.state().open).toEqual(false);
+    dropDown.unmount();
   });
 });
