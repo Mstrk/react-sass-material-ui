@@ -6,8 +6,22 @@ class DropDown extends Component {
     open: false
   }
 
-  handleOutsideClick = () => {
-    this.setState({ open: false });
+  componentDidMount() {
+    window.addEventListener('mousedown', this.handleOutsideClick);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('mousedown', this.handleOutsideClick);
+  }
+
+  handleOutsideClick = (event) => {
+    if (this.state.open) {
+      if (this.props.closeOnItemClick) {
+        this.setState({ open: false });
+      } else if (!this.rootNode.contains(event.target)) {
+        this.setState({ open: false });
+      }
+    }
   }
 
   handleClick = () => {
@@ -21,8 +35,7 @@ class DropDown extends Component {
 
     return (
       <div
-        tabIndex={0}
-        onBlur={this.handleOutsideClick}
+        ref={node => { this.rootNode = node; }}
         className='dropDown'
       >
         {React.cloneElement(anchorEl, {
