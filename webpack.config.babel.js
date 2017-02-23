@@ -9,6 +9,7 @@ import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import jsonImporter from 'node-sass-json-importer';
 
 export default {
   entry: path.normalize(`${__dirname}/demo/index.js`),
@@ -38,6 +39,10 @@ export default {
           'css!postcss!sass?outputStyle=extended')
       }
     ]
+  },
+
+  sassLoader: {
+    importer: jsonImporter
   },
 
   postcss: () => ([autoprefixer({ browsers: ['last 3 versions', '> 1%'] })]),
