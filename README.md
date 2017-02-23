@@ -10,4 +10,4 @@
 [![coverage](https://img.shields.io/codecov/c/github/mstrk/react-sass-material-ui.svg?style=flat-square)](https://codecov.io/gh/mstrk/react-sass-material-ui)
 [![licence](https://img.shields.io/npm/l/react-sass-material-ui.svg?style=flat-square)](https://opensource.org/licenses/MIT)
 
-Disclamer: Please don't use this yet, it will be breaking changes.
+Disclamer: Please don't use this yet, it will have breaking changes in almost every release.
