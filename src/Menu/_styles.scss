@@ -10,6 +10,7 @@
       padding: 0 $base-spacing-unit * 3;
       cursor: default;
       height: 32px;
+      overflow: hidden;
 
       .primaryText,
       .secundaryText {
@@ -39,6 +40,10 @@
         &.icon-right {
           right: $base-spacing-unit * 3;
         }
+      }
+
+      .ripple {
+        background-color: darken($black-2, 50%);
       }
 
       &.hoverable:hover {

@@ -6,6 +6,7 @@ class Menu extends Component {
     const {
       children,
       hoverable,
+      rippable,
       indentItemsLeft,
       indentItemsRight,
       childClassNames = []
@@ -16,6 +17,7 @@ class Menu extends Component {
       React.cloneElement(child, {
         key,
         hoverable,
+        rippable,
         indentLeft: !!indentItemsLeft,
         indentRight: !!indentItemsRight,
         className: childClassNames[key]
