@@ -63,6 +63,7 @@ const Menus = () => (
       <Menu
         type='round'
         hoverable
+        rippable
         indentItemsRight
       >
         <MenuItem
