@@ -5,7 +5,7 @@ cache:
 notifications:
   email: false
 node_js:
-  - '5.4.1'
+  - 'stable'
 sudo: false
 before_script:
   - npm prune
