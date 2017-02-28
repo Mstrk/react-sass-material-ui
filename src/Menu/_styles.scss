@@ -5,13 +5,46 @@
 
     .menuItem {
       position: relative;
-      @include font-size(14px);
-      white-space: nowrap;
-      color: inherit;
-      padding: 0 $base-spacing-unit * 4 0 $base-spacing-unit * 2;
+      display: flex;
+      align-items: center;
+      padding: 0 $base-spacing-unit * 3;
       cursor: default;
       height: 32px;
-      line-height: 32px;
+      overflow: hidden;
+
+      .primaryText,
+      .secundaryText {
+        flex: 1;
+        @include font-size(15px);
+        white-space: nowrap;
+        color: inherit;
+      }
+
+      .primaryText.withSecundaryText {
+        padding-right: $base-spacing-unit * 3;
+      }
+
+      .secundaryText {
+        text-align: right;
+      }
+
+      svg {
+        display: block;
+        position: absolute;
+        fill: $black-2;
+
+        &.icon-left {
+          left: $base-spacing-unit * 3;
+        }
+
+        &.icon-right {
+          right: $base-spacing-unit * 3;
+        }
+      }
+
+      .ripple {
+        background-color: darken($black-2, 50%);
+      }
 
       &.hoverable:hover {
         background-color: $black-4;
@@ -27,6 +60,20 @@
         padding: 0;
         height: 1px;
         margin: $base-spacing-unit 0;
+      }
+
+      &.indent-left,
+      &.indent-right {
+        @include font-size(16px);
+        height: 48px;
+      }
+
+      &.indent-left {
+        padding-left: 72px;
+      }
+
+      &.indent-right {
+        padding-right: 72px;
       }
     }
   }

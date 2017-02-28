@@ -8,6 +8,7 @@
 
   .dropDown {
     position: relative;
+    outline: none;
 
     .dropDown-menu {
       position: absolute;
@@ -17,36 +18,12 @@
       transform-origin: right top;
       opacity: 0;
       transition: opacity 0.2s $ease-in, transform 0.5s $ease-in;
-      transition-delay: 0.3s;
-      
-      li {
-        position: relative;
-        transform: translateX(10px);
-        transition: opacity 0.2s $ease-in, transform 0.5s $ease-in;
-        transition-delay: 0.3s;
-        opacity: 0;
-      }
-
-      li.is-divider {
-        transform: translateX(0) !important;
-      }
+      transition-delay: 0.2s;
 
       &.drop-open {
         transform: scale(1);
         transition: transform 0.25s $ease-out;
         opacity: 1;
-
-        li {
-          transform: translateX(0);
-          transition: transform 0.25s $ease-out, opacity 0.25s $ease-out;
-          opacity: 1;
-        }
-
-        @for $i from 1 through 5 {
-          li.delay#{$i} {
-            @include transition-delay($i);
-          }
-        }
       }
     }
   }

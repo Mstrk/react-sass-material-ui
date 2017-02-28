@@ -44,12 +44,30 @@ class App extends Component {
             hoverable
             style={{ minWidth: '200px' }}
           >
-            <MenuItem onClick={this.navigate.bind(null, '/')}>Buttons</MenuItem>
-            <MenuItem onClick={this.navigate.bind(null, '/paper')}>Paper</MenuItem>
-            <MenuItem onClick={this.navigate.bind(null, '/menu')}>Menu</MenuItem>
-            <MenuItem onClick={this.navigate.bind(null, '/card')}>Card</MenuItem>
-            <MenuItem onClick={this.navigate.bind(null, '/textfield')}>Textfield</MenuItem>
-            <MenuItem onClick={this.navigate.bind(null, '/datatable')}>DataTable</MenuItem>
+            <MenuItem
+              primaryText='Buttons'
+              onClick={this.navigate.bind(null, '/')}
+            />
+            <MenuItem
+              primaryText='Paper'
+              onClick={this.navigate.bind(null, '/paper')}
+            />
+            <MenuItem
+              primaryText='Menu'
+              onClick={this.navigate.bind(null, '/menu')}
+            />
+            <MenuItem
+              primaryText='Card'
+              onClick={this.navigate.bind(null, '/card')}
+            />
+            <MenuItem
+            primaryText='Textfield'
+              onClick={this.navigate.bind(null, '/textfield')}
+            />
+            <MenuItem
+              primaryText='DataTable'
+              onClick={this.navigate.bind(null, '/datatable')}
+            />
           </Menu>
         </Drawer>
 
@@ -74,20 +92,33 @@ class App extends Component {
                   icon='dots-vertical'
                 />
              }
+             closeOnItemClick
             >
               <Menu
                 type='round'
                 hoverable
               >
-                <MenuItem>Cart</MenuItem>
-                <MenuItem>Messages</MenuItem>
-                <MenuItem>Profile</MenuItem>
+                <MenuItem
+                  primaryText='Edit'
+                  leftIcon='pencil'
+                />
+                <MenuItem
+                  primaryText='Cart'
+                  leftIcon='heart'
+                />
+                <MenuItem
+                  primaryText='Profile'
+                  leftIcon='phone'
+                />
                 <MenuItem isDivider />
-                <MenuItem>Settings</MenuItem>
+                <MenuItem
+                  primaryText='Settings'
+                  leftIcon='pencil'
+                />
               </Menu>
             </DropDown>
           }
-          title='Fancy Title for show'
+          title='Fancy Title'
         />
         {children}
       </div>

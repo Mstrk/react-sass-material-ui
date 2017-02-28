@@ -1,0 +1,48 @@
+// All Options for RSMUI
+
+// Include Open-Sans font-face
+$include-font-face: true;
+
+// z-depth classes
+$include-depths: (
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+  11, 12, 13, 14, 15, 16, 17, 18,
+  19, 20, 21, 22, 23, 24
+);
+
+// Background colors
+// $include-backgound-colors: ('all');
+$include-backgound-colors: ('red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal',  'green',  'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey', 'black', 'white', 'primary', 'primary-hue-1', 'primary-hue-2', 'accent', 'accent-hue-1', 'accent-hue-2');
+
+// Buttons: reset
+$include-btns: true;
+
+// Buttons: disabled states
+$include-btns-disabled: ('raised', 'fab', 'flat', 'icon');
+
+// Buttons: types
+$include-btns-types: ('raised', 'flat', 'icon', 'fab');
+
+// Buttons: sizes
+$include-btns-sizes: ('xs', 's', 'm', 'l', 'xl');
+
+// Buttons: colors
+// $include-btns-raised-colors: ('all');
+$include-btns-raised-colors: ('red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal',  'green',  'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey', 'black', 'white', 'primary', 'primary-hue-1', 'primary-hue-2', 'accent', 'accent-hue-1', 'accent-hue-2');
+// $include-btns-flat-colors: ('all');
+$include-btns-flat-colors: ('red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal',  'green',  'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey', 'black', 'white', 'primary', 'primary-hue-1', 'primary-hue-2', 'accent', 'accent-hue-1', 'accent-hue-2');
+// $include-btns-icon-colors: ('all');
+$include-btns-icon-colors: ('red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal',  'green',  'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey', 'black', 'white', 'primary', 'primary-hue-1', 'primary-hue-2', 'accent', 'accent-hue-1', 'accent-hue-2');
+// $include-btns-fab-colors: ('all');
+$include-btns-fab-colors: ('red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal',  'green',  'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey', 'black', 'white', 'primary', 'primary-hue-1', 'primary-hue-2', 'accent', 'accent-hue-1', 'accent-hue-2');
+
+// Components: styles
+$include-components: ('AppBar', 'Card', 'DataTable', 'Drawer', 'DropDown', 'Menu', 'Paper', 'Ripple', 'TextField');
+
+// TextField: colors
+// $include-text-field-colors: ('all');
+$include-text-field-colors: ('red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal',  'green',  'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey', 'black', 'white', 'primary', 'primary-hue-1', 'primary-hue-2', 'accent', 'accent-hue-1', 'accent-hue-2');
+
+// Table: checkbox colors
+// $include-table-checkbox-colors: ('all');
+$include-table-checkbox-colors: ('red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal',  'green',  'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey', 'black', 'white', 'primary', 'primary-hue-1', 'primary-hue-2', 'accent', 'accent-hue-1', 'accent-hue-2');

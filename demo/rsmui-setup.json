@@ -1,0 +1,31 @@
+{
+  "include-font-face": true,
+  
+  "include-depths": [
+    1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+    11, 12, 13, 14, 15, 16, 17, 18,
+    19, 20, 21, 22, 23, 24
+  ],
+
+  "include-backgound-colors": ["'primary'", "'white'", "'pink'"],
+
+  "include-btns": true,
+
+  "include-btns-types": ["'raised'", "'flat'", "'icon'", "'fab'"],
+
+  "include-btns-sizes": ["'m'", "'l'", "'xl'"],
+
+  "include-btns-raised-colors": ["'primary'"],
+
+  "include-btns-flat-colors": ["'primary'", "'accent'"],
+
+  "include-btns-icon-colors": ["'primary'", "'accent'", "'black'", "'white'", "'pink'"],
+  
+  "include-btns-fab-colors": ["'accent'", "'teal'"],
+
+  "include-components": ["'AppBar'", "'Card'", "'DataTable'", "'Drawer'", "'DropDown'", "'Menu'", "'Paper'", "'Ripple'", "'TextField'"],
+
+  "include-text-field-colors": ["'primary'", "'indigo'", "'red'", "'green'", "'orange'"],
+
+  "include-table-checkbox-colors": ["'accent'"]
+}
