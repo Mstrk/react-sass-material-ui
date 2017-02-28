@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
-import { SvgIcon, Ripple } from '../../src';
+import SvgIcon from '../SvgIcon';
+import Ripple from '../Ripple';
 
 class MenuItem extends Component {
   state = {
