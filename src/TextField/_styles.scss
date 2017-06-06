@@ -33,7 +33,7 @@ $ease-sharp: map-get($easing, sharp);
   }
 }
 
-@if index($include-components, 'TextField') {
+@if variable-exists(include-components) and index($include-components, 'TextField') {
   .text-field-root {
     position: relative;
 
@@ -205,18 +205,19 @@ $ease-sharp: map-get($easing, sharp);
 }
 
 @each $key, $color in $colors {
-  @if index($include-text-field-colors, $key)
-    or index($include-text-field-colors, 'all') {
-    .text-field-color-#{$key} {
-      &:after {
-        @include text-field-color($key, 'underline');
-      }
-    }
+  @if variable-exists(include-text-field-colors) {
+      @if index($include-text-field-colors, $key) or index($include-text-field-colors, 'all') {
+        .text-field-color-#{$key} {
+          &:after {
+            @include text-field-color($key, 'underline');
+          }
+        }
 
-    .text-field-color-#{$key}.focused .text-field-label,
-    .help-message-#{$key},
-    .limit-#{$key} {
-      @include text-field-color($key, 'label');
+        .text-field-color-#{$key}.focused .text-field-label,
+        .help-message-#{$key},
+        .limit-#{$key} {
+          @include text-field-color($key, 'label');
+      }
     }
   }
 }
