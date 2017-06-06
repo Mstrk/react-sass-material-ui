@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { AppBar, Button, Menu, MenuItem, DropDown, Drawer } from '../../src'
 import routes from './routes'
 
+const createOnClick = (fn, value) => event => fn(value)
+
 class App extends Component {
   state = {
     drawer: false
@@ -36,27 +38,27 @@ class App extends Component {
         >
           <MenuItem
             primaryText='Buttons'
-            onClick={history.push('/')}
+            onClick={createOnClick(history.push, '/')}
           />
           <MenuItem
             primaryText='Paper'
-            onClick={history.push('/paper')}
+            onClick={createOnClick(history.push, '/paper')}
           />
           <MenuItem
             primaryText='Menu'
-            onClick={history.push('/menu')}
+            onClick={createOnClick(history.push, '/menu')}
           />
           <MenuItem
             primaryText='Card'
-            onClick={history.push('/card')}
+            onClick={createOnClick(history.push, '/card')}
           />
           <MenuItem
             primaryText='Textfield'
-            onClick={history.push('/textfield')}
+            onClick={createOnClick(history.push, '/textfield')}
           />
           <MenuItem
             primaryText='DataTable'
-            onClick={history.push('/datatable')}
+            onClick={createOnClick(history.push, '/datatable')}
           />
         </Menu>
       </Drawer>
