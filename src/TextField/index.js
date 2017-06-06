@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import SvgIcon from '../SvgIcon';
 
@@ -200,27 +201,27 @@ class TextField extends Component {
 }
 
 TextField.propTypes = {
-  allowClear: React.PropTypes.bool,
-  color: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  error: React.PropTypes.bool,
-  errorColor: React.PropTypes.string,
-  helpMessage: React.PropTypes.string,
-  hint: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  label: React.PropTypes.string,
-  limit: React.PropTypes.number,
-  limitError: React.PropTypes.bool,
-  limitSuccess: React.PropTypes.bool,
-  multiRow: React.PropTypes.bool,
-  onChange: React.PropTypes.func.isRequired,
-  success: React.PropTypes.bool,
-  successColor: React.PropTypes.string,
-  style: React.PropTypes.object,
-  type: React.PropTypes.string,
-  value: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.number,
+  allowClear: PropTypes.bool,
+  color: PropTypes.string,
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
+  errorColor: PropTypes.string,
+  helpMessage: PropTypes.string,
+  hint: PropTypes.string,
+  icon: PropTypes.string,
+  label: PropTypes.string,
+  limit: PropTypes.number,
+  limitError: PropTypes.bool,
+  limitSuccess: PropTypes.bool,
+  multiRow: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
+  success: PropTypes.bool,
+  successColor: PropTypes.string,
+  style: PropTypes.object,
+  type: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
   ]).isRequired
 };
 

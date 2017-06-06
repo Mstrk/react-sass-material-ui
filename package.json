@@ -9,7 +9,8 @@
     "dev": "webpack-dev-server --progress",
     "test": "jest --coverage",
     "prebuild": "rimraf dist",
-    "build": "babel src --copy-files --out-dir dist",
+    "build-local": "rm -rf dist && npm run build",
+    "build": "NODE_ENV=production babel src --copy-files --out-dir dist",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -38,7 +39,8 @@
     "react-dom": "^15.0.0"
   },
   "dependencies": {
-    "classnames": "2.2.5"
+    "classnames": "2.2.5",
+    "prop-types": "^15.5.10"
   },
   "devDependencies": {
     "autoprefixer": "6.5.3",

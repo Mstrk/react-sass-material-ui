@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import DataHeader from './DataHeader';
 import DataRow from './DataRow';
@@ -214,10 +215,10 @@ class DataTable extends Component {
 }
 
 DataTable.propTypes = {
-  data: React.PropTypes.array.isRequired,
-  dataMock: React.PropTypes.object.isRequired,
-  onSelectedChange: React.PropTypes.func,
-  onRowClick: React.PropTypes.func
+  data: PropTypes.array.isRequired,
+  dataMock: PropTypes.object.isRequired,
+  onSelectedChange: PropTypes.func,
+  onRowClick: PropTypes.func
 };
 
 export default DataTable;

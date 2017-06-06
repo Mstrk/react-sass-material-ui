@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Ripple extends Component {
   state = {
@@ -54,7 +55,7 @@ class Ripple extends Component {
 }
 
 Ripple.propTypes = {
-  cursorPos: React.PropTypes.object.isRequired
+  cursorPos: PropTypes.object.isRequired
 };
 
 export default Ripple;

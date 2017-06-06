@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import SvgIcon from '../SvgIcon';
 import Ripple from '../Ripple';
@@ -53,14 +54,14 @@ class Button extends Component {
 }
 
 Button.propTypes = {
-  onClick: React.PropTypes.func,
-  text: React.PropTypes.string,
-  size: React.PropTypes.string,
-  type: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  color: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  style: React.PropTypes.object,
+  onClick: PropTypes.func,
+  text: PropTypes.string,
+  size: PropTypes.string,
+  type: PropTypes.string,
+  icon: PropTypes.string,
+  color: PropTypes.string,
+  disabled: PropTypes.bool,
+  style: PropTypes.object,
 };
 
 export default Button;

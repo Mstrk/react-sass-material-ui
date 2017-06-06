@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Paper from '../Paper';
 
@@ -31,8 +32,8 @@ const AppBar = ({
 );
 
 AppBar.propTypes = {
-  color: React.PropTypes.string,
-  zDepth: React.PropTypes.number
+  color: PropTypes.string,
+  zDepth: PropTypes.number
 };
 
 export default AppBar;

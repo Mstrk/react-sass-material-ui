@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
 const Paper = ({
@@ -28,10 +29,10 @@ const Paper = ({
 };
 
 Paper.propTypes = {
-  zDepth: React.PropTypes.number,
-  type: React.PropTypes.string,
-  color: React.PropTypes.string,
-  style: React.PropTypes.object
+  zDepth: PropTypes.number,
+  type: PropTypes.string,
+  color: PropTypes.string,
+  style: PropTypes.object
 };
 
 export default Paper;
