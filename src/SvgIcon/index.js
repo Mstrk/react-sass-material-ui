@@ -9,7 +9,10 @@ const Svg = ({ size, color, icon, onClick, ...other }) => (
 )
 
 Svg.propTypes = {
-  size: PropTypes.number,
+  size: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   color: PropTypes.string,
   icon: PropTypes.string.isRequired,
   onClick: PropTypes.func
