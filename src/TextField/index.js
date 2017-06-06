@@ -1,69 +1,69 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import SvgIcon from '../SvgIcon';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import SvgIcon from '../SvgIcon'
 
 class TextField extends Component {
   state = {
     focused: !!(this.props.value && this.props.value.length)
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (this.textarea) {
-      const { scrollHeight } = this.textarea;
+      const { scrollHeight } = this.textarea
       this.setState({
         originalTextareaHeight: scrollHeight,
         textareaHeight: scrollHeight
-      });
+      })
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    const { multiRow } = nextProps;
-    const { originalTextareaHeight } = this.state;
+  componentWillReceiveProps (nextProps) {
+    const { multiRow } = nextProps
+    const { originalTextareaHeight } = this.state
 
     if (multiRow) {
       this.setState({
         textareaHeight: originalTextareaHeight
       }, () => {
-        this.setState({ textareaHeight: this.textarea.scrollHeight });
-      });
+        this.setState({ textareaHeight: this.textarea.scrollHeight })
+      })
     }
   }
 
   handleChange = (event) => {
-    const { value } = event.target;
-    this.props.onChange(value, event);
+    const { value } = event.target
+    this.props.onChange(value, event)
   }
 
   clear = () => {
-    this.props.onChange('');
+    this.props.onChange('')
 
     if (this.props.multiRow) {
-      this.textarea.focus();
+      this.textarea.focus()
     } else {
-      this.input.focus();
+      this.input.focus()
     }
   }
 
   focus = () => {
     this.setState({
       focused: true
-    });
+    })
   }
 
   blur = () => {
     if (!this.props.value) {
       this.setState({
         focused: false
-      });
+      })
     }
   }
 
-  render() {
+  render () {
     const {
       focused,
-      textareaHeight } = this.state;
+      textareaHeight } = this.state
 
     const {
       value,
@@ -82,12 +82,12 @@ class TextField extends Component {
       success,
       limitError,
       limitSuccess,
-      helpMessage,
-    } = this.props;
+      helpMessage
+    } = this.props
 
-    let { fixedLabel } = this.props;
+    let { fixedLabel } = this.props
 
-    if (icon) fixedLabel = true;
+    if (icon) fixedLabel = true
 
     return (
       <div className='text-field-root'>
@@ -97,8 +97,8 @@ class TextField extends Component {
               classnames(
                 'icon-container',
                 {
-                  [`icon-color-${color}`]: !error && !limitError
-                  && !success && !limitSuccess && !disabled,
+                  [`icon-color-${color}`]: !error && !limitError &&
+                  !success && !limitSuccess && !disabled,
                   [`icon-color-${errorColor}`]: (error || limitError) && !disabled,
                   [`icon-color-${successColor}`]: (success || limitSuccess) && !disabled,
                   focused
@@ -115,8 +115,8 @@ class TextField extends Component {
             classnames(
               'text-field',
               {
-                [`text-field-color-${color}`]: !error && !limitError
-                && !success && !limitSuccess && !disabled,
+                [`text-field-color-${color}`]: !error && !limitError &&
+                !success && !limitSuccess && !disabled,
                 [`text-field-color-${errorColor}`]: (error || limitError) && !disabled,
                 [`text-field-color-${successColor}`]: (success || limitSuccess) && !disabled,
                 'text-field-label-is-fixed': fixedLabel,
@@ -147,25 +147,23 @@ class TextField extends Component {
               <SvgIcon icon='close-circle' />
             </div>
           }
-          {
-            multiRow ? 
-            <textarea
+          {multiRow
+            ? <textarea
               className='text-field-input'
               placeholder={focused && !fixedLabel ? hint : ''}
               value={value}
-              ref={(c) => { this.textarea = c; }}
+              ref={node => { this.textarea = node }}
               style={{ height: textareaHeight }}
               onChange={this.handleChange}
               onFocus={this.focus}
               onBlur={this.blur}
             />
-            :
-            <input
+            : <input
               className='text-field-input'
               placeholder={focused && !fixedLabel ? hint : ''}
               type={type}
               value={value}
-              ref={(c) => { this.input = c; }}
+              ref={node => { this.input = node }}
               onChange={this.handleChange}
               onFocus={this.focus}
               onBlur={this.blur}
@@ -196,7 +194,7 @@ class TextField extends Component {
           }
         </div>
       </div>
-    );
+    )
   }
 }
 
@@ -221,8 +219,9 @@ TextField.propTypes = {
   type: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number,
-  ]).isRequired
-};
+    PropTypes.number
+  ]).isRequired,
+  fixedLabel: PropTypes.bool
+}
 
-export default TextField;
+export default TextField

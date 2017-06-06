@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 const Paper = ({
   zDepth,
@@ -10,7 +10,7 @@ const Paper = ({
   style,
   className
 }) => {
-  const depth = zDepth > 0 && zDepth <= 24;
+  const depth = zDepth > 0 && zDepth <= 24
 
   return (
     <div
@@ -25,15 +25,17 @@ const Paper = ({
       )
     }
     >{children}</div>
-  );
-};
+  )
+}
 
 Paper.propTypes = {
   zDepth: PropTypes.number,
   type: PropTypes.string,
   color: PropTypes.string,
-  style: PropTypes.object
-};
+  style: PropTypes.object,
+  children: PropTypes.node,
+  className: PropTypes.string
+}
 
-export default Paper;
+export default Paper
 

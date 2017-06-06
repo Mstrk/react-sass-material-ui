@@ -1,5 +1,8 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+
+const createOnClick = (fn, value) => event => fn(value)
 
 class Drawer extends Component {
   state = {
@@ -7,57 +10,58 @@ class Drawer extends Component {
     originalOverflow: ''
   }
 
-  componentWillMount() {
-    this.body = document.getElementsByTagName('body')[0];
+  componentWillMount () {
+    this.body = document.getElementsByTagName('body')[0]
 
     this.setState({
       open: this.props.open,
       originalOverflow: this.body.style.overflow
-    });
+    })
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
     this.setState({
       open: nextProps.open
-    });
+    })
   }
 
-  componentDidUpdate() {
-    this.lockBody();
+  componentDidUpdate () {
+    this.lockBody()
   }
 
   lockBody = () => {
-    const { open, originalOverflow } = this.state;
+    const { open, originalOverflow } = this.state
 
     if (open) {
-      this.body.style.overflow = 'hidden';
+      this.body.style.overflow = 'hidden'
     } else {
-      this.body.style.overflow = originalOverflow;
+      this.body.style.overflow = originalOverflow
     }
   }
 
-  close = (element, e) => {
+  close = (element, event) => {
     const {
       disableOverlayClick,
-      disableDrawerLeftClick
-    } = this.props;
+      disableDrawerLeftClick,
+      requestClose
+    } = this.props
 
-    if (element === 'overlay' && disableOverlayClick) return;
-    if (element === 'leftDrawer' && disableDrawerLeftClick) return;
-    this.props.requestClose(e);
+    if (element === 'overlay' && disableOverlayClick) return
+    if (element === 'leftDrawer' && disableDrawerLeftClick) return
+    requestClose(event)
   }
 
-  render() {
+  render () {
     const {
       overlay,
       children
-    } = this.props;
+    } = this.props
 
     return (
-      <div ref={(c) => { this.drawerRoot = c; }}>
-        {overlay ?
-          <div
-            onClick={this.close.bind(null, 'overlay')}
+      <div ref={node => { this.drawerRoot = node }}>
+        {overlay
+          ? <div
+            onClick={createOnClick(this.close, 'overlay')}
             className={
               classnames(
                 'overlay',
@@ -67,7 +71,7 @@ class Drawer extends Component {
           /> : null}
 
         <div
-          onClick={this.close.bind(null, 'leftDrawer')}
+          onClick={createOnClick(this.close, 'leftDrawer')}
           className={
             classnames(
               'drawer',
@@ -79,8 +83,17 @@ class Drawer extends Component {
           {children}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Drawer;
+Drawer.propTypes = {
+  open: PropTypes.bool,
+  overlay: PropTypes.bool,
+  children: PropTypes.node,
+  disableOverlayClick: PropTypes.bool,
+  disableDrawerLeftClick: PropTypes.bool,
+  requestClose: PropTypes.func
+}
+
+export default Drawer

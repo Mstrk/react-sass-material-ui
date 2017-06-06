@@ -1,41 +1,42 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
 class DropDown extends Component {
   state = {
     open: false
   }
 
-  componentDidMount() {
-    window.addEventListener('mousedown', this.handleOutsideClick);
+  componentDidMount () {
+    window.addEventListener('mousedown', this.handleOutsideClick)
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('mousedown', this.handleOutsideClick);
+  componentWillUnmount () {
+    window.removeEventListener('mousedown', this.handleOutsideClick)
   }
 
   handleOutsideClick = (event) => {
     if (this.state.open) {
       if (this.props.closeOnItemClick) {
-        this.setState({ open: false });
+        this.setState({ open: false })
       } else if (!this.rootNode.contains(event.target)) {
-        this.setState({ open: false });
+        this.setState({ open: false })
       }
     }
   }
 
   handleClick = () => {
     setTimeout(() => {
-      this.setState({ open: true });
-    }, 50);
+      this.setState({ open: true })
+    }, 50)
   }
 
-  render() {
-    const { anchorEl, children } = this.props;
+  render () {
+    const { anchorEl, children } = this.props
 
     return (
       <div
-        ref={node => { this.rootNode = node; }}
+        ref={node => { this.rootNode = node }}
         className='dropDown'
       >
         {React.cloneElement(anchorEl, {
@@ -49,11 +50,17 @@ class DropDown extends Component {
             )
           }
         >
-        {children}
+          {children}
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default DropDown;
+DropDown.propTypes = {
+  anchorEl: PropTypes.node,
+  children: PropTypes.node,
+  closeOnItemClick: PropTypes.func
+}
+
+export default DropDown

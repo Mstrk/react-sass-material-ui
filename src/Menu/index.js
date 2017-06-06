@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import Paper from '../Paper';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import Paper from '../Paper'
 
 class Menu extends Component {
-  cloneChildren() {
+  cloneChildren () {
     const {
       children,
       hoverable,
@@ -10,8 +11,8 @@ class Menu extends Component {
       indentItemsLeft,
       indentItemsRight,
       childClassNames = []
-    } = this.props;
-    const childrenArray = React.Children.toArray(children);
+    } = this.props
+    const childrenArray = React.Children.toArray(children)
 
     return childrenArray.map((child, key) => (
       React.cloneElement(child, {
@@ -22,16 +23,16 @@ class Menu extends Component {
         indentRight: !!indentItemsRight,
         className: childClassNames[key]
       })
-    ));
+    ))
   }
 
-  render() {
+  render () {
     const {
       zDepth = 8,
       type,
       color,
       style
-    } = this.props;
+    } = this.props
 
     return (
       <Paper
@@ -44,8 +45,21 @@ class Menu extends Component {
           {this.cloneChildren()}
         </ul>
       </Paper>
-    );
+    )
   }
 }
 
-export default Menu;
+Menu.propTypes = {
+  zDepth: PropTypes.number,
+  type: PropTypes.string,
+  color: PropTypes.string,
+  style: PropTypes.object,
+  children: PropTypes.node,
+  hoverable: PropTypes.bool,
+  rippable: PropTypes.bool,
+  indentItemsLeft: PropTypes.bool,
+  indentItemsRight: PropTypes.bool,
+  childClassNames: PropTypes.array
+}
+
+export default Menu

@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
-import SvgIcon from '../SvgIcon';
-import Ripple from '../Ripple';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import SvgIcon from '../SvgIcon'
+import Ripple from '../Ripple'
 
 class MenuItem extends Component {
   state = {
     cursorPos: {}
   }
 
-  handleClick = (e) => {
+  handleClick = (event) => {
     const cursorPos = {
-      top: e.clientY,
-      left: e.clientX,
+      top: event.clientY,
+      left: event.clientX,
       time: Date.now()
-    };
+    }
 
-    this.setState({ cursorPos });
+    this.setState({ cursorPos })
 
-    if (typeof this.props.onClick === 'function') this.props.onClick(e);
+    if (typeof this.props.onClick === 'function') this.props.onClick(event)
   }
 
-  render() {
+  render () {
     const {
       isHeader,
       isDivider,
@@ -34,7 +35,7 @@ class MenuItem extends Component {
       rightIcon,
       style,
       className
-    } = this.props;
+    } = this.props
 
     return (
       <li
@@ -67,8 +68,24 @@ class MenuItem extends Component {
         {rightIcon && <SvgIcon className='icon-right' size={24} icon={rightIcon} />}
         {rippable && <Ripple cursorPos={this.state.cursorPos} />}
       </li>
-    );
+    )
   }
 }
 
-export default MenuItem;
+MenuItem.propTypes = {
+  isHeader: PropTypes.bool,
+  isDivider: PropTypes.bool,
+  hoverable: PropTypes.bool,
+  rippable: PropTypes.bool,
+  primaryText: PropTypes.string,
+  secundaryText: PropTypes.string,
+  indentLeft: PropTypes.bool,
+  indentRight: PropTypes.bool,
+  leftIcon: PropTypes.node,
+  rightIcon: PropTypes.node,
+  style: PropTypes.object,
+  className: PropTypes.string,
+  onClick: PropTypes.func
+}
+
+export default MenuItem
