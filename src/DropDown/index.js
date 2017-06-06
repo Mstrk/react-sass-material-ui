@@ -60,7 +60,7 @@ class DropDown extends Component {
 DropDown.propTypes = {
   anchorEl: PropTypes.node,
   children: PropTypes.node,
-  closeOnItemClick: PropTypes.func
+  closeOnItemClick: PropTypes.bool
 }
 
 export default DropDown
