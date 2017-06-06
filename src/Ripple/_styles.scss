@@ -1,4 +1,4 @@
-@if index($include-components, 'Ripple') {
+@if variable-exists(include-components) and index($include-components, 'Ripple') {
   // Ripple animation
   @keyframes ripple {
     0% {
