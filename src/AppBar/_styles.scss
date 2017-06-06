@@ -1,4 +1,4 @@
-@if index($include-components, 'AppBar') {
+@if variable-exists(include-components) and index($include-components, 'AppBar') {
   .appBar {
     position: fixed;
     top: 0;
