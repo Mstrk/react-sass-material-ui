@@ -1,6 +1,7 @@
-import React from 'react';
-import classnames from 'classnames';
-import SvgIcon from '../SvgIcon';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import SvgIcon from '../SvgIcon'
 
 const DataRow = ({
   item,
@@ -42,17 +43,21 @@ const DataRow = ({
         />
       </div>
     }
-    {
-      Object.keys(item).map((prop, i) => (
-        excludeKeys.indexOf(prop) === -1 ?
-        <div
-          key={i}
-          className='data-table-body-cell'
-        >{item[prop]}</div>
-        : null
-      ))
-    }
+    {Object.keys(item).map((prop, i) => (
+      excludeKeys.indexOf(prop) === -1 ? <div key={i} className='data-table-body-cell'>{item[prop]}</div> : null
+    ))}
   </div>
-);
+)
 
-export default DataRow;
+DataRow.propTypes = {
+  item: PropTypes.object,
+  excludeKeys: PropTypes.array,
+  selected: PropTypes.bool,
+  onIconClick: PropTypes.func,
+  onRowClick: PropTypes.func,
+  disabled: PropTypes.bool,
+  hideIcon: PropTypes.bool,
+  checkboxColor: PropTypes.string
+}
+
+export default DataRow

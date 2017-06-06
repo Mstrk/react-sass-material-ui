@@ -1,6 +1,7 @@
-import React from 'react';
-import classnames from 'classnames';
-import Paper from '../Paper';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import Paper from '../Paper'
 
 const AppBar = ({
   color = 'primary',
@@ -11,13 +12,13 @@ const AppBar = ({
   title
 }) => (
   <div
-     className={
+    className={
       classnames(
         'appBar',
         { [`z-depth${zDepth}`]: zDepth }
       )
     }
-  > 
+  >
     <Paper
       color={color}
       className='appBar-container'
@@ -28,11 +29,15 @@ const AppBar = ({
       {contentRight && <div className='right-content'>{contentRight}</div>}
     </Paper>
   </div>
-);
+)
 
 AppBar.propTypes = {
-  color: React.PropTypes.string,
-  zDepth: React.PropTypes.number
-};
+  color: PropTypes.string,
+  zDepth: PropTypes.number,
+  contentLeft: PropTypes.node,
+  contentCenter: PropTypes.node,
+  contentRight: PropTypes.node,
+  title: PropTypes.string
+}
 
-export default AppBar;
+export default AppBar

@@ -1,4 +1,4 @@
-@if index($include-components, 'Menu') {
+@if variable-exists(include-components) and index($include-components, 'Menu') {
   .menu {
     @include bare-list();
     padding: $base-spacing-unit 0;

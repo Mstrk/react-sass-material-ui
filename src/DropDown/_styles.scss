@@ -2,7 +2,7 @@
   transition-delay: 0.070s * $counter;
 }
 
-@if index($include-components, 'DropDown') {
+@if variable-exists(include-components) and index($include-components, 'DropDown') {
   $ease-out: map-get($easing, deceleration);
   $ease-in: map-get($easing, acceleration);
 

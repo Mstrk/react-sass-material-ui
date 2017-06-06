@@ -1,9 +1,11 @@
-import React from 'react';
-import classnames from 'classnames';
-import SvgIcon from '../SvgIcon';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import SvgIcon from '../SvgIcon'
 
-const isSortable = (prop, sortableKeys, haveData) => sortableKeys.indexOf(prop) !== -1 && haveData;
-const normalizeProp = prop => prop.replace(/([A-Z])/g, ' $1');
+const isSortable = (prop, sortableKeys, haveData) => sortableKeys.indexOf(prop) !== -1 && haveData
+const normalizeProp = prop => prop.replace(/([A-Z])/g, ' $1')
+const createOnClick = (fn, prop, i) => event => fn(prop, i)
 
 const DataHeader = ({
   bottom,
@@ -22,7 +24,7 @@ const DataHeader = ({
   isAllSelected,
   disableSelectAll
 }) => {
-  const keys = Object.keys(dataMock).filter((key) => (excludeKeys.indexOf(key)) === -1);
+  const keys = Object.keys(dataMock).filter((key) => (excludeKeys.indexOf(key)) === -1)
 
   return (
     <div
@@ -66,15 +68,33 @@ const DataHeader = ({
                 }
               )
             }
-            onClick={onSortClick.bind(null, prop, i)}
+            onClick={createOnClick(onSortClick, prop, i)}
           >
-          {sortActive === i && <SvgIcon icon={ascending ? 'arrow-up' : 'arrow-down'} />}
-          {headerLabels[i] || normalizeProp(prop)}
+            {sortActive === i && <SvgIcon icon={ascending ? 'arrow-up' : 'arrow-down'} />}
+            {headerLabels[i] || normalizeProp(prop)}
           </div>
         ))
       }
     </div>
-  );
-};
+  )
+}
 
-export default DataHeader;
+DataHeader.propTypes = {
+  bottom: PropTypes.bool,
+  scrollable: PropTypes.bool,
+  dataMock: PropTypes.object,
+  excludeKeys: PropTypes.array,
+  headerLabels: PropTypes.array,
+  onIconClick: PropTypes.func,
+  onSortClick: PropTypes.func,
+  ascending: PropTypes.bool,
+  sortActive: PropTypes.number,
+  sortableKeys: PropTypes.array,
+  dataLength: PropTypes.number,
+  iconColor: PropTypes.string,
+  hideIcon: PropTypes.bool,
+  isAllSelected: PropTypes.bool,
+  disableSelectAll: PropTypes.bool
+}
+
+export default DataHeader

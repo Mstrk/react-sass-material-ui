@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class Ripple extends Component {
   state = {
@@ -9,28 +10,28 @@ class Ripple extends Component {
     left: 0
   }
 
-  componentWillReceiveProps(nextProps) {
-    const cursorPos = nextProps.cursorPos;
+  componentWillReceiveProps (nextProps) {
+    const cursorPos = nextProps.cursorPos
     if (cursorPos.time !== this.props.cursorPos.time) {
       if (this.state.animate) {
         this.setState({ animate: false }, () => {
-          this.rippling(cursorPos);
-        });
-      } else this.rippling(cursorPos);
+          this.rippling(cursorPos)
+        })
+      } else this.rippling(cursorPos)
     }
   }
 
-  rippling(cursorPos) {
-    const rippleElement = this.ripple;
-    const parent = rippleElement.parentElement;
+  rippling (cursorPos) {
+    const rippleElement = this.ripple
+    const parent = rippleElement.parentElement
 
-    const parentPos = parent.getBoundingClientRect();
+    const parentPos = parent.getBoundingClientRect()
 
-    const parentWidth = parent.offsetWidth;
-    const parentHeight = parent.offsetHeight;
+    const parentWidth = parent.offsetWidth
+    const parentHeight = parent.offsetHeight
 
-    const diameter = Math.max(parentHeight, parentWidth);
-    const center = diameter / 2;
+    const diameter = Math.max(parentHeight, parentWidth)
+    const center = diameter / 2
 
     this.setState({
       animate: true,
@@ -41,20 +42,20 @@ class Ripple extends Component {
     });
   }
 
-  render() {
-    const { top, left, width, height } = this.state;
+  render () {
+    const { top, left, width, height } = this.state
     return (
       <span
         className={`ripple ${(this.state.animate ? 'ripple--is-animated' : '')}`}
-        ref={(c) => { this.ripple = c; }}
+        ref={node => { this.ripple = node }}
         style={{ top, left, width, height }}
       />
-    );
+    )
   }
 }
 
 Ripple.propTypes = {
-  cursorPos: React.PropTypes.object.isRequired
-};
+  cursorPos: PropTypes.object.isRequired
+}
 
-export default Ripple;
+export default Ripple

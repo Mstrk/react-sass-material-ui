@@ -1,4 +1,4 @@
-@if index($include-components, 'Drawer') {  
+@if variable-exists(include-components) and index($include-components, 'Drawer') {  
   $ease-out: map-get($easing, deceleration);
   $ease-sharp: map-get($easing, sharp);
 

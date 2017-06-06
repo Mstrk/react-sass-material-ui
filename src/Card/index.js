@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import classnames from 'classnames';
-import Paper from '../Paper';
-import Button from '../Button';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
+import Paper from '../Paper'
+import Button from '../Button'
 
 class Card extends Component {
   state = {
@@ -9,20 +10,20 @@ class Card extends Component {
     extendContentHeight: 0
   }
 
-  componentDidMount() {
+  componentDidMount () {
     if (this.refs.extend) {
-      const { offsetHeight } = this.refs.extend;
-      this.setState({ extendContentHeight: offsetHeight + 40 });
+      const { offsetHeight } = this.refs.extend
+      this.setState({ extendContentHeight: offsetHeight + 40 })
     }
   }
 
   handleExtendClick = () => {
-    const { extendHeight, extendContentHeight } = this.state;
-    const newHeight = extendHeight > 0 ? 0 : extendContentHeight;
-    this.setState({ extendHeight: newHeight });
+    const { extendHeight, extendContentHeight } = this.state
+    const newHeight = extendHeight > 0 ? 0 : extendContentHeight
+    this.setState({ extendHeight: newHeight })
   }
 
-  render() {
+  render () {
     const {
       img,
       actions,
@@ -30,9 +31,9 @@ class Card extends Component {
       actionsDivider,
       children,
       extendableContent,
-      style } = this.props;
+      style } = this.props
 
-    const { extendHeight } = this.state;
+    const { extendHeight } = this.state
 
     return (
       <Paper
@@ -45,8 +46,8 @@ class Card extends Component {
         zDepth={2}
         style={style}
       >
-        { img ?
-          <div
+        { img
+          ? <div
             style={img.parentStyle}
             className={
               classnames(
@@ -55,25 +56,19 @@ class Card extends Component {
               )
             }
           >
-            <img
-              style={img.childImgStyle}
-              role='presentation'
-              src={img.src}
-            />
+            <img style={img.childImgStyle} role='presentation' src={img.src} />
             {img.caption && <span style={img.childCaptionStyle}>{img.caption}</span>}
           </div>
           : null
         }
 
         <div className='card-content-wrapper'>
-          <div
-            className='card-content'
-          >
-          {children}
+          <div className='card-content'>
+            {children}
           </div>
 
-          { actions ?
-            <div
+          { actions
+            ? <div
               className={
                 classnames(
                   'card-actions',
@@ -82,8 +77,8 @@ class Card extends Component {
               }
             >
               {actions}
-              { extendableContent ?
-                <Button
+              { extendableContent
+                ? <Button
                   type='icon'
                   icon='chevron-up'
                   color='black'
@@ -95,13 +90,13 @@ class Card extends Component {
                   }
                   onClick={this.handleExtendClick}
                 />
-              : null
+                : null
               }
             </div>
             : null
           }
-          { extendableContent ?
-            <div
+          { extendableContent
+            ? <div
               style={{ height: `${extendHeight}px` }}
               className={
                 classnames(
@@ -120,8 +115,18 @@ class Card extends Component {
           }
         </div>
       </Paper>
-    );
+    )
   }
 }
 
-export default Card;
+Card.propTypes = {
+  img: PropTypes.object,
+  actions: PropTypes.node,
+  small: PropTypes.bool,
+  actionsDivider: PropTypes.bool,
+  children: PropTypes.node,
+  extendableContent: PropTypes.node,
+  style: PropTypes.object
+}
+
+export default Card

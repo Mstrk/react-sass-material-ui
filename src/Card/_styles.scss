@@ -1,4 +1,4 @@
-@if index($include-components, 'Card') {
+@if variable-exists(include-components) and index($include-components, 'Card') {
   .card {
     display: inline-flex;
     flex-flow: column;
