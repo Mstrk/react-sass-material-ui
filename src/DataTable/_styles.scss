@@ -1,4 +1,4 @@
-@if index($include-components, 'DataTable') {
+@if variable-exists(include-components) and index($include-components, 'DataTable') {
   .data-table-container {
     position: relative;
     width: 100%;
