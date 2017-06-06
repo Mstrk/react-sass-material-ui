@@ -1,11 +1,11 @@
-import React from 'react';
-import { Card, Button } from '../../src';
+import React from 'react'
+import { Card, Button } from '../../src'
 
 const cardStyles = {
   marginTop: '20px',
   marginRight: '20px',
   width: '400px'
-};
+}
 
 const Cards = () => (
   <div style={{ padding: 'calc(64px + 2em) 2em' }}>
@@ -16,14 +16,12 @@ const Cards = () => (
         parentStyle: { maxHeight: '160px' }
       }}
     >
-      <div
-        className='card-text'
-      >
-        <p>Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit. 
-        Aenean tristique orci a lacinia malesuada. 
-        Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit. 
+      <div className='card-text'>
+        <p>Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit.
+        Aenean tristique orci a lacinia malesuada.
+        Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit.
         Aenean tristique orci a lacinia malesuada.</p>
       </div>
     </Card>
@@ -49,33 +47,17 @@ const Cards = () => (
         </span>
       }
 
-      extendableContent={ 
-        <div
-          className='card-text'
-        >
-          <p>Lorem ipsum dolor sit amet, 
-          consectetur adipiscing elit. 
-          Aenean tristique orci a lacinia malesuada.</p>
-          <p>Lorem ipsum dolor sit amet, 
-          consectetur adipiscing elit. 
-          Aenean tristique orci a lacinia malesuada.</p>
-          <p>Lorem ipsum dolor sit amet, 
-          consectetur adipiscing elit. 
-          Aenean tristique orci a lacinia malesuada.</p>
-          <p>Lorem ipsum dolor sit amet, 
-          consectetur adipiscing elit. 
-          Aenean tristique orci a lacinia malesuada.</p>
+      extendableContent={
+        <div className='card-text'>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique orci a lacinia malesuada.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique orci a lacinia malesuada.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique orci a lacinia malesuada.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique orci a lacinia malesuada.</p>
         </div>
       }
     >
-      <span
-        className='card-title'
-      >
-        Lorem Ipsum
-      </span>
-      <span
-        className='card-subtitle'
-      >Dolor sit amet</span>
+      <span className='card-title'>Lorem Ipsum</span>
+      <span className='card-subtitle'>Dolor sit amet</span>
     </Card>
 
     <Card
@@ -101,17 +83,9 @@ const Cards = () => (
         </span>
       }
     >
-      <span
-        className='card-subtitle'
-      >
-        Lorem Ipsum
-      </span>
-      <div
-        className='card-text'
-      >
-        <p>Lorem ipsum dolor sit amet, 
-        consectetur adipiscing elit. 
-        Aenean tristique orci a lacinia malesuada.</p>
+      <span className='card-subtitle'>Lorem Ipsum</span>
+      <div className='card-text'>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean tristique orci a lacinia malesuada.</p>
       </div>
     </Card>
 
@@ -139,23 +113,13 @@ const Cards = () => (
       small
       actionsDivider
     >
-      <span
-        className='card-title'
-      >
-        Lorem Ipsum
-      </span>
-      <span
-        className='card-subtitle'
-      >
-        Lorem Ipsum
-      </span>
-      <div
-        className='card-text'
-      >
+      <span className='card-title'>Lorem Ipsum</span>
+      <span className='card-subtitle'>Lorem Ipsum</span>
+      <div className='card-text'>
         <p>Lorem ipsum dolor sit amet.</p>
       </div>
     </Card>
   </div>
-);
+)
 
-export default Cards;
+export default Cards

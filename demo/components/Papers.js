@@ -1,16 +1,7 @@
-import React from 'react';
-import { Paper } from '../../src';
+import React from 'react'
+import { Paper } from '../../src'
 
-const paperStyles = {
-  display: 'inline-flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  width: '100px',
-  height: '100px',
-  marginRight: '20px',
-};
-
-const text = 'Paper';
+const text = 'Paper'
 
 const Papers = () => (
   <div style={{ padding: 'calc(64px + 2em) 2em' }}>
@@ -27,6 +18,15 @@ const Papers = () => (
       <span>{text}</span>
     </Paper>
   </div>
-);
+)
 
-export default Papers;
+const paperStyles = {
+  display: 'inline-flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '100px',
+  height: '100px',
+  marginRight: '20px'
+}
+
+export default Papers

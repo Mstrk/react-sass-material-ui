@@ -1,9 +1,9 @@
-import React from 'react';
-import { Button } from '../../src';
+import React from 'react'
+import { Button } from '../../src'
 
 const customStyles = {
   marginRight: '8px'
-};
+}
 
 const Buttons = () => (
   <div style={{ padding: 'calc(64px + 2em) 2em' }}>
@@ -13,6 +13,6 @@ const Buttons = () => (
     <Button type='fab' icon='plus' color='teal' style={customStyles} />
     <Button color='black' type='icon' size='l' icon='magnify' style={customStyles} />
   </div>
-);
+)
 
-export default Buttons;
+export default Buttons

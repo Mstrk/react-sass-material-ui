@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
-import { TextField } from '../../src';
+import React, { Component } from 'react'
+import { TextField } from '../../src'
 
 class TextFields extends Component {
-
   state = {
     value1: '',
     value2: 'mstrk',
@@ -22,57 +21,57 @@ class TextFields extends Component {
     errorColor: 'orange',
     nameErrMessage: 'No B\'s allowed'
   }
-  
-  value1Handler = (value) => {
-    const { limit, min } = this.state;
 
-    const formatedValue = value.trim();
+  value1Handler = (value) => {
+    const { limit, min } = this.state
+
+    const formatedValue = value.trim()
 
     if (value.length < min) {
       this.setState({
         value1: formatedValue,
         limitError: true,
         errorColor: 'orange'
-      });
+      })
     } else if (value.length > limit) {
       this.setState({
         value1: formatedValue,
         limitError: true,
         errorColor: 'red'
-      });
+      })
     } else {
       this.setState({
         value1: formatedValue,
         limitError: false
-      });
+      })
     }
   }
 
   value3Handler = (value) => {
-    const formatedValue = value.replace(/[^a-zA-Z ]/g, '');
-    const patt = new RegExp('B');
-    const error = patt.test(formatedValue);
+    const formatedValue = value.replace(/[^a-zA-Z ]/g, '')
+    const patt = new RegExp('B')
+    const error = patt.test(formatedValue)
 
     this.setState({
       value3: formatedValue,
       error
-    });
+    })
   }
 
   value5Handler = (value) => {
-    this.setState({ value5: value });
+    this.setState({ value5: value })
   }
 
   value7Handler = (value) => {
-    this.setState({ value7: value });
+    this.setState({ value7: value })
   }
 
   value9Handler = (value) => {
-    const formatedValue = value.replace(/[^\dA-Z]/g, '').replace(/(.{3})/g, '$1 ').trim();
-    this.setState({ value9: formatedValue });
+    const formatedValue = value.replace(/[^\dA-Z]/g, '').replace(/(.{3})/g, '$1 ').trim()
+    this.setState({ value9: formatedValue })
   }
 
-  render() {
+  render () {
     const {
       limit,
       limitError,
@@ -90,7 +89,7 @@ class TextFields extends Component {
       value8,
       value9,
       value10
-    } = this.state;
+    } = this.state
 
     return (
       <div style={{ padding: 'calc(64px + 2em) 2em', maxWidth: '500px' }}>
@@ -198,8 +197,8 @@ class TextFields extends Component {
           disabled
         />
       </div>
-    );
+    )
   }
 }
 
-export default TextFields;
+export default TextFields
