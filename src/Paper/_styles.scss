@@ -1,4 +1,4 @@
-@if index($include-components, 'Paper') {
+@if variable-exists(include-components) and index($include-components, 'Paper') {
   .paper {
     display: inline-block;
     @include typography(body-1);
