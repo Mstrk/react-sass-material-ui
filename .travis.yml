@@ -8,13 +8,13 @@ node_js:
   - 'stable'
 sudo: false
 before_script:
-  - npm prune
+  - yarn prune
 script:
-  - npm run test -- -i
-  - npm run build
+  - yarn run test -- -i
+  - yarn run build
 after_success:
-  - npm run report-coverage
-  - npm run semantic-release
+  - yarn run report-coverage
+  - yarn run semantic-release
 branches:
   only:
     - master
