@@ -1,44 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import Overlay from '../Overlay'
 
 const createOnClick = (fn, value) => event => fn(value)
 
 class Drawer extends Component {
-  state = {
-    open: false,
-    originalOverflow: ''
-  }
-
-  componentWillMount () {
-    this.body = document.getElementsByTagName('body')[0]
-
-    this.setState({
-      open: this.props.open,
-      originalOverflow: this.body.style.overflow
-    })
-  }
-
-  componentWillReceiveProps (nextProps) {
-    this.setState({
-      open: nextProps.open
-    })
-  }
-
-  componentDidUpdate () {
-    this.lockBody()
-  }
-
-  lockBody = () => {
-    const { open, originalOverflow } = this.state
-
-    if (open) {
-      this.body.style.overflow = 'hidden'
-    } else {
-      this.body.style.overflow = originalOverflow
-    }
-  }
-
   close = (element, event) => {
     const {
       disableOverlayClick,
@@ -54,29 +21,26 @@ class Drawer extends Component {
   render () {
     const {
       overlay,
-      children
+      children,
+      open
     } = this.props
 
     return (
-      <div ref={node => { this.drawerRoot = node }}>
+      <div>
         {overlay
-          ? <div
-            onClick={createOnClick(this.close, 'overlay')}
-            className={
-              classnames(
-                'overlay',
-                { open: this.state.open }
-              )
-            }
-          /> : null}
-
+          ? <Overlay
+            open={open}
+            onRequestClose={createOnClick(this.close, 'overlay')}
+          />
+          : null
+        }
         <div
           onClick={createOnClick(this.close, 'leftDrawer')}
           className={
             classnames(
               'drawer',
               'z-depth16',
-              { open: this.state.open }
+              { open }
             )
           }
         >
@@ -93,7 +57,7 @@ Drawer.propTypes = {
   children: PropTypes.node,
   disableOverlayClick: PropTypes.bool,
   disableDrawerLeftClick: PropTypes.bool,
-  requestClose: PropTypes.func
+  requestClose: PropTypes.func.isRequired
 }
 
 export default Drawer
