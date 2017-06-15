@@ -37,7 +37,10 @@ $include-btns-icon-colors: ('red', 'pink', 'purple', 'deep-purple', 'indigo', 'b
 $include-btns-fab-colors: ('red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal',  'green',  'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey', 'black', 'white', 'primary', 'primary-hue-1', 'primary-hue-2', 'accent', 'accent-hue-1', 'accent-hue-2');
 
 // Components: styles
-$include-components: ('AppBar', 'Card', 'DataTable', 'Drawer', 'DropDown', 'Menu', 'Paper', 'Ripple', 'TextField');
+$include-components: ('AppBar', 'Card', 'DataTable', 'Drawer', 'DropDown', 'Menu', 'Paper', 'Ripple', 'TextField', 'Overlay');
+
+// Components: animations
+$include-animations: ('fade');
 
 // TextField: colors
 // $include-text-field-colors: ('all');

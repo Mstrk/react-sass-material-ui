@@ -23,9 +23,11 @@
   
   "include-btns-fab-colors": ["'accent'", "'teal'"],
 
-  "include-components": ["'AppBar'", "'Card'", "'DataTable'", "'Drawer'", "'DropDown'", "'Menu'", "'Paper'", "'Ripple'", "'TextField'"],
+  "include-components": ["'AppBar'", "'Card'", "'DataTable'", "'Drawer'", "'DropDown'", "'Menu'", "'Paper'", "'Ripple'", "'TextField'", "'Overlay'"],
 
   "include-text-field-colors": ["'primary'", "'indigo'", "'red'", "'green'", "'orange'"],
 
-  "include-table-checkbox-colors": ["'accent'"]
+  "include-table-checkbox-colors": ["'accent'"],
+
+  "include-animations": ["'fade'"]
 }
