@@ -1,14 +1,14 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import { Drawer } from '../src'
+import { Drawer, Overlay } from '../src'
 
 describe('<Drawer />', () => {
-  const mockFn = jest.fn()
+  const mockRequestClose = jest.fn()
   const drawer = mount(
     <Drawer
       open={false}
-      requestClose={mockFn}
       overlay
+      requestClose={mockRequestClose}
     />
   )
 
@@ -18,41 +18,41 @@ describe('<Drawer />', () => {
     expect(leftDrawer.hasClass('z-depth16')).toEqual(true)
   })
 
-  it('shoudld have div with class overlay', () => {
-    expect(drawer.find('.overlay').type()).toEqual('div')
-  })
-
-  it('should add class open to both leftDrawer and overlay when the open prop is true', () => {
+  it('should add class open leftDrawer when the open prop is true', () => {
     expect(drawer.find('.drawer').hasClass('open')).toEqual(false)
-    expect(drawer.find('.overlay').hasClass('open')).toEqual(false)
 
-    drawer.instance().componentWillReceiveProps({ open: true })
+    drawer.setProps({ open: true })
     expect(drawer.find('.drawer').hasClass('open')).toEqual(true)
-    expect(drawer.find('.overlay').hasClass('open')).toEqual(true)
   })
 
-  it('should request close when overlay is clicked', () => {
-    expect(drawer.props().requestClose).toBeDefined()
-    drawer.find('.overlay').simulate('click')
-    expect(mockFn).toBeCalled()
+  it('should not render the overlay', () => {
+    drawer.setProps({ overlay: false })
+    expect(drawer.find(Overlay).length).toEqual(0)
   })
 
-  it('should not request close when overlay or leftDrawer is clicked', () => {
-    const closeFn = jest.fn()
+  it('should not request close when overlay or leftDrawer are clicked', () => {
     drawer.setProps({
+      overlay: true,
       disableOverlayClick: true,
-      disableDrawerLeftClick: true,
-      requestClose: closeFn
+      disableDrawerLeftClick: true
     })
 
     drawer.find('.overlay').simulate('click')
     drawer.find('.drawer').simulate('click')
-    expect(closeFn).not.toBeCalled()
+    expect(mockRequestClose).not.toBeCalled()
   })
 
-  it('should not render overlay', () => {
-    drawer.setProps({ overlay: false })
-    expect(drawer.find('.overlay')).toHaveLength(0)
-    drawer.unmount()
+  it('should request close when overlay is clicked', () => {
+    drawer.setProps({ disableOverlayClick: false })
+
+    drawer.find('.overlay').simulate('click')
+    expect(mockRequestClose.mock.calls.length).toEqual(1)
+  })
+
+  it('should request close when leftDrawer is clicked', () => {
+    drawer.setProps({ disableDrawerLeftClick: false })
+
+    drawer.find('.drawer').simulate('click')
+    expect(mockRequestClose.mock.calls.length).toEqual(2)
   })
 })
