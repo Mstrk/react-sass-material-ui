@@ -23,7 +23,7 @@
   
   "include-btns-fab-colors": ["'accent'", "'teal'"],
 
-  "include-components": ["'AppBar'", "'Card'", "'DataTable'", "'Drawer'", "'DropDown'", "'Menu'", "'Paper'", "'Ripple'", "'TextField'", "'Overlay'"],
+  "include-components": ["'AppBar'", "'Card'", "'DataTable'", "'Drawer'", "'DropDown'", "'Menu'", "'Paper'", "'Ripple'", "'TextField'", "'Overlay'", "'Dialog'"],
 
   "include-text-field-colors": ["'primary'", "'indigo'", "'red'", "'green'", "'orange'"],
 

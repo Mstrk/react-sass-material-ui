@@ -6,6 +6,16 @@ import routes from './routes'
 
 const createOnClick = (fn, value) => event => fn(value)
 
+const links = {
+  Buttons: '/',
+  Paper: '/paper',
+  Menu: '/menu',
+  Card: '/card',
+  Textfield: '/textfield',
+  Datatable: '/datatable',
+  Dialogs: '/dialogs'
+}
+
 class App extends Component {
   state = {
     drawer: false
@@ -36,30 +46,15 @@ class App extends Component {
           hoverable
           style={{ minWidth: '200px' }}
         >
-          <MenuItem
-            primaryText='Buttons'
-            onClick={createOnClick(history.push, '/')}
-          />
-          <MenuItem
-            primaryText='Paper'
-            onClick={createOnClick(history.push, '/paper')}
-          />
-          <MenuItem
-            primaryText='Menu'
-            onClick={createOnClick(history.push, '/menu')}
-          />
-          <MenuItem
-            primaryText='Card'
-            onClick={createOnClick(history.push, '/card')}
-          />
-          <MenuItem
-            primaryText='Textfield'
-            onClick={createOnClick(history.push, '/textfield')}
-          />
-          <MenuItem
-            primaryText='DataTable'
-            onClick={createOnClick(history.push, '/datatable')}
-          />
+          {
+            Object.keys(links).map((link, idx) =>
+              <MenuItem
+                key={`drw-link-${idx}`}
+                primaryText={link}
+                onClick={createOnClick(history.push, links[link])}
+              />
+            )
+          }
         </Menu>
       </Drawer>
     )

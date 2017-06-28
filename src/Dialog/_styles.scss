@@ -1,0 +1,32 @@
+@if variable-exists(include-components) and index($include-components, 'Dialog') {
+  $ease-out: map-get($easing, deceleration);
+  $ease-sharp: map-get($easing, sharp);
+  
+  @keyframes dialog-enter {
+    0% { transform: translateY(-150%); }
+    100% { transform: translateY(0); }
+  }
+
+  @keyframes dialog-leave {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-150%); }
+  }
+
+  .dialog {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: calc(100% - 60px);
+    margin: 30px auto;
+    overflow: auto;
+    z-index: 24;
+  }
+
+  .dialog-enter {
+    animation: dialog-enter 0.25s $ease-sharp;
+  }
+
+  .dialog-leave {
+    animation: dialog-leave 0.25s $ease-out;
+  }
+}
