@@ -1,0 +1,30 @@
+//|*------------------------------------*|
+//    #ANIMATIONS
+//|*------------------------------------*|
+
+@if variable-exists(include-animations) {
+
+  // FADE
+  @if index($include-animations, 'fade') {
+    $ease-out: map-get($easing, deceleration);
+    $ease-sharp: map-get($easing, sharp);
+    
+    .fade-enter {
+      opacity: 0;
+    }
+
+    .fade-enter.fade-enter-active {
+      opacity: 1;
+      transition: opacity 0.25s $ease-sharp;
+    }
+
+    .fade-leave {
+      opacity: 1;
+    }
+
+    .fade-leave.fade-leave-active {
+      opacity: 0;
+      transition: opacity 0.25s $ease-out;
+    }
+  }
+}

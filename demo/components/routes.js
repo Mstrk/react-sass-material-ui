@@ -8,6 +8,7 @@ import Menus from './Menus'
 import Cards from './Cards'
 import TextFields from './TextFields'
 import DataTables from './DataTables'
+import Dialogs from './Dialogs'
 
 export default () => (
   <Switch>
@@ -17,5 +18,6 @@ export default () => (
     <Route path='/card' component={Cards} />
     <Route path='/textField' component={TextFields} />
     <Route path='/datatable' component={DataTables} />
+    <Route path='/dialogs' component={Dialogs} />
   </Switch>
 )
