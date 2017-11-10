@@ -38,4 +38,3 @@ Paper.propTypes = {
 }
 
 export default Paper
-
