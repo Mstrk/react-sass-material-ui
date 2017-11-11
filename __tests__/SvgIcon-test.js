@@ -1,11 +1,11 @@
 import React from 'react'
-import { mount, render } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 import { SvgIcon, addIcons } from '../src'
 import paths from '../src/SvgIcon/iconPaths'
 
 describe('<SvgIcon />', () => {
   it('should render an svg element with path', () => {
-    const svgIcon = render(<SvgIcon icon={'plus'} />)
+    const svgIcon = shallow(<SvgIcon icon={'plus'} />)
 
     expect(svgIcon.find('svg').length).toEqual(1)
     expect(svgIcon.find('path').length).toEqual(1)

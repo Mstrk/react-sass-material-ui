@@ -35,8 +35,8 @@
   },
   "homepage": "https://github.com/mstrk/react-sass-material-ui#readme",
   "peerDependencies": {
-    "react": "^15.0.0",
-    "react-dom": "^15.0.0"
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0"
   },
   "dependencies": {
     "classnames": "2.2.5",
@@ -58,7 +58,8 @@
     "css-hot-loader": "1.1.1",
     "css-loader": "0.28.4",
     "cz-conventional-changelog": "1.2.0",
-    "enzyme": "2.8.2",
+    "enzyme": "3.1.1",
+    "enzyme-adapter-react-16": "1.0.4",
     "eslint": "3.19.0",
     "eslint-config-standard": "10.2.1",
     "eslint-config-standard-react": "5.0.0",
@@ -77,10 +78,10 @@
     "node-sass-json-importer": "3.0.2",
     "postcss-loader": "2.0.5",
     "prop-types": "15.5.10",
-    "react": "15.5.4",
-    "react-addons-test-utils": "15.4.1",
-    "react-dom": "15.5.4",
-    "react-hot-loader": "next",
+    "react": "16.1.0",
+    "react-addons-test-utils": "15.5.1",
+    "react-dom": "16.1.0",
+    "react-hot-loader": "3.0.0",
     "react-router": "4.1.1",
     "react-test-renderer": "15.5.4",
     "rimraf": "2.6.1",
@@ -156,6 +157,7 @@
     }
   },
   "jest": {
+    "setupFiles": ["./internals/jest/shim.js", "./internals/jest/setup.js"],
     "modulePaths": [
       "src"
     ],
