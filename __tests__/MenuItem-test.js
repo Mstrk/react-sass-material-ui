@@ -22,9 +22,9 @@ describe('<MenuItem />', () => {
   })
 
   it('should have default class menuItem', () => {
-    expect(menuItem.find('li').hasClass('menuItem')).toEqual(true)
-    expect(header.find('li').hasClass('menuItem')).toEqual(true)
-    expect(divider.find('li').hasClass('menuItem')).toEqual(true)
+    expect(menuItem.find('li').hasClass('menu-item')).toEqual(true)
+    expect(header.find('li').hasClass('menu-item')).toEqual(true)
+    expect(divider.find('li').hasClass('menu-item')).toEqual(true)
   })
 
   it('should have class is-header', () => {

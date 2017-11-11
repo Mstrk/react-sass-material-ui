@@ -1,14 +1,14 @@
 @if variable-exists(include-components) and index($include-components, 'AppBar') {
-  .appBar {
-    position: fixed;
-    top: 0;
-    right: 0;
+  .app-bar {
     left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
 
-    .appBar-container {
-      display: flex; 
-      flex-wrap: wrap;
+    .app-bar-container {
       align-items: center;
+      display: flex;
+      flex-wrap: wrap;
       min-height: 64px;
     }
 

@@ -4,10 +4,10 @@
 
 // Easing curves
 $easing: (
-  'standard': cubic-bezier(0.4, 0.0, 0.2, 1),
-  'deceleration': cubic-bezier(0.0, 0.0, 0.2, 1),
-  'acceleration': cubic-bezier(0.4, 0.0, 1, 1),
-  'sharp': cubic-bezier(0.4, 0.0, 0.6, 1)
+  'standard': cubic-bezier(0.4, 0, 0.2, 1),
+  'deceleration': cubic-bezier(0, 0, 0.2, 1),
+  'acceleration': cubic-bezier(0.4, 0, 1, 1),
+  'sharp': cubic-bezier(0.4, 0, 0.6, 1)
 );
 
 $colors: (
@@ -33,11 +33,8 @@ $colors: (
   'black': $black,
   'white': $white,
   'primary': $primary,
-  'primary-hue-1': $primary-hue-1,
-  'primary-hue-2': $primary-hue-2,
-  'accent': $accent,
-  'accent-hue-1': $accent-hue-1,
-  'accent-hue-2': $accent-hue-2
+  'primary-dark': $primary-dark,
+  'accent': $accent
 );
 
 $sizes: (

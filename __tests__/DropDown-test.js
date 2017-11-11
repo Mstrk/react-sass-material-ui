@@ -25,12 +25,12 @@ describe('<DropDown />', () => {
   // need to change this test when enzyme paches
   // this issue: https://github.com/airbnb/enzyme/pull/677
   it('sould have default class dropDown', () => {
-    expect(dropDown.find('.dropDown')).toHaveLength(1)
+    expect(dropDown.find('.drop-down')).toHaveLength(1)
   })
 
   it('sould have child div with class dropDown-menu', () => {
-    expect(dropDown.find('.dropDown-menu')).toHaveLength(1)
-    expect(dropDown.find('.dropDown-menu').type()).toEqual('div')
+    expect(dropDown.find('.drop-down-menu')).toHaveLength(1)
+    expect(dropDown.find('.drop-down-menu').type()).toEqual('div')
   })
 
   it('should set state open true when anchor is clicked', () => {

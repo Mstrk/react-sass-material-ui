@@ -5,7 +5,7 @@
 // font-size
 @mixin font-size($font-size) {
   font-size: $font-size;
-  font-size: ($font-size / $base-font-size) * 1rem;
+  font-size: $font-size / $base-font-size * 1rem;
 }
 
 // size
@@ -18,17 +18,19 @@
   }
 
   @if $height == auto or type-of($height) == number {
-    @if unitless($height){
-      height: ($height) + px;
-    } @else {
+    @if unitless($height) {
+      height: $height + px;
+    }
+    @else {
       height: $height;
     }
   }
 
-  @if $width == auto or type-of($width) == number  {
-    @if unitless($width){
-      width: ($width) + px;
-    } @else {
+  @if $width == auto or type-of($width) == number {
+    @if unitless($width) {
+      width: $width + px;
+    }
+    @else {
       width: $width;
     }
   }
@@ -38,6 +40,7 @@
 @mixin typography($type) {
   @if $type == 'caption' {
     @include font-size(12px);
+
     font-weight: 400;
     line-height: 20px;
   }
@@ -46,6 +49,7 @@
     @include media-query(portable) {
       @include font-size(14px);
     }
+
 
     @include media-query(desk) {
       @include font-size(13px);
@@ -70,6 +74,7 @@
       @include font-size(16px);
     }
 
+
     @include media-query(desk) {
       @include font-size(15px);
     }
@@ -77,51 +82,67 @@
 
   @if $type == 'title' {
     @include font-size(20px);
+
     font-weight: 500;
     line-height: 28px;
   }
 
   @if $type == 'headline' {
     @include font-size(24px);
+
     font-weight: 400;
     line-height: 32px;
   }
 
   @if $type == 'display-1' {
     @include font-size(34px);
+
     font-weight: 400;
     line-height: 40px;
   }
 
   @if $type == 'display-2' {
     @include font-size(45px);
+
     font-weight: 400;
-    line-height: 48px;
     letter-spacing: -1px;
+    line-height: 48px;
   }
 
   @if $type == 'display-3' {
     @include font-size(56px);
+
     font-weight: 400;
-    line-height: 64px;
     letter-spacing: -2px;
+    line-height: 64px;
   }
 
   @if $type == 'display-4' {
     @include font-size(112px);
+
     font-weight: 300;
-    line-height: 128px;
     letter-spacing: -5px;
+    line-height: 128px;
   }
 }
 
 // Paragraph mixin
-@mixin paragraph() {
-  h1, h2, h3, h4, h5, h6,
-  ul, ol, dl,
-  blockquote, p, address,
+@mixin paragraph {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul,
+  ol,
+  dl,
+  blockquote,
+  p,
+  address,
   table,
-  fieldset, figure,
+  fieldset,
+  figure,
   pre,
   hr,
   iframe {
@@ -132,7 +153,9 @@
     }
   }
 
-  ul, ol, dd {
+  ul,
+  ol,
+  dd {
     margin-left: $base-spacing-unit * 6;
   }
 
@@ -146,8 +169,8 @@
 }
 
 // The bare-list object simply removes any indents and bullet points from lists
-@mixin bare-list() {
+@mixin bare-list {
+  list-style: none;
   margin: 0;
   padding: 0;
-  list-style: none;
 }

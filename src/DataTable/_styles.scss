@@ -10,9 +10,9 @@
 
     .data-table-header,
     .data-table-body-row {
+      border-bottom: 1px solid $grey-300;
       display: flex;
       flex-flow: row nowrap;
-      border-bottom: 1px solid $grey-300;
     }
 
     .data-table-header.bottom {
@@ -28,7 +28,7 @@
     .data-table-body {
       position: relative;
       z-index: 0;
-      
+
       &.scrollable {
         overflow: auto;
       }
@@ -64,12 +64,12 @@
     .data-table-header-cell,
     .data-table-body-cell {
       flex: 1;
+      overflow: hidden;
       padding-right: 56px;
       text-align: left;
+      text-overflow: ellipsis;
       text-transform: capitalize;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
 
       &:first-child {
         padding-left: $base-spacing-unit * 3;
@@ -81,12 +81,12 @@
     }
 
     .data-table-header-cell {
-      display: flex;
       align-items: center;
+      color: $black-2;
+      display: flex;
+      font-weight: 400;
       height: 56px;
       @include font-size(12px);
-      font-weight: 400;
-      color: $black-2;
 
 
       &.is-sortable {
@@ -107,31 +107,31 @@
         color: $black-1;
       }
     }
-      
+
     .data-table-body-cell {
-      display: flex;
       align-items: center;
+      display: flex;
       height: 48px;
       @include font-size(13px);
     }
 
     .data-table-header-cell-icon,
     .data-table-body-cell-icon {
-      display: flex;
       align-items: center;
+      display: flex;
       flex: none;
-      width: 72px;
-      text-align: left;
       padding-left: $base-spacing-unit * 3;
       padding-right: $base-spacing-unit * 3;
+      text-align: left;
+      width: 72px;
 
       svg {
         @include size(24px);
       }
 
       &:not(.is-disabled) svg {
-        fill: $black-2;
         cursor: pointer;
+        fill: $black-2;
       }
 
       &.is-disabled svg {

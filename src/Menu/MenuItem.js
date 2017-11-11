@@ -43,7 +43,7 @@ class MenuItem extends Component {
         style={style}
         className={
           classnames(
-            'menuItem',
+            'menu-item',
             {
               'is-header': isHeader,
               'is-divider': isDivider,
@@ -59,12 +59,12 @@ class MenuItem extends Component {
         <span
           className={
             classnames(
-              'primaryText',
-              { withSecundaryText: !!secundaryText }
+              'primary-text',
+              { 'with-secundary-text': !!secundaryText }
             )
           }
         >{primaryText}</span>
-        {secundaryText && <span className='secundaryText'>{secundaryText}</span>}
+        {secundaryText && <span className='secundary-text'>{secundaryText}</span>}
         {rightIcon && <SvgIcon className='icon-right' size={24} icon={rightIcon} />}
         {rippable && <Ripple cursorPos={this.state.cursorPos} />}
       </li>

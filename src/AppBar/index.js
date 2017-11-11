@@ -14,14 +14,14 @@ const AppBar = ({
   <div
     className={
       classnames(
-        'appBar',
+        'app-bar',
         { [`z-depth${zDepth}`]: zDepth }
       )
     }
   >
     <Paper
       color={color}
-      className='appBar-container'
+      className='app-bar-container'
     >
       {contentLeft && <div className='left-content'>{contentLeft}</div>}
       {title && <div className='title'>{title}</div>}

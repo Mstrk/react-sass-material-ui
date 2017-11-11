@@ -1,16 +1,16 @@
 
 .avatar {
-  user-select: none;
-  display: inline-flex;
   align-items: center;
-  justify-content: center;
   border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
   overflow: hidden;
+  user-select: none;
 
   img {
     display: block;
-    width: 100%;
     height: auto;
+    width: 100%;
   }
 
   svg {

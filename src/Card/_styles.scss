@@ -7,16 +7,16 @@
     &.card-small {
       display: inline-flex;
       flex-flow: row;
-      
+
       .card-img {
-        width: 150px;
         order: 2;
         overflow: hidden;
+        width: 150px;
 
         img {
-          position: absolute;
+          max-height: 100%;
           max-width: none;
-          max-height: 100%; 
+          position: absolute;
         }
       }
 
@@ -30,10 +30,10 @@
     }
 
     .card-img {
-      position: relative;
-      color: $white-1;
-      @include typography(headline);
       background-color: $black-4;
+      color: $white-1;
+      position: relative;
+      @include typography(headline);
 
       &.limited-height {
         overflow-y: hidden;
@@ -41,23 +41,23 @@
 
       img {
         display: block;
-        max-width: 100%;
         font-style: italic;
+        max-width: 100%;
       }
 
       span {
-        position: absolute;
-        right: $base-spacing-unit * 2;
         bottom: $base-spacing-unit * 2;
         left: $base-spacing-unit * 2;
+        position: absolute;
+        right: $base-spacing-unit * 2;
       }
 
       .btn-fab {
         position: absolute;
 
         &.btn-xl {
-          right: $base-spacing-unit * 4;
           bottom: -$base-spacing-unit * 3;
+          right: $base-spacing-unit * 4;
         }
       }
     }
@@ -72,9 +72,9 @@
       }
 
       .card-subtitle {
+        color: $black-2;
         display: block;
         @include typography(subhead);
-        color: $black-2;
       }
     }
 
@@ -86,13 +86,13 @@
 
     .card-actions {
       display: flex;
-      padding-right: $base-spacing-unit;
       padding-bottom: $base-spacing-unit;
       padding-left: $base-spacing-unit;
+      padding-right: $base-spacing-unit;
 
       &.card-divider {
-        padding-top: $base-spacing-unit;
         border-top: 1px solid $black-4;
+        padding-top: $base-spacing-unit;
       }
 
       .btn {
@@ -101,14 +101,15 @@
 
       .extend-anchor {
         margin-left: auto;
+
         svg {
-          transition: transform .2s map-get($easing, standard);
+          transition: transform 0.2s map-get($easing, standard);
         }
 
         &.open {
           svg {
             transform: rotate(180deg);
-            transition: transform .2s map-get($easing, standard);
+            transition: transform 0.2s map-get($easing, standard);
           }
         }
       }
@@ -116,10 +117,10 @@
 
     .extend {
       overflow: hidden;
-      transition: height .2s map-get($easing, standard);
+      transition: height 0.2s map-get($easing, standard);
 
       &.open {
-        transition: height .2s map-get($easing, standard);
+        transition: height 0.2s map-get($easing, standard);
       }
 
       .extend-wrapper {

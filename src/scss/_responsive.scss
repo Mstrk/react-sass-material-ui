@@ -5,14 +5,14 @@
 // Breakpoint aliases and conditions.
 
 $breakpoints: (
-  "palm"          "screen and (max-width: 480px)",
-  "lap"           "screen and (min-width: 481px) and (max-width: 1023px)",
-  "lap-and-up"    "screen and (min-width: 481px)",
-  "portable"      "screen and (max-width: 1023px)",
-  "desk"          "screen and (min-width: 1024px)",
-  "desk-wide"     "screen and (min-width: 1280px)",
-  "full-hd"       "screen and (min-width: 1920px)",
-  "retina"        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)"
+  'palm'          'screen and (max-width: 480px)',
+  'lap'           'screen and (min-width: 481px) and (max-width: 1023px)',
+  'lap-and-up'    'screen and (min-width: 481px)',
+  'portable'      'screen and (max-width: 1023px)',
+  'desk'          'screen and (min-width: 1024px)',
+  'desk-wide'     'screen and (min-width: 1280px)',
+  'full-hd'       'screen and (min-width: 1920px)',
+  'retina'        '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)'
 );
 
 // media-query
@@ -41,6 +41,6 @@ $breakpoints: (
 
   // If the user specifies a non-exitent alias, send them a warning.
   @if $breakpoint-found == false {
-    @warn "Oops! Breakpoint ‘#{$mq}’ does not exist."
+    @warn 'Oops! Breakpoint ‘#{$mq}’ does not exist.';
   }
 }
