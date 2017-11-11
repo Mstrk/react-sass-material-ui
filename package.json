@@ -40,7 +40,8 @@
   },
   "dependencies": {
     "classnames": "2.2.5",
-    "react-transition-group": "1.2.0"
+    "react-transition-group": "1.2.0",
+    "sass-mq": "3.3.2"
   },
   "devDependencies": {
     "autoprefixer": "7.1.1",
@@ -157,7 +158,10 @@
     }
   },
   "jest": {
-    "setupFiles": ["./internals/jest/shim.js", "./internals/jest/setup.js"],
+    "setupFiles": [
+      "./internals/jest/shim.js",
+      "./internals/jest/setup.js"
+    ],
     "modulePaths": [
       "src"
     ],

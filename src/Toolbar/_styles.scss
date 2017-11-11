@@ -1,0 +1,40 @@
+
+.toolbar {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  padding: 0 $base-spacing-unit * 2;
+
+  @include mq($until: desktop) {
+    height: $base-spacing-unit * 7;
+    padding-bottom: $base-spacing-unit;
+    padding-top: $base-spacing-unit;
+  }
+
+  @include mq($from: desktop) {
+    height: $base-spacing-unit * 8;
+    padding-bottom: $base-spacing-unit * 1.5;
+    padding-top: $base-spacing-unit * 1.5;
+  }
+
+  // Toolbar left area
+  .toolbar-left {
+    display: flex;
+    flex-direction: row;
+  }
+
+  // Toolbar right area
+  .toolbar-right {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  // Toolbar label
+  .toolbar-label {
+    flex: 1;
+    padding: 0 $base-spacing-unit * 2;
+    @include typography(title);
+  }
+}

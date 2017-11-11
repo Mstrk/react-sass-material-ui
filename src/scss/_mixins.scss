@@ -46,12 +46,12 @@
   }
 
   @if $type == 'body-1' or $type == 'body-2' {
-    @include media-query(portable) {
+    @include mq($until: desktop) {
       @include font-size(14px);
     }
 
 
-    @include media-query(desk) {
+    @include mq($from: desktop) {
       @include font-size(13px);
     }
   }
@@ -70,12 +70,12 @@
     font-weight: 400;
     line-height: 24px;
 
-    @include media-query(portable) {
+    @include mq($until: desktop) {
       @include font-size(16px);
     }
 
 
-    @include media-query(desk) {
+    @include mq($from: desktop) {
       @include font-size(15px);
     }
   }
