@@ -1,12 +1,12 @@
 @if variable-exists(include-components) and index($include-components, 'Overlay') {
   .overlay {
+    background-color: $black-2;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
     position: fixed;
     top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    background-color: $black-2;
     z-index: 15;
-    overflow: hidden;
   }
 }

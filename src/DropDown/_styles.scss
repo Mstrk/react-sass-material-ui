@@ -1,29 +1,29 @@
 @mixin transition-delay($counter) {
-  transition-delay: 0.070s * $counter;
+  transition-delay: 0.07s * $counter;
 }
 
 @if variable-exists(include-components) and index($include-components, 'DropDown') {
   $ease-out: map-get($easing, deceleration);
   $ease-in: map-get($easing, acceleration);
 
-  .dropDown {
-    position: relative;
+  .drop-down {
     outline: none;
+    position: relative;
 
-    .dropDown-menu {
+    .drop-down-menu {
+      opacity: 0;
       position: absolute;
-      top: -1px;
       right: 1px;
+      top: -1px;
       transform: scale(.5, 0);
       transform-origin: right top;
-      opacity: 0;
       transition: opacity 0.2s $ease-in, transform 0.5s $ease-in;
       transition-delay: 0.2s;
 
-      &.drop-open {
+      &.drop-down-open {
+        opacity: 1;
         transform: scale(1);
         transition: transform 0.25s $ease-out;
-        opacity: 1;
       }
     }
   }

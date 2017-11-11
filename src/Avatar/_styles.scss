@@ -1,0 +1,19 @@
+
+.avatar {
+  align-items: center;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  overflow: hidden;
+  user-select: none;
+
+  img {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  svg {
+    fill: currentColor;
+  }
+}

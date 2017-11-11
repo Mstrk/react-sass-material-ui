@@ -2,324 +2,325 @@
 //    #COLORS
 //|*------------------------------------*|
 
-// Red color
-$red-50:                #FFEBEE;
-$red-100:               #FFCDD2;
-$red-200:               #EF9A9A;
-$red-300:               #E57373;
-$red-400:               #EF5350;
-$red-500:               #F44336;
-$red-600:               #E53935;
-$red-700:               #D32F2F;
-$red-800:               #C62828;
-$red-900:               #B71C1C;
+/* stylelint-disable scss/dollar-variable-pattern */
 
-$red-A100:              #FF8A80;
-$red-A200:              #FF5252;
-$red-A400:              #FF1744;
-$red-A700:              #D50000;
+// Red color
+$red-50: rgb(255, 235, 238);
+$red-100: rgb(255, 205, 210);
+$red-200: rgb(239, 154, 154);
+$red-300: rgb(229, 115, 115);
+$red-400: rgb(239, 83, 80);
+$red-500: rgb(244, 67, 54);
+$red-600: rgb(229, 56, 53);
+$red-700: rgb(211, 47, 47);
+$red-800: rgb(198, 40, 40);
+$red-900: rgb(183, 28, 28);
+
+$red-A100: rgb(255, 136, 128);
+$red-A200: rgb(255, 82, 82);
+$red-A400: rgb(255, 23, 69);
+$red-A700: rgb(213, 0, 0);
 
 // Pink color
-$pink-50:               #FCE4EC;
-$pink-100:              #F8BBD0;
-$pink-200:              #F48FB1;
-$pink-300:              #F06292;
-$pink-400:              #EC407A;
-$pink-500:              #E91E63;
-$pink-600:              #D81B60;
-$pink-700:              #C2185B;
-$pink-800:              #AD1457;
-$pink-900:              #880E4F;
+$pink-50: rgb(252, 228, 236);
+$pink-100: rgb(247, 185, 207);
+$pink-200: rgb(244, 143, 178);
+$pink-300: rgb(240, 98, 148);
+$pink-400: rgb(236, 64, 124);
+$pink-500: rgb(233, 30, 101);
+$pink-600: rgb(216, 27, 96);
+$pink-700: rgb(194, 24, 91);
+$pink-800: rgb(173, 20, 87);
+$pink-900: rgb(136, 14, 79);
 
-$pink-A100:             #FF80AB;
-$pink-A200:             #FF4081;
-$pink-A400:             #F50057;
-$pink-A700:             #C51162;
+$pink-A100: rgb(255, 128, 172);
+$pink-A200: rgb(255, 64, 131);
+$pink-A400: rgb(245, 0, 90);
+$pink-A700: rgb(197, 17, 98);
 
 // Purple color
-$purple-50:             #F3E5F5;
-$purple-100:            #E1BEE7;
-$purple-200:            #CE93D8;
-$purple-300:            #BA68C8;
-$purple-400:            #AB47BC;
-$purple-500:            #9C27B0;
-$purple-600:            #8E24AA;
-$purple-700:            #7B1FA2;
-$purple-800:            #6A1B9A;
-$purple-900:            #4A148C;
+$purple-50: rgb(243, 229, 245);
+$purple-100: rgb(225, 190, 231);
+$purple-200: rgb(206, 147, 216);
+$purple-300: rgb(186, 104, 200);
+$purple-400: rgb(170, 71, 188);
+$purple-500: rgb(155, 39, 176);
+$purple-600: rgb(141, 36, 170);
+$purple-700: rgb(123, 31, 162);
+$purple-800: rgb(105, 27, 154);
+$purple-900: rgb(74, 20, 140);
 
-$purple-A100:           #EA80FC;
-$purple-A200:           #E040FB;
-$purple-A400:           #D500F9;
-$purple-A700:           #AA00FF;
+$purple-A100: rgb(233, 128, 252);
+$purple-A200: rgb(223, 64, 251);
+$purple-A400: rgb(212, 0, 249);
+$purple-A700: rgb(170, 0, 255);
 
 // Deep Purple color
-$deep-purple-50:        #EDE7F6;
-$deep-purple-100:       #D1C4E9;
-$deep-purple-200:       #B39DDB;
-$deep-purple-300:       #9575CD;
-$deep-purple-400:       #7E57C2;
-$deep-purple-500:       #673AB7;
-$deep-purple-600:       #5E35B1;
-$deep-purple-700:       #512DA8;
-$deep-purple-800:       #4527A0;
-$deep-purple-900:       #311B92;
+$deep-purple-50: rgb(237, 231, 246);
+$deep-purple-100: rgb(209, 196, 233);
+$deep-purple-200: rgb(179, 157, 219);
+$deep-purple-300: rgb(148, 117, 205);
+$deep-purple-400: rgb(124, 87, 194);
+$deep-purple-500: rgb(102, 58, 183);
+$deep-purple-600: rgb(92, 53, 177);
+$deep-purple-700: rgb(80, 45, 168);
+$deep-purple-800: rgb(67, 39, 160);
+$deep-purple-900: rgb(49, 27, 146);
 
-$deep-purple-A100:      #B388FF;
-$deep-purple-A200:      #7C4DFF;
-$deep-purple-A400:      #651FFF;
-$deep-purple-A700:      #6200EA;
+$deep-purple-A100: rgb(178, 136, 255);
+$deep-purple-A200: rgb(122, 77, 255);
+$deep-purple-A400: rgb(98, 31, 255);
+$deep-purple-A700: rgb(98, 0, 234);
 
 // Indigo color
-$indigo-50:             #E8EAF6;
-$indigo-100:            #C5CAE9;
-$indigo-200:            #9FA8DA;
-$indigo-300:            #7986CB;
-$indigo-400:            #5C6BC0;
-$indigo-500:            #3F51B5;
-$indigo-600:            #3949AB;
-$indigo-700:            #303F9F;
-$indigo-800:            #283593;
-$indigo-900:            #1A237E;
+$indigo-50: rgb(232, 234, 246);
+$indigo-100: rgb(197, 202, 233);
+$indigo-200: rgb(159, 169, 218);
+$indigo-300: rgb(121, 135, 203);
+$indigo-400: rgb(92, 107, 192);
+$indigo-500: rgb(63, 83, 181);
+$indigo-600: rgb(57, 74, 171);
+$indigo-700: rgb(48, 65, 159);
+$indigo-800: rgb(40, 53, 147);
+$indigo-900: rgb(26, 36, 126);
 
-$indigo-A100:           #8C9EFF;
-$indigo-A200:           #536DFE;
-$indigo-A400:           #3D5AFE;
-$indigo-A700:           #304FFE;
+$indigo-A100: rgb(140, 159, 255);
+$indigo-A200: rgb(83, 112, 254);
+$indigo-A400: rgb(61, 93, 254);
+$indigo-A700: rgb(48, 82, 254);
 
 // Blue color
-$blue-50:               #E3F2FD;
-$blue-100:              #BBDEFB;
-$blue-200:              #90CAF9;
-$blue-300:              #64B5F6;
-$blue-400:              #42A5F5;
-$blue-500:              #2196F3;
-$blue-600:              #1E88E5;
-$blue-700:              #1976D2;
-$blue-800:              #1565C0;
-$blue-900:              #0D47A1;
+$blue-50: rgb(227, 242, 253);
+$blue-100: rgb(187, 222, 251);
+$blue-200: rgb(144, 203, 249);
+$blue-300: rgb(100, 183, 246);
+$blue-400: rgb(66, 167, 245);
+$blue-500: rgb(33, 152, 243);
+$blue-600: rgb(30, 136, 229);
+$blue-700: rgb(25, 121, 210);
+$blue-800: rgb(21, 104, 192);
+$blue-900: rgb(13, 72, 161);
 
-$blue-A100:             #82B1FF;
-$blue-A200:             #448AFF;
-$blue-A400:             #2979FF;
-$blue-A700:             #2962FF;
+$blue-A100: rgb(130, 178, 255);
+$blue-A200: rgb(68, 140, 255);
+$blue-A400: rgb(41, 123, 255);
+$blue-A700: rgb(41, 98, 255);
 
 // Light blue color
-$light-blue-50:         #E1F5FE;
-$light-blue-100:        #B3E5FC;
-$light-blue-200:        #81D4FA;
-$light-blue-300:        #4FC3F7;
-$light-blue-400:        #29B6F6;
-$light-blue-500:        #03A9F4;
-$light-blue-600:        #039BE5;
-$light-blue-700:        #0288D1;
-$light-blue-800:        #0277BD;
-$light-blue-900:        #01579B;
+$light-blue-50: rgb(225, 245, 254);
+$light-blue-100: rgb(179, 230, 252);
+$light-blue-200: rgb(129, 214, 250);
+$light-blue-300: rgb(79, 197, 247);
+$light-blue-400: rgb(41, 185, 246);
+$light-blue-500: rgb(3, 172, 244);
+$light-blue-600: rgb(3, 157, 229);
+$light-blue-700: rgb(2, 137, 209);
+$light-blue-800: rgb(2, 120, 189);
+$light-blue-900: rgb(1, 88, 155);
 
-$light-blue-A100:       #80D8FF;
-$light-blue-A200:       #40C4FF;
-$light-blue-A400:       #00B0FF;
-$light-blue-A700:       #0091EA;
+$light-blue-A100: rgb(128, 217, 255);
+$light-blue-A200: rgb(64, 198, 255);
+$light-blue-A400: rgb(0, 179, 255);
+$light-blue-A700: rgb(0, 148, 234);
 
 // Cyan color
-$cyan-50:               #E0F7FA;
-$cyan-100:              #B2EBF2;
-$cyan-200:              #80DEEA;
-$cyan-300:              #4DD0E1;
-$cyan-400:              #26C6DA;
-$cyan-500:              #00BCD4;
-$cyan-600:              #00ACC1;
-$cyan-700:              #0097A7;
-$cyan-800:              #00838F;
-$cyan-900:              #006064;
+$cyan-50: rgb(224, 247, 250);
+$cyan-100: rgb(178, 236, 242);
+$cyan-200: rgb(128, 223, 234);
+$cyan-300: rgb(77, 210, 225);
+$cyan-400: rgb(38, 200, 218);
+$cyan-500: rgb(0, 191, 212);
+$cyan-600: rgb(0, 174, 193);
+$cyan-700: rgb(0, 153, 167);
+$cyan-800: rgb(0, 131, 143);
+$cyan-900: rgb(0, 97, 100);
 
-$cyan-A100:             #84FFFF;
-$cyan-A200:             #18FFFF;
-$cyan-A400:             #00E5FF;
-$cyan-A700:             #00B8D4;
+$cyan-A100: rgb(132, 255, 255);
+$cyan-A200: rgb(24, 255, 255);
+$cyan-A400: rgb(0, 229, 255);
+$cyan-A700: rgb(0, 187, 212);
 
 // Teal color
-$teal-50:               #E0F2F1;
-$teal-100:              #B2DFDB;
-$teal-200:              #80CBC4;
-$teal-300:              #4DB6AC;
-$teal-400:              #26A69A;
-$teal-500:              #009688;
-$teal-600:              #00897B;
-$teal-700:              #00796B;
-$teal-800:              #00695C;
-$teal-900:              #004D40;
+$teal-50: rgb(224, 242, 241);
+$teal-100: rgb(178, 223, 219);
+$teal-200: rgb(128, 203, 195);
+$teal-300: rgb(77, 182, 172);
+$teal-400: rgb(38, 166, 153);
+$teal-500: rgb(0, 150, 135);
+$teal-600: rgb(0, 137, 121);
+$teal-700: rgb(0, 121, 107);
+$teal-800: rgb(0, 105, 91);
+$teal-900: rgb(0, 77, 63);
 
-$teal-A100:             #A7FFEB;
-$teal-A200:             #64FFDA;
-$teal-A400:             #1DE9B6;
-$teal-A700:             #00BFA5;
+$teal-A100: rgb(167, 255, 234);
+$teal-A200: rgb(100, 255, 216);
+$teal-A400: rgb(29, 233, 182);
+$teal-A700: rgb(0, 191, 162);
 
 // Green color
-$green-50:              #E8F5E9;
-$green-100:             #C8E6C9;
-$green-200:             #A5D6A7;
-$green-300:             #81C784;
-$green-400:             #66BB6A;
-$green-500:             #4CAF50;
-$green-600:             #43A047;
-$green-700:             #388E3C;
-$green-800:             #2E7D32;
-$green-900:             #1B5E20;
+$green-50: rgb(232, 245, 233);
+$green-100: rgb(200, 230, 201);
+$green-200: rgb(165, 214, 167);
+$green-300: rgb(129, 199, 131);
+$green-400: rgb(102, 187, 105);
+$green-500: rgb(76, 175, 79);
+$green-600: rgb(67, 160, 70);
+$green-700: rgb(56, 142, 59);
+$green-800: rgb(46, 125, 50);
+$green-900: rgb(27, 94, 31);
 
-$green-A100:            #B9F6CA;
-$green-A200:            #69F0AE;
-$green-A400:            #00E676;
-$green-A700:            #00C853;
+$green-A100: rgb(185, 246, 201);
+$green-A200: rgb(105, 240, 172);
+$green-A400: rgb(0, 230, 115);
+$green-A700: rgb(0, 200, 80);
 
 // Light green color
-$light-green-50:        #F1F8E9;
-$light-green-100:       #DCEDC8;
-$light-green-200:       #C5E1A5;
-$light-green-300:       #AED581;
-$light-green-400:       #9CCC65;
-$light-green-500:       #8BC34A;
-$light-green-600:       #7CB342;
-$light-green-700:       #689F38;
-$light-green-800:       #558B2F;
-$light-green-900:       #33691E;
+$light-green-50: rgb(241, 248, 233);
+$light-green-100: rgb(220, 237, 200);
+$light-green-200: rgb(197, 225, 165);
+$light-green-300: rgb(175, 213, 129);
+$light-green-400: rgb(158, 204, 101);
+$light-green-500: rgb(141, 195, 74);
+$light-green-600: rgb(124, 179, 66);
+$light-green-700: rgb(104, 159, 56);
+$light-green-800: rgb(85, 139, 47);
+$light-green-900: rgb(51, 105, 30);
 
-$light-green-A100:      #CCFF90;
-$light-green-A200:      #B2FF59;
-$light-green-A400:      #76FF03;
-$light-green-A700:      #64DD17;
+$light-green-A100: rgb(205, 255, 144);
+$light-green-A200: rgb(180, 255, 89);
+$light-green-A400: rgb(121, 255, 3);
+$light-green-A700: rgb(102, 221, 23);
 
 // Lime color
-$lime-50:               #F9FBE7;
-$lime-100:              #F0F4C3;
-$lime-200:              #E6EE9C;
-$lime-300:              #DCE775;
-$lime-400:              #D4E157;
-$lime-500:              #CDDC39;
-$lime-600:              #C0CA33;
-$lime-700:              #AFB42B;
-$lime-800:              #9E9D24;
-$lime-900:              #827717;
+$lime-50: rgb(249, 251, 231);
+$lime-100: rgb(241, 244, 195);
+$lime-200: rgb(231, 238, 156);
+$lime-300: rgb(222, 231, 117);
+$lime-400: rgb(213, 225, 87);
+$lime-500: rgb(206, 220, 57);
+$lime-600: rgb(194, 202, 51);
+$lime-700: rgb(175, 180, 43);
+$lime-800: rgb(158, 156, 36);
+$lime-900: rgb(130, 118, 23);
 
-$lime-A100:             #F4FF81;
-$lime-A200:             #EEFF41;
-$lime-A400:             #C6FF00;
-$lime-A700:             #AEEA00;
+$lime-A100: rgb(245, 255, 129);
+$lime-A200: rgb(239, 255, 65);
+$lime-A400: rgb(200, 255, 0);
+$lime-A700: rgb(176, 234, 0);
 
 // Yellow color
-$yellow-50:             #FFFDE7;
-$yellow-100:            #FFF9C4;
-$yellow-200:            #FFF59D;
-$yellow-300:            #FFF176;
-$yellow-400:            #FFEE58;
-$yellow-500:            #FFEB3B;
-$yellow-600:            #FDD835;
-$yellow-700:            #FBC02D;
-$yellow-800:            #F9A825;
-$yellow-900:            #F57F17;
+$yellow-50: rgb(255, 253, 231);
+$yellow-100: rgb(255, 248, 196);
+$yellow-200: rgb(255, 244, 157);
+$yellow-300: rgb(255, 239, 118);
+$yellow-400: rgb(255, 236, 88);
+$yellow-500: rgb(255, 232, 59);
+$yellow-600: rgb(253, 213, 53);
+$yellow-700: rgb(251, 189, 45);
+$yellow-800: rgb(249, 168, 37);
+$yellow-900: rgb(245, 127, 23);
 
-$yellow-A100:           #FFFF8D;
-$yellow-A200:           #FFFF00;
-$yellow-A400:           #FFEA00;
-$yellow-A700:           #FFD600;
+$yellow-A100: rgb(255, 255, 141);
+$yellow-A200: rgb(255, 255, 0);
+$yellow-A400: rgb(255, 234, 0);
+$yellow-A700: rgb(255, 213, 0);
 
 // Amber color
-$amber-50:              #FFF8E1;
-$amber-100:             #FFECB3;
-$amber-200:             #FFE082;
-$amber-300:             #FFD54F;
-$amber-400:             #FFCA28;
-$amber-500:             #FFC107;
-$amber-600:             #FFB300;
-$amber-700:             #FFA000;
-$amber-800:             #FF8F00;
-$amber-900:             #FF6F00;
+$amber-50: rgb(255, 248, 225);
+$amber-100: rgb(255, 236, 179);
+$amber-200: rgb(255, 224, 130);
+$amber-300: rgb(255, 211, 79);
+$amber-400: rgb(255, 201, 40);
+$amber-500: rgb(255, 193, 7);
+$amber-600: rgb(255, 179, 0);
+$amber-700: rgb(255, 157, 0);
+$amber-800: rgb(255, 140, 0);
+$amber-900: rgb(255, 111, 0);
 
-$amber-A100:            #FFE57F;
-$amber-A200:            #FFD740;
-$amber-A400:            #FFC400;
-$amber-A700:            #FFAB00;
+$amber-A100: rgb(255, 227, 127);
+$amber-A200: rgb(255, 214, 64);
+$amber-A400: rgb(255, 196, 0);
+$amber-A700: rgb(255, 170, 0);
 
 // Orange color
-$orange-50:             #FFF3E0;
-$orange-100:            #FFE0B2;
-$orange-200:            #FFCC80;
-$orange-300:            #FFB74D;
-$orange-400:            #FFA726;
-$orange-500:            #FF9800;
-$orange-600:            #FB8C00;
-$orange-700:            #F57C00;
-$orange-800:            #EF6C00;
-$orange-900:            #E65100;
+$orange-50: rgb(255, 243, 224);
+$orange-100: rgb(255, 223, 178);
+$orange-200: rgb(255, 202, 128);
+$orange-300: rgb(255, 181, 77);
+$orange-400: rgb(255, 165, 38);
+$orange-500: rgb(255, 149, 0);
+$orange-600: rgb(251, 138, 0);
+$orange-700: rgb(245, 123, 0);
+$orange-800: rgb(239, 108, 0);
+$orange-900: rgb(230, 81, 0);
 
-$orange-A100:           #FFD180;
-$orange-A200:           #FFAB40;
-$orange-A400:           #FF9100;
-$orange-A700:           #FF6D00;
+$orange-A100: rgb(255, 208, 128);
+$orange-A200: rgb(255, 169, 64);
+$orange-A400: rgb(255, 145, 0);
+$orange-A700: rgb(255, 106, 0);
 
 // Deep orange color
-$deep-orange-50:        #FBE9E7;
-$deep-orange-100:       #FFCCBC;
-$deep-orange-200:       #FFAB91;
-$deep-orange-300:       #FF8A65;
-$deep-orange-400:       #FF7043;
-$deep-orange-500:       #FF5722;
-$deep-orange-600:       #F4511E;
-$deep-orange-700:       #E64A19;
-$deep-orange-800:       #D84315;
-$deep-orange-900:       #BF360C;
+$deep-orange-50: rgb(251, 233, 231);
+$deep-orange-100: rgb(255, 204, 188);
+$deep-orange-200: rgb(255, 171, 145);
+$deep-orange-300: rgb(255, 137, 101);
+$deep-orange-400: rgb(255, 111, 67);
+$deep-orange-500: rgb(255, 86, 34);
+$deep-orange-600: rgb(244, 80, 30);
+$deep-orange-700: rgb(230, 73, 25);
+$deep-orange-800: rgb(216, 66, 21);
+$deep-orange-900: rgb(191, 54, 12);
 
-$deep-orange-A100:      #FF9E80;
-$deep-orange-A200:      #FF6E40;
-$deep-orange-A400:      #FF3D00;
-$deep-orange-A700:      #DD2C00;
+$deep-orange-A100: rgb(255, 158, 128);
+$deep-orange-A200: rgb(255, 109, 64);
+$deep-orange-A400: rgb(255, 60, 0);
+$deep-orange-A700: rgb(221, 41, 0);
 
 // Brown color
-$brown-50:              #EFEBE9;
-$brown-100:             #D7CCC8;
-$brown-200:             #BCAAA4;
-$brown-300:             #A1887F;
-$brown-400:             #8D6E63;
-$brown-500:             #795548;
-$brown-600:             #6D4C41;
-$brown-700:             #5D4037;
-$brown-800:             #4E342E;
-$brown-900:             #3E2723;
+$brown-50: rgb(239, 235, 233);
+$brown-100: rgb(215, 204, 200);
+$brown-200: rgb(188, 169, 164);
+$brown-300: rgb(161, 135, 127);
+$brown-400: rgb(141, 109, 99);
+$brown-500: rgb(121, 84, 72);
+$brown-600: rgb(109, 76, 65);
+$brown-700: rgb(93, 64, 55);
+$brown-800: rgb(78, 52, 46);
+$brown-900: rgb(62, 39, 35);
 
 // Grey color
-$grey-50:               #FAFAFA;
-$grey-100:              #F5F5F5;
-$grey-200:              #EEEEEE;
-$grey-300:              #E0E0E0;
-$grey-400:              #BDBDBD;
-$grey-500:              #9E9E9E;
-$grey-600:              #757575;
-$grey-700:              #616161;
-$grey-800:              #424242;
-$grey-900:              #212121;
+$grey-50: rgb(250, 250, 250);
+$grey-100: rgb(245, 245, 245);
+$grey-200: rgb(238, 238, 238);
+$grey-300: rgb(224, 224, 224);
+$grey-400: rgb(189, 189, 189);
+$grey-500: rgb(158, 158, 158);
+$grey-600: rgb(117, 117, 117);
+$grey-700: rgb(97, 97, 97);
+$grey-800: rgb(66, 66, 66);
+$grey-900: rgb(33, 33, 33);
 
 // Blue grey color
-$blue-grey-50:          #ECEFF1;
-$blue-grey-100:         #CFD8DC;
-$blue-grey-200:         #B0BEC5;
-$blue-grey-300:         #90A4AE;
-$blue-grey-400:         #78909C;
-$blue-grey-500:         #607D8B;
-$blue-grey-600:         #546E7A;
-$blue-grey-700:         #455A64;
-$blue-grey-800:         #37474F;
-$blue-grey-900:         #263238;
+$blue-grey-50: rgb(236, 239, 241);
+$blue-grey-100: rgb(207, 216, 220);
+$blue-grey-200: rgb(176, 190, 197);
+$blue-grey-300: rgb(144, 164, 174);
+$blue-grey-400: rgb(120, 144, 156);
+$blue-grey-500: rgb(96, 125, 139);
+$blue-grey-600: rgb(84, 111, 122);
+$blue-grey-700: rgb(69, 90, 100);
+$blue-grey-800: rgb(55, 71, 79);
+$blue-grey-900: rgb(38, 50, 56);
 
 // Black
-$black:                 #000000;
-$black-1:               rgba(0, 0, 0, 0.87);
-$black-2:               rgba(0, 0, 0, 0.54);
-$black-3:               rgba(0, 0, 0, 0.38);
-$black-4:               rgba(0, 0, 0, 0.12);
+$black: rgb(0, 0, 0);
+$black-1: rgba(0, 0, 0, 0.87);
+$black-2: rgba(0, 0, 0, 0.54);
+$black-3: rgba(0, 0, 0, 0.38);
+$black-4: rgba(0, 0, 0, 0.12);
 
 // White
-$white:                 #FFFFFF;
-$white-1:               #FFFFFF;
-$white-2:               rgba(255, 255, 255, 0.70);
-$white-3:               rgba(255, 255, 255, 0.30);
-$white-4:               rgba(255, 255, 255, 0.12);
+$white: rgb(255, 255, 255);
+$white-1: rgba(255, 255, 255, 0.7);
+$white-2: rgba(255, 255, 255, 0.3);
+$white-3: rgba(255, 255, 255, 0.12);

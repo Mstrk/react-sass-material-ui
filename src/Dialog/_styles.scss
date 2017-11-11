@@ -1,25 +1,90 @@
 @if variable-exists(include-components) and index($include-components, 'Dialog') {
   $ease-out: map-get($easing, deceleration);
   $ease-sharp: map-get($easing, sharp);
-  
+  $dialog-margin: $base-spacing-unit * 4;
+
   @keyframes dialog-enter {
-    0% { transform: translateY(-150%); }
+    0% { transform: translateY(-50px); }
     100% { transform: translateY(0); }
   }
 
   @keyframes dialog-leave {
     0% { transform: translateY(0); }
-    100% { transform: translateY(-150%); }
+    100% { transform: translateY(-50px); }
   }
 
   .dialog {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    max-height: calc(100% - 60px);
-    margin: 30px auto;
-    overflow: auto;
+    flex-direction: column;
+    left: 50%;
+    max-height: calc(100% - #{$dialog-margin * 2});
+    overflow: hidden;
+    position: fixed;
+    top: $dialog-margin;
     z-index: 24;
+
+
+    @include mq($until: desktop) {
+      margin-left: -40%;
+      width: 80%;
+    }
+
+    &.alert {
+      margin-left: -200px;
+      width: 400px;
+    }
+
+    &.size-s {
+      @include mq($from: desktop) {
+        margin-left: -125px;
+        width: 250px;
+      }
+    }
+
+    &.size-m {
+      @include mq($from: desktop) {
+        margin-left: -250px;
+        width: 500px;
+      }
+    }
+
+    &.size-l {
+      @include mq($from: desktop) {
+        margin-left: -400px;
+        width: 800px;
+      }
+    }
+
+    .dialog-header {
+      flex: 1 0 auto;
+      z-index: 1;
+    }
+
+    .dialog-content {
+      flex: 2;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .dialog-actions {
+      display: flex;
+      flex: 1 0 auto;
+      justify-content: flex-end;
+      padding: $base-spacing-unit;
+      z-index: 1;
+
+      &.actions-divider {
+        border-top: 1px solid $black-4;
+      }
+
+      .btn {
+        margin-left: $base-spacing-unit;
+
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+    }
   }
 
   .dialog-enter {

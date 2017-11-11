@@ -37,7 +37,7 @@ class DropDown extends Component {
     return (
       <div
         ref={node => { this.rootNode = node }}
-        className='dropDown'
+        className='drop-down'
       >
         {React.cloneElement(anchorEl, {
           onClick: this.handleClick
@@ -45,8 +45,8 @@ class DropDown extends Component {
         <div
           className={
             classnames(
-              'dropDown-menu',
-              { 'drop-open': this.state.open }
+              'drop-down-menu',
+              { 'drop-down-open': this.state.open }
             )
           }
         >

@@ -13,7 +13,7 @@ describe('<AppBar />', () => {
   )
 
   it('sould have default class appBar', () => {
-    expect(appBar.hasClass('appBar')).toEqual(true)
+    expect(appBar.hasClass('app-bar')).toEqual(true)
   })
 
   it('sould render 1x div with class tile', () => {
@@ -29,7 +29,7 @@ describe('<AppBar />', () => {
   })
 
   it('sould have default class appBar', () => {
-    expect(appBar.hasClass('appBar')).toEqual(true)
+    expect(appBar.hasClass('app-bar')).toEqual(true)
   })
 
   const wrapper = shallow(<AppBar />)

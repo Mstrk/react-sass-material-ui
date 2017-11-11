@@ -2,12 +2,10 @@
 //    #CORE
 //|*------------------------------------*|
 
+@import '~sass-mq/mq';
 @import 'scss/array-variables';
-@import 'scss/responsive';
 @import 'scss/mixins';
-@import 'scss/responsive';
 @import 'scss/box-sizing';
-@import 'scss/reset';
 @import 'scss/font-face';
 @import 'scss/page';
 @import 'scss/z-depth';
@@ -26,3 +24,5 @@
 @import 'TextField/styles';
 @import 'Overlay/styles';
 @import 'Dialog/styles';
+@import 'Toolbar/styles';
+@import 'Avatar/styles';

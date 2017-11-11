@@ -3,15 +3,15 @@ $ease-sharp: map-get($easing, sharp);
 
 // Text field reset
 @mixin text-field-reset() {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  cursor: text;
   display: block;
   margin: 0;
-  padding: 0;
-  border: none;
-  background-color: transparent;
-  box-shadow: none;
   overflow: hidden;
-  cursor: text;
-  appearance: none;
+  padding: 0;
 
   &:focus {
     outline: none;
@@ -38,12 +38,12 @@ $ease-sharp: map-get($easing, sharp);
     position: relative;
 
     .icon-container {
-      position: absolute;
-      top: 0;
-      left: 0;
+      align-items: center;
       display: flex;
       justify-content: center;
-      align-items: center;
+      left: 0;
+      position: absolute;
+      top: 0;
       @include size(48px);
 
       svg {
@@ -64,9 +64,9 @@ $ease-sharp: map-get($easing, sharp);
     }
 
     .text-field-help {
+      color: $black-2;
       display: flex;
       @include font-size(12px);
-      color: $black-2;
 
       .limit {
         margin-left: auto;
@@ -75,9 +75,9 @@ $ease-sharp: map-get($easing, sharp);
   }
 
   .text-field {
-    position: relative;
-    padding-top: $base-spacing-unit * 4;
     padding-bottom: $base-spacing-unit;
+    padding-top: $base-spacing-unit * 4;
+    position: relative;
 
     &.text-field-label-is-fixed {
       padding-top: $base-spacing-unit;
@@ -90,46 +90,46 @@ $ease-sharp: map-get($easing, sharp);
     &.text-field-is-disabled {
       pointer-events: none;
 
-      &:after {
+      &::after {
         transform: scale(0) !important;
       }
 
-      &:before {
+      &::before {
         background-color: transparent;
         border: 1px dashed $black-4;
       }
 
       .text-field-input {
         color: $black-3;
-      }    
+      }
     }
 
-    &:before,
-    &:after {
-        content: '';
+    &::before,
+    &::after {
+      content: '';
     }
 
-    &:before {
-      position: absolute;
-      right: 0;
-      bottom: $base-spacing-unit - 1;
-      left: 0;
-      height: 1px;
+    &::before {
       background-color: $black-4;
-    }
-
-    &:after {
+      bottom: $base-spacing-unit - 1;
+      height: 1px;
+      left: 0;
       position: absolute;
       right: 0;
+    }
+
+    &::after {
       bottom: $base-spacing-unit - 1;
-      left: 0;
       height: 1px;
+      left: 0;
+      position: absolute;
+      right: 0;
       transform: scale(0);
       transition: transform 0.3s $ease-sharp;
     }
 
-    &.focused{
-      &:after {
+    &.focused {
+      &::after {
         transform: scale(1);
       }
 
@@ -146,14 +146,14 @@ $ease-sharp: map-get($easing, sharp);
     .text-field-label,
     .text-field-label-fixed {
       @include font-size(16px);
+      color: $black-2;
       display: block;
-      position: absolute;
-      top: $base-spacing-unit;
       left: 0;
       line-height: 32px;
-      text-transform: capitalize;
-      color: $black-2;
       pointer-events: none;
+      position: absolute;
+      text-transform: capitalize;
+      top: $base-spacing-unit;
     }
 
     .text-field-label {
@@ -164,9 +164,9 @@ $ease-sharp: map-get($easing, sharp);
     .text-field-input {
       @include text-field-reset();
       @include font-size(16px);
-      width: 100%;
-      font-weight: 400;
       color: inherit;
+      font-weight: 400;
+      width: 100%;
     }
 
     input.text-field-input {
@@ -184,10 +184,10 @@ $ease-sharp: map-get($easing, sharp);
     }
 
     .clear {
-      position: absolute;
-      right: 0;
       bottom: $base-spacing-unit + 3;
       opacity: 0;
+      position: absolute;
+      right: 0;
       transition: opacity 0.2s $ease-sharp;
 
       svg {
@@ -206,17 +206,17 @@ $ease-sharp: map-get($easing, sharp);
 
 @each $key, $color in $colors {
   @if variable-exists(include-text-field-colors) {
-      @if index($include-text-field-colors, $key) or index($include-text-field-colors, 'all') {
-        .text-field-color-#{$key} {
-          &:after {
-            @include text-field-color($key, 'underline');
-          }
+    @if index($include-text-field-colors, $key) or index($include-text-field-colors, 'all') {
+      .text-field-color-#{$key} {
+        &::after {
+          @include text-field-color($key, 'underline');
         }
+      }
 
-        .text-field-color-#{$key}.focused .text-field-label,
-        .help-message-#{$key},
-        .limit-#{$key} {
-          @include text-field-color($key, 'label');
+      .text-field-color-#{$key}.focused .text-field-label,
+      .help-message-#{$key},
+      .limit-#{$key} {
+        @include text-field-color($key, 'label');
       }
     }
   }

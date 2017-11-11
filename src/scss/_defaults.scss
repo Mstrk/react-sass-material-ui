@@ -3,48 +3,45 @@
 //|*------------------------------------*|
 
 // High-level base settings.
-$font-family:           sans-serif;
-$base-font-size:        16px;
-$base-line-height:      24px;
-$base-text-color:       $black-1;
+$font-family: sans-serif;
+$base-font-size: 16px;
+$base-line-height: 24px;
+$base-text-color: $black-1;
 $base-background-color: $grey-200;
-$base-round:            2px;
+$base-round: 2px;
 
 // Main colors
-$red:                   $red-500;
-$pink:                  $pink-500;
-$purple:                $purple-500;
-$deep-purple:           $deep-purple-500;
-$indigo:                $indigo-500;
-$blue:                  $blue-500;
-$light-blue:            $light-blue-500;
-$cyan:                  $cyan-500;
-$teal:                  $teal-500;
-$green:                 $green-500;
-$light-green:           $light-green-500;
-$lime:                  $lime-500;
-$yellow:                $yellow-500;
-$amber:                 $amber-500;
-$orange:                $orange-500;
-$deep-orange:           $deep-orange-500;
-$brown:                 $brown-500;
-$grey:                  $grey-500;
-$blue-grey:             $blue-grey-500;
+$red: $red-500;
+$pink: $pink-500;
+$purple: $purple-500;
+$deep-purple: $deep-purple-500;
+$indigo: $indigo-500;
+$blue: $blue-500;
+$light-blue: $light-blue-500;
+$cyan: $cyan-500;
+$teal: $teal-500;
+$green: $green-500;
+$light-green: $light-green-500;
+$lime: $lime-500;
+$yellow: $yellow-500;
+$amber: $amber-500;
+$orange: $orange-500;
+$deep-orange: $deep-orange-500;
+$brown: $brown-500;
+$grey: $grey-500;
+$blue-grey: $blue-grey-500;
 
 // Primary palette colors and accent colors
-$primary:               $blue-grey-500;
-$primary-hue-1:         $blue-grey-100;
-$primary-hue-2:         $blue-grey-700;
-$accent:                $pink-A200;
-$accent-hue-1:          $pink-A100;
-$accent-hue-2:          $pink-A400;
+$primary: $blue-grey-500;
+$primary-dark: $blue-grey-700;
+$accent: $pink-A200;
 
 // Sizes
-$size-xs:               24px;
-$size-s:                30px;
-$size-m:                36px;
-$size-l:                40px;
-$size-xl:               56px;
+$size-xs: 24px;
+$size-s: 30px;
+$size-m: 36px;
+$size-l: 40px;
+$size-xl: 56px;
 
 // Spacing
-$base-spacing-unit:     8px;
+$base-spacing-unit: 8px;

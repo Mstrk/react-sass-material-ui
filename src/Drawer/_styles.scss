@@ -1,11 +1,11 @@
-@if variable-exists(include-components) and index($include-components, 'Drawer') {  
+@if variable-exists(include-components) and index($include-components, 'Drawer') {
   $ease-out: map-get($easing, deceleration);
   $ease-sharp: map-get($easing, sharp);
 
   .drawer {
+    bottom: 0;
     position: fixed;
     top: 0;
-    bottom: 0;
     transform: translateX(-110%);
     transition: transform 0.25s $ease-out;
 
@@ -16,7 +16,7 @@
 
     > * {
       height: 100%;
-      overflow-y: auto; 
+      overflow-y: auto;
     }
   }
 }

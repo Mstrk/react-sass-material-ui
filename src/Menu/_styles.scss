@@ -3,35 +3,35 @@
     @include bare-list();
     padding: $base-spacing-unit 0;
 
-    .menuItem {
-      position: relative;
-      display: flex;
+    .menu-item {
       align-items: center;
-      padding: 0 $base-spacing-unit * 3;
       cursor: default;
+      display: flex;
       height: 32px;
       overflow: hidden;
+      padding: 0 $base-spacing-unit * 3;
+      position: relative;
 
-      .primaryText,
-      .secundaryText {
-        flex: 1;
+      .primary-text,
+      .secundary-text {
         @include font-size(15px);
-        white-space: nowrap;
         color: inherit;
+        flex: 1;
+        white-space: nowrap;
       }
 
-      .primaryText.withSecundaryText {
+      .primary-text.with-secundary-text {
         padding-right: $base-spacing-unit * 3;
       }
 
-      .secundaryText {
+      .secundary-text {
         text-align: right;
       }
 
       svg {
         display: block;
-        position: absolute;
         fill: $black-2;
+        position: absolute;
 
         &.icon-left {
           left: $base-spacing-unit * 3;
@@ -57,9 +57,9 @@
 
       &.is-divider {
         border-top: 1px solid $black-4;
-        padding: 0;
         height: 1px;
         margin: $base-spacing-unit 0;
+        padding: 0;
       }
 
       &.indent-left,
